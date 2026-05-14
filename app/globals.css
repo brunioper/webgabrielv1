@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Skip to main content ──────────────────────────────────────── */
+
+.skip-link {
+  position: absolute;
+  left: 1.5rem;
+  top: -5rem;
+  z-index: 9999;
+  background: #1B3A6E;
+  color: #fff;
+  padding: 0.625rem 1.25rem;
+  border-radius: 2px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    background-color: #F8F7F4;
+    color: #1C1C2E;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
+  /* Display headings — tight, editorial */
+  h1, h2, h3, h4 {
+    font-family: var(--font-playfair), Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    font-variant-ligatures: common-ligatures;
+  }
+
+  /* Links: no default underline noise */
+  a { text-decoration: none; }
+
+  *:focus-visible {
+    outline: 2px solid #1B3A6E;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* ─── Buttons ─────────────────────────────────────────────────── */
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           px-7 py-3.5 bg-accent text-white
+           text-sm font-semibold tracking-wide rounded-sm
+           transition-all duration-300
+           hover:bg-accent/90 hover:-translate-y-px hover:shadow-lg hover:shadow-accent/20;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           px-7 py-3.5 border border-ink text-ink
+           text-sm font-semibold tracking-wide rounded-sm
+           transition-all duration-300
+           hover:bg-ink hover:text-white hover:-translate-y-px;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           px-7 py-3.5 border border-white/25 text-white
+           text-sm font-semibold tracking-wide rounded-sm
+           transition-all duration-300
+           hover:bg-white/10 hover:border-white/40 hover:-translate-y-px;
+  }
+
+  /* Use on dark backgrounds — white fill with accent text */
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2
+           px-7 py-3.5 bg-white text-accent
+           text-sm font-semibold tracking-wide rounded-sm
+           transition-all duration-300
+           hover:bg-white/95 hover:-translate-y-px hover:shadow-lg;
+  }
+
+  /* ─── Section label — editorial marker ───────────────────────── */
+
+  .section-label {
+    @apply text-[10px] font-bold text-muted uppercase tracking-[0.22em];
+  }
+
+  /* ─── Card base ───────────────────────────────────────────────── */
+
+  .card {
+    @apply bg-white border border-border rounded-sm p-6 md:p-8;
+  }
+
+  /* ─── Text link with arrow ────────────────────────────────────── */
+
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-accent
+           transition-all duration-300;
+  }
+}
+
+/* ─── Hero floating card animations ────────────────────────────── */
+
+@keyframes hero-float-a {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes hero-float-b {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+
+@keyframes hero-float-c {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(9px); }
+}
+
+@keyframes hero-float-d {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+.hero-float-a { animation: hero-float-a 8s ease-in-out infinite; }
+.hero-float-b { animation: hero-float-b 6s ease-in-out 1.2s infinite; }
+.hero-float-c { animation: hero-float-c 7.5s ease-in-out 2.5s infinite; }
+.hero-float-d { animation: hero-float-d 9s ease-in-out 0.6s infinite; }
+
+/* ─── Pulsing data dots ─────────────────────────────────────────── */
+
+@keyframes dot-breathe {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(1.35); }
+}
+
+.dot-breathe-a { animation: dot-breathe 3s ease-in-out infinite; }
+.dot-breathe-b { animation: dot-breathe 3.5s ease-in-out 1s infinite; }
+.dot-breathe-c { animation: dot-breathe 4s ease-in-out 2s infinite; }
+
+/* ─── Sparkline draw-on ─────────────────────────────────────────── */
+
+@keyframes sparkline-draw {
+  from { stroke-dashoffset: 200; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.sparkline {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: sparkline-draw 1.8s ease-out 0.6s forwards;
+}
+
+/* ─── WhatsApp bubble nudge (once, after 4s) ────────────────────── */
+
+@keyframes wa-nudge {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.12); }
+  55%  { transform: scale(0.96); }
+  80%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.wa-nudge { animation: wa-nudge 0.9s ease-in-out 4s both; }
+
+/* ─── WhatsApp pulsing ring (repeats every 4s, starts after nudge) ─ */
+
+@keyframes wa-ring {
+  0%   { transform: scale(1);   opacity: 0.55; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+
+.wa-ring { animation: wa-ring 2.2s ease-out 5.2s infinite; }
+
+/* ─── Reduced motion ────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float-a, .hero-float-b, .hero-float-c, .hero-float-d,
+  .dot-breathe-a, .dot-breathe-b, .dot-breathe-c,
+  .wa-nudge, .wa-ring { animation: none; }
+
+  .sparkline { animation: none; stroke-dashoffset: 0; }
+}
