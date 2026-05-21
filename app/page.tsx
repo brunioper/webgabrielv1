@@ -173,21 +173,7 @@ function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <Reveal key={s.number} delay={i * 0.1} className="flex flex-col">
-              <div
-                className="group flex flex-col flex-1 rounded-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(46,125,200,0.3)";
-                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
-                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
-                }}
-              >
+              <div className="service-card group flex flex-col flex-1 rounded-sm hover:-translate-y-1 hover:shadow-card-hover">
                 <div className="h-[2px] rounded-t-sm" style={{ background: "linear-gradient(to right, #2E7DC8, rgba(46,125,200,0.3))" }} />
 
                 <div className="p-7 md:p-8 flex flex-col flex-1">
