@@ -38,25 +38,61 @@ export default function Home() {
 function HeroSection() {
   return (
     <section className="min-h-[calc(100vh-4rem)] flex items-center bg-bg py-24 md:py-0 relative overflow-hidden">
-      {/* Subtle radial glow */}
+      {/* Primary radial glow — right side, behind visual */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 70% 50%, rgba(46,125,200,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse 65% 55% at 72% 50%, rgba(46,125,200,0.16) 0%, transparent 70%)",
+        }}
+      />
+      {/* Secondary glow — top left, cyan tint */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 45% 35% at 15% 20%, rgba(110,231,249,0.05) 0%, transparent 65%)",
+        }}
+      />
+      {/* Dot grid — fades toward the visual column */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px)",
+          backgroundSize: "36px 36px",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 70% at 65% 50%, black 20%, transparent 75%)",
+          maskImage:
+            "radial-gradient(ellipse 80% 70% at 65% 50%, black 20%, transparent 75%)",
         }}
       />
 
       <div className="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-16 items-center relative z-10">
         {/* Text column */}
         <div className="max-w-lg">
-          <div className="flex items-center gap-3 mb-7">
-            <div className="w-5 h-px bg-cyan/50 flex-shrink-0" />
-            <p className="section-label">Montevideo, Uruguay</p>
+          {/* Location badge */}
+          <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full"
+            style={{ background: "rgba(46,125,200,0.12)", border: "1px solid rgba(46,125,200,0.25)" }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan/80 flex-shrink-0" />
+            <p className="text-[10px] font-semibold text-cyan/80 uppercase tracking-[0.2em]">
+              Montevideo, Uruguay
+            </p>
           </div>
 
-          <h1 className="font-display font-bold text-display-xl text-ink mb-6 leading-tight">
-            Investigación de mercado en Uruguay con datos reales.
+          <h1 className="font-display font-bold text-display-xl text-ink mb-6 leading-[1.08]">
+            Investigación de mercado en Uruguay{" "}
+            <span
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, #6EE7F9 0%, #5AA9FF 55%, #2E7DC8 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              con datos reales.
+            </span>
           </h1>
 
           <p className="text-base md:text-lg text-muted leading-[1.7] max-w-md mb-10">
@@ -74,9 +110,16 @@ function HeroSection() {
             </Link>
           </div>
 
-          <p className="mt-7 text-xs tracking-wide" style={{ color: "rgba(170,184,200,0.5)" }}>
-            Estudios prontos · Estudios ad hoc · Consultoría estratégica · Uruguay
-          </p>
+          {/* Service tags */}
+          <div className="flex flex-wrap gap-x-5 gap-y-2 mt-9 pt-7"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            {["Estudios prontos", "Estudios ad hoc", "Consultoría estratégica"].map((s) => (
+              <span key={s} className="flex items-center gap-2 text-xs text-muted/70">
+                <span className="w-1 h-1 rounded-full bg-cyan/50 flex-shrink-0" />
+                {s}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Visual column */}
@@ -92,14 +135,17 @@ function HeroSection() {
 
 const trustItems = [
   {
+    icon: <IconDatabase />,
     label: "Datos reales, no supuestos",
     desc: "Trabajamos sobre información concreta del mercado uruguayo para reducir incertidumbre en cada decisión.",
   },
   {
+    icon: <IconTarget />,
     label: "Insights accionables",
     desc: "Cada estudio termina con recomendaciones claras. El análisis es el inicio, la acción es el objetivo.",
   },
   {
+    icon: <IconLayers />,
     label: "Adaptado a tu escala",
     desc: "Soluciones pensadas para empresas que necesitan información de calidad sin procesos lentos ni costos de grandes consultoras.",
   },
@@ -107,15 +153,23 @@ const trustItems = [
 
 function TrustSection() {
   return (
-    <section className="bg-sand py-14 border-y border-border" aria-label="Por qué elegirnos">
+    <section className="bg-sand py-16 border-y border-border" aria-label="Por qué elegirnos">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {trustItems.map((item) => (
-              <div key={item.label} className="flex items-start gap-4">
-                <div className="w-[3px] h-10 rounded-full flex-shrink-0 mt-0.5" style={{ background: "rgba(46,125,200,0.4)" }} />
+              <div
+                key={item.label}
+                className="glass-card rounded-sm p-6 flex gap-4 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <div
+                  className="w-9 h-9 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5"
+                  style={{ background: "rgba(46,125,200,0.14)", color: "#6EE7F9" }}
+                >
+                  {item.icon}
+                </div>
                 <div>
-                  <p className="text-sm font-semibold text-ink mb-1">{item.label}</p>
+                  <p className="text-sm font-semibold text-ink mb-1.5">{item.label}</p>
                   <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -124,6 +178,38 @@ function TrustSection() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+// ─── Trust icons ──────────────────────────────────────────────────
+
+function IconDatabase() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+    </svg>
+  );
+}
+
+function IconTarget() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  );
+}
+
+function IconLayers() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="12 2 2 7 12 12 22 7 12 2" />
+      <polyline points="2 17 12 22 22 17" />
+      <polyline points="2 12 12 17 22 12" />
+    </svg>
   );
 }
 
@@ -174,18 +260,26 @@ function ServicesSection() {
           {services.map((s, i) => (
             <Reveal key={s.number} delay={i * 0.1} className="flex flex-col">
               <div className="service-card group flex flex-col flex-1 rounded-sm hover:-translate-y-1 hover:shadow-card-hover">
-                <div className="h-[2px] rounded-t-sm" style={{ background: "linear-gradient(to right, #2E7DC8, rgba(46,125,200,0.3))" }} />
+                <div className="h-[2px] rounded-t-sm" style={{ background: "linear-gradient(to right, #6EE7F9, #2E7DC8, rgba(46,125,200,0.2))" }} />
 
                 <div className="p-7 md:p-8 flex flex-col flex-1">
-                  <div className="flex items-start justify-between mb-5">
+                  <div className="flex items-start justify-between mb-6">
                     <div
-                      className="w-10 h-10 rounded-sm flex items-center justify-center text-accent
-                                  transition-all duration-300 group-hover:bg-accent group-hover:text-white"
-                      style={{ background: "rgba(46,125,200,0.12)" }}
+                      className="w-10 h-10 rounded-sm flex items-center justify-center text-cyan
+                                  transition-all duration-300 group-hover:scale-110"
+                      style={{ background: "rgba(46,125,200,0.14)" }}
                     >
                       {s.icon}
                     </div>
-                    <span className="font-bold text-2xl font-light leading-none mt-1" style={{ color: "rgba(255,255,255,0.08)" }}>
+                    <span
+                      className="font-bold text-3xl leading-none mt-0.5 tabular-nums"
+                      style={{
+                        backgroundImage: "linear-gradient(135deg, rgba(46,125,200,0.25) 0%, rgba(110,231,249,0.12) 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                      }}
+                    >
                       {s.number}
                     </span>
                   </div>
@@ -198,7 +292,7 @@ function ServicesSection() {
                   <ul className="space-y-2 mb-0 flex-1">
                     {s.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-sm text-muted">
-                        <span className="mt-[6px] w-[4px] h-[4px] rounded-full bg-accent/50 flex-shrink-0" />
+                        <span className="mt-[6px] w-[4px] h-[4px] rounded-full bg-cyan/40 flex-shrink-0" />
                         {b}
                       </li>
                     ))}
@@ -207,7 +301,7 @@ function ServicesSection() {
                   <div className="mt-7 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
                     <Link
                       href={s.ctaHref}
-                      className="group/cta inline-flex items-center gap-1.5 text-sm font-semibold text-accent"
+                      className="group/cta inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-cyan transition-colors duration-200"
                     >
                       {s.cta}
                       <span className="transition-transform duration-300 group-hover/cta:translate-x-1.5">→</span>
@@ -283,6 +377,7 @@ function StudiesSection() {
               bullets: ["Temas predefinidos", "Rápida disponibilidad", "Costo accesible", "Útiles para contenido y estrategia"],
               cta: "Ver estudios disponibles",
               href: "/estudios",
+              accent: "#6EE7F9",
             },
             {
               tag: "Estudios ad hoc",
@@ -291,30 +386,39 @@ function StudiesSection() {
               bullets: ["Diseño personalizado", "Preguntas a medida", "Segmentación según objetivo", "Recomendaciones finales"],
               cta: "Solicitar un estudio",
               href: "/contacto",
+              accent: "#2E7DC8",
             },
           ].map((card, i) => (
             <Reveal key={card.tag} delay={i * 0.1}>
               <div
-                className="rounded-sm p-8 h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
+                className="rounded-sm overflow-hidden h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
                 style={{
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.1)",
                 }}
               >
-                <span className="section-label mb-4 block text-accent">{card.tag}</span>
-                <h3 className="font-display text-xl font-semibold text-ink mb-3">{card.title}</h3>
-                <p className="text-sm text-muted leading-relaxed mb-5">{card.body}</p>
-                <ul className="space-y-2 mb-7">
-                  {card.bullets.map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm text-muted">
-                      <span className="w-1 h-1 rounded-full bg-cyan/60 flex-shrink-0" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <Link href={card.href} className="link-arrow hover:gap-3">
-                  {card.cta} <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </Link>
+                <div className="h-[2px]" style={{ background: `linear-gradient(to right, ${card.accent}, transparent)` }} />
+                <div className="p-8">
+                  <span
+                    className="text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block"
+                    style={{ color: card.accent }}
+                  >
+                    {card.tag}
+                  </span>
+                  <h3 className="font-display text-xl font-semibold text-ink mb-3">{card.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed mb-5">{card.body}</p>
+                  <ul className="space-y-2 mb-7">
+                    {card.bullets.map((b) => (
+                      <li key={b} className="flex items-center gap-2 text-sm text-muted">
+                        <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: card.accent + "99" }} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link href={card.href} className="link-arrow hover:gap-3">
+                    {card.cta} <span className="transition-transform duration-300">→</span>
+                  </Link>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -352,17 +456,25 @@ function AdvantageSection() {
               {[
                 { label: "Brecha identificada", body: "El mercado necesita soluciones de investigación más ágiles y accesibles para empresas que quieren decidir con datos, sin grandes presupuestos ni equipos internos." },
                 { label: "Nuestra ventaja", body: "Metodología probada, enfoque local y entregables pensados para ser usados, no archivados." },
-              ].map((item) => (
+              ].map((item, i) => (
                 <div
                   key={item.label}
-                  className="rounded-sm p-6"
+                  className="rounded-sm p-6 relative overflow-hidden"
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
                 >
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-5 h-px bg-accent" />
-                    <p className="text-xs font-bold text-accent uppercase tracking-[0.15em]">{item.label}</p>
+                  {/* Subtle left accent bar */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-sm"
+                    style={{
+                      background: i === 0
+                        ? "linear-gradient(to bottom, rgba(110,231,249,0.6), rgba(46,125,200,0.4))"
+                        : "linear-gradient(to bottom, rgba(46,125,200,0.6), rgba(46,125,200,0.2))",
+                    }}
+                  />
+                  <div className="pl-4">
+                    <p className="text-xs font-bold text-accent uppercase tracking-[0.15em] mb-2">{item.label}</p>
+                    <p className="text-sm text-muted leading-relaxed">{item.body}</p>
                   </div>
-                  <p className="text-sm text-muted leading-relaxed">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -410,16 +522,26 @@ function MethodologySection() {
                   border: "1px solid rgba(255,255,255,0.08)",
                 }}
               >
+                {/* Numbered circle with gradient border */}
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center mb-4 flex-shrink-0 transition-colors duration-300"
-                  style={{ border: "1px solid rgba(255,255,255,0.12)" }}
+                  className="w-9 h-9 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
+                  style={{
+                    background: "rgba(46,125,200,0.12)",
+                    border: "1px solid rgba(46,125,200,0.3)",
+                  }}
                 >
-                  <span className="text-[10px] font-bold text-muted">{s.n}</span>
+                  <span
+                    className="text-[10px] font-bold"
+                    style={{ color: "#6EE7F9" }}
+                  >
+                    {s.n}
+                  </span>
                 </div>
                 <p className="text-sm font-medium text-ink leading-snug">{s.label}</p>
 
                 {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-[30px] -right-[8px] w-4 h-px z-10" style={{ background: "rgba(255,255,255,0.1)" }} />
+                  <div className="hidden lg:block absolute top-[30px] -right-[8px] w-4 h-px z-10"
+                    style={{ background: "rgba(46,125,200,0.25)" }} />
                 )}
               </div>
             </Reveal>
@@ -434,19 +556,59 @@ function MethodologySection() {
 
 function CtaSection() {
   return (
-    <section className="bg-accent py-24 md:py-32">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section
+      className="py-24 md:py-32 relative overflow-hidden"
+      style={{
+        background: "linear-gradient(160deg, #0B1F40 0%, #163868 45%, #0B2040 100%)",
+      }}
+    >
+      {/* Radial glow — bottom center */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 75% 65% at 50% 110%, rgba(46,125,200,0.35) 0%, transparent 65%)",
+        }}
+      />
+      {/* Cyan accent glow — top */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 30% at 50% 0%, rgba(110,231,249,0.06) 0%, transparent 70%)",
+        }}
+      />
+      {/* Top border gradient line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to right, transparent 0%, rgba(110,231,249,0.5) 50%, transparent 100%)",
+        }}
+      />
+
+      <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
         <Reveal>
           <div className="flex items-center justify-center gap-2 mb-8">
-            <div className="w-5 h-px bg-white/30" />
-            <p className="text-[10px] font-bold text-white/50 uppercase tracking-[0.22em]">¿Trabajamos juntos?</p>
-            <div className="w-5 h-px bg-white/30" />
+            <div className="w-5 h-px bg-white/20" />
+            <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.22em]">¿Trabajamos juntos?</p>
+            <div className="w-5 h-px bg-white/20" />
           </div>
 
           <h2 className="font-display font-bold text-display-lg text-white mb-6 leading-tight">
-            ¿Querés tomar mejores decisiones con información real?
+            ¿Querés tomar mejores decisiones{" "}
+            <span
+              style={{
+                backgroundImage: "linear-gradient(135deg, #6EE7F9 0%, #5AA9FF 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              con información real?
+            </span>
           </h2>
-          <p className="text-white/70 text-base mb-10 leading-relaxed max-w-md mx-auto">
+          <p className="text-white/60 text-base mb-10 leading-relaxed max-w-md mx-auto">
             Contanos qué necesitás investigar y te ayudamos a definir el mejor tipo de estudio.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

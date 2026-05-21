@@ -38,13 +38,21 @@ export default function Nav() {
               key={l.href}
               href={l.href}
               aria-current={path === l.href ? "page" : undefined}
-              className={`text-sm transition-colors ${
+              className={`relative text-sm transition-colors pb-0.5 ${
                 path === l.href
                   ? "text-ink font-medium"
                   : "text-muted hover:text-ink"
               }`}
             >
               {l.label}
+              {path === l.href && (
+                <span
+                  className="absolute bottom-0 left-0 right-0 h-px"
+                  style={{
+                    background: "linear-gradient(to right, #6EE7F9, #2E7DC8)",
+                  }}
+                />
+              )}
             </Link>
           ))}
         </nav>
