@@ -13,7 +13,7 @@ html {
   left: 1.5rem;
   top: -5rem;
   z-index: 9999;
-  background: #1B3A6E;
+  background: #2E7DC8;
   color: #fff;
   padding: 0.625rem 1.25rem;
   border-radius: 2px;
@@ -33,25 +33,22 @@ html {
 @layer base {
   body {
     font-family: var(--font-inter), system-ui, sans-serif;
-    background-color: #F8F7F4;
-    color: #1C1C2E;
+    background-color: #071A33;
+    color: #F7FAFC;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
   }
 
-  /* Display headings — tight, editorial */
   h1, h2, h3, h4 {
-    font-family: var(--font-playfair), Georgia, serif;
+    font-family: var(--font-inter), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
-    font-variant-ligatures: common-ligatures;
   }
 
-  /* Links: no default underline noise */
   a { text-decoration: none; }
 
   *:focus-visible {
-    outline: 2px solid #1B3A6E;
+    outline: 2px solid #2E7DC8;
     outline-offset: 3px;
   }
 }
@@ -64,15 +61,15 @@ html {
            px-7 py-3.5 bg-accent text-white
            text-sm font-semibold tracking-wide rounded-sm
            transition-all duration-300
-           hover:bg-accent/90 hover:-translate-y-px hover:shadow-lg hover:shadow-accent/20;
+           hover:bg-blue-light hover:-translate-y-px hover:shadow-glow;
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
-           px-7 py-3.5 border border-ink text-ink
+           px-7 py-3.5 border border-ink/40 text-ink
            text-sm font-semibold tracking-wide rounded-sm
            transition-all duration-300
-           hover:bg-ink hover:text-white hover:-translate-y-px;
+           hover:bg-ink/10 hover:border-ink/70 hover:-translate-y-px;
   }
 
   .btn-ghost {
@@ -83,7 +80,7 @@ html {
            hover:bg-white/10 hover:border-white/40 hover:-translate-y-px;
   }
 
-  /* Use on dark backgrounds — white fill with accent text */
+  /* White fill with accent text — use on accent/solid CTA sections */
   .btn-light {
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3.5 bg-white text-accent
@@ -101,7 +98,17 @@ html {
   /* ─── Card base ───────────────────────────────────────────────── */
 
   .card {
-    @apply bg-white border border-border rounded-sm p-6 md:p-8;
+    @apply border border-border rounded-sm p-6 md:p-8;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  /* ─── Glassmorphism card ──────────────────────────────────────── */
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   /* ─── Text link with arrow ────────────────────────────────────── */
@@ -142,8 +149,8 @@ html {
 /* ─── Pulsing data dots ─────────────────────────────────────────── */
 
 @keyframes dot-breathe {
-  0%, 100% { opacity: 0.25; transform: scale(1); }
-  50%       { opacity: 0.55; transform: scale(1.35); }
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.4); }
 }
 
 .dot-breathe-a { animation: dot-breathe 3s ease-in-out infinite; }
@@ -175,7 +182,7 @@ html {
 
 .wa-nudge { animation: wa-nudge 0.9s ease-in-out 4s both; }
 
-/* ─── WhatsApp pulsing ring (repeats every 4s, starts after nudge) ─ */
+/* ─── WhatsApp pulsing ring ─────────────────────────────────────── */
 
 @keyframes wa-ring {
   0%   { transform: scale(1);   opacity: 0.55; }

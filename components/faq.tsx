@@ -1,28 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const items = [
   {
     q: "¿Qué tipo de empresas pueden consultar?",
-    a: "Trabajamos con empresas de todos los tamaños y propietarios particulares en Uruguay. No hay un mínimo de tamaño ni sector: si la necesidad existe y la información puede aportar valor, podemos ayudarte.",
+    a: "Trabajamos con empresas de todos los tamaños en Uruguay: desde startups y PyMEs hasta agencias y organizaciones más grandes. Si necesitás información para tomar una decisión mejor, podemos ayudarte.",
   },
   {
     q: "¿Trabajan con estudios prontos y proyectos a medida?",
-    a: "Sí, las dos modalidades. Contamos con estudios listos para adquirir sobre consumidores, mercado inmobiliario y digitalización empresarial. También diseñamos investigaciones completamente a medida según tus objetivos, presupuesto y plazos.",
+    a: "Sí, las dos modalidades. Contamos con estudios listos para adquirir sobre consumidores, marcas y empresas. También diseñamos investigaciones completamente a medida según tus objetivos, presupuesto y plazos.",
   },
   {
-    q: "¿También acompañan la implementación?",
-    a: "Cuando el proyecto lo requiere, sí. El trabajo no siempre termina con el entregable. Si la ejecución necesita seguimiento, ajuste y soporte, también acompañamos esa etapa.",
+    q: "¿Cuánto tiempo lleva un estudio ad hoc?",
+    a: "Depende del alcance, la metodología y el tamaño de la muestra. Un estudio simple puede estar listo en dos a tres semanas. Los proyectos más complejos pueden requerir cuatro a ocho semanas. Lo definimos juntos en la primera conversación.",
+  },
+  {
+    q: "¿También acompañan la implementación de los insights?",
+    a: "Cuando el proyecto lo requiere, sí. Entregamos recomendaciones claras y accionables, y si la empresa necesita apoyo para aplicarlas en su estrategia o decisiones, también acompañamos esa etapa.",
   },
   {
     q: "¿La primera consulta puede ser virtual?",
     a: "Sí. Trabajamos con equipos en Montevideo de forma presencial y virtual. La primera consulta se puede coordinar fácilmente por la modalidad que mejor funcione para vos.",
-  },
-  {
-    q: "¿Se puede consultar por gestión de propiedades?",
-    a: "Sí. La gestión de propiedades residenciales y comerciales es una de nuestras tres áreas de trabajo: alquileres, coordinación de proveedores, mantenimiento y control de rendimiento del activo.",
   },
 ];
 
@@ -69,14 +69,13 @@ function FAQItem({
           {question}
         </span>
 
-        {/* +/× icon */}
         <span
-          className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded-full border flex items-center justify-center
-                      transition-all duration-200
-                      ${isOpen
-                        ? "bg-accent border-accent"
-                        : "border-border group-hover:border-accent/50"
-                      }`}
+          className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full border flex items-center justify-center
+                      transition-all duration-200"
+          style={{
+            background: isOpen ? "#2E7DC8" : "transparent",
+            borderColor: isOpen ? "#2E7DC8" : "rgba(255,255,255,0.2)",
+          }}
           aria-hidden="true"
         >
           <svg
@@ -88,10 +87,9 @@ function FAQItem({
           >
             <path
               d="M4.5 1v7M1 4.5h7"
-              stroke={isOpen ? "white" : "currentColor"}
+              stroke={isOpen ? "white" : "#AAB8C8"}
               strokeWidth="1.5"
               strokeLinecap="round"
-              className={isOpen ? "" : "text-muted"}
             />
           </svg>
         </span>

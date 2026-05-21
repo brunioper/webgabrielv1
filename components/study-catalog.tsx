@@ -23,12 +23,16 @@ export function StudyCatalog() {
             key={cat}
             onClick={() => setActive(cat)}
             aria-pressed={active === cat}
-            className={`px-4 py-1.5 rounded-sm text-sm border transition-all duration-200
-              ${
-                active === cat
-                  ? "bg-ink text-white border-ink"
-                  : "border-border text-muted hover:border-accent/40 hover:text-ink"
-              }`}
+            className="px-4 py-1.5 rounded-sm text-sm transition-all duration-200"
+            style={
+              active === cat
+                ? { background: "#2E7DC8", color: "#fff", border: "1px solid #2E7DC8" }
+                : {
+                    background: "transparent",
+                    color: "#AAB8C8",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                  }
+            }
           >
             {cat}
           </button>
@@ -43,9 +47,14 @@ export function StudyCatalog() {
       </div>
 
       {/* Coming soon — always visible below filtered results */}
-      <div className="border border-dashed border-border rounded-sm p-7
-                      flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-8">
-        <div className="w-8 h-8 rounded-full border border-border flex-shrink-0 flex items-center justify-center">
+      <div
+        className="rounded-sm p-7 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-8"
+        style={{ border: "1px dashed rgba(255,255,255,0.15)" }}
+      >
+        <div
+          className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center"
+          style={{ border: "1px solid rgba(255,255,255,0.15)" }}
+        >
           <span className="text-lg text-muted leading-none select-none">+</span>
         </div>
         <div>

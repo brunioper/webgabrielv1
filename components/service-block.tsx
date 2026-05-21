@@ -14,7 +14,7 @@ type ServiceBlockProps = {
   cta: string;
   ctaHref: string;
   ctaExternal?: boolean;
-  bgLight?: boolean;
+  altBg?: boolean;
 };
 
 export function ServiceBlock({
@@ -25,15 +25,15 @@ export function ServiceBlock({
   cta,
   ctaHref,
   ctaExternal,
-  bgLight,
+  altBg,
 }: ServiceBlockProps) {
   return (
-    <section className={`py-20 md:py-28 ${bgLight ? "bg-white" : "bg-bg"}`}>
+    <section className={`py-20 md:py-28 ${altBg ? "bg-sand" : "bg-bg"}`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
           {/* Left: number + title + intro + CTA */}
           <Reveal className="md:col-span-2">
-            <p className="font-display text-5xl font-light text-border mb-4 leading-none">
+            <p className="font-bold text-5xl font-light leading-none mb-4" style={{ color: "rgba(255,255,255,0.08)" }}>
               {number}
             </p>
             <h2 className="font-display text-display-md text-ink mb-4 leading-tight">
@@ -64,7 +64,7 @@ export function ServiceBlock({
                 <h3 className="section-label mb-3">{s.category}</h3>
                 <ul className="space-y-2">
                   {s.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-ink">
+                    <li key={item} className="flex items-start gap-2.5 text-sm text-muted">
                       <span className="mt-1.5 w-1 h-1 rounded-full bg-accent flex-shrink-0" />
                       {item}
                     </li>

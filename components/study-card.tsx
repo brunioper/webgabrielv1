@@ -5,18 +5,25 @@ export function StudyCard({ study }: { study: Study }) {
   return (
     <article
       aria-label={study.title}
-      className="border border-border rounded-sm bg-bg flex flex-col h-full
-                 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover hover:border-accent/20"
+      className="flex flex-col h-full rounded-sm overflow-hidden
+                 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
+      style={{
+        background: "rgba(255,255,255,0.04)",
+        border: "1px solid rgba(255,255,255,0.1)",
+      }}
     >
       {/* Availability indicator */}
-      <div className={`h-[3px] rounded-t-sm ${study.available ? "bg-accent" : "bg-border"}`} />
+      <div
+        className="h-[3px] rounded-t-sm"
+        style={{ background: study.available ? "#2E7DC8" : "rgba(255,255,255,0.1)" }}
+      />
 
       <div className="p-7 flex flex-col flex-1">
         {/* Header */}
         <div className="flex items-center justify-between mb-5">
           <span className="section-label">{study.category}</span>
           {!study.available && (
-            <span className="text-[10px] bg-sand border border-border text-muted px-2.5 py-1 rounded-sm">
+            <span className="text-[10px] border text-muted px-2.5 py-1 rounded-sm" style={{ borderColor: "rgba(255,255,255,0.12)", background: "rgba(255,255,255,0.04)" }}>
               Próximamente
             </span>
           )}
@@ -31,17 +38,17 @@ export function StudyCard({ study }: { study: Study }) {
         <p className="text-sm text-muted leading-relaxed mb-6">{study.description}</p>
 
         {/* Metadata */}
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-muted border-t border-border pt-4 mb-6">
+        <dl className="grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-muted pt-4 mb-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
           <div>
-            <dt className="text-[10px] uppercase tracking-[0.14em] text-muted/55 mb-0.5">Fecha</dt>
+            <dt className="text-[10px] uppercase tracking-[0.14em] mb-0.5" style={{ color: "rgba(170,184,200,0.5)" }}>Fecha</dt>
             <dd>{study.date}</dd>
           </div>
           <div>
-            <dt className="text-[10px] uppercase tracking-[0.14em] text-muted/55 mb-0.5">Formato</dt>
+            <dt className="text-[10px] uppercase tracking-[0.14em] mb-0.5" style={{ color: "rgba(170,184,200,0.5)" }}>Formato</dt>
             <dd>{study.format}</dd>
           </div>
           <div className="col-span-2">
-            <dt className="text-[10px] uppercase tracking-[0.14em] text-muted/55 mb-0.5">Precio</dt>
+            <dt className="text-[10px] uppercase tracking-[0.14em] mb-0.5" style={{ color: "rgba(170,184,200,0.5)" }}>Precio</dt>
             <dd className="font-semibold text-ink">{study.price}</dd>
           </div>
         </dl>
@@ -59,7 +66,7 @@ export function StudyCard({ study }: { study: Study }) {
             <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
           </a>
         ) : (
-          <p className="text-sm text-muted/55">Disponible próximamente</p>
+          <p className="text-sm" style={{ color: "rgba(170,184,200,0.4)" }}>Disponible próximamente</p>
         )}
       </div>
     </article>

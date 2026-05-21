@@ -4,27 +4,43 @@ import { Reveal } from "@/components/reveal";
 import { WHATSAPP_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: {
-    absolute: "Sobre nosotros | Consultoría práctica para decidir y ejecutar",
-  },
+  title: { absolute: "Nosotros | Investigación de mercado y estrategia en Uruguay" },
   description:
-    "Integramos investigación de mercado, consultoría estratégica y gestión operativa con una mirada práctica. Trabajamos con empresas y propietarios en Montevideo, Uruguay.",
+    "Somos una consultora de investigación de mercado y estrategia que ayuda a empresas a transformar información en decisiones concretas. Montevideo, Uruguay.",
   openGraph: {
-    title: "Sobre nosotros | Consultoría práctica para decidir y ejecutar",
+    title: "Nosotros | Investigación de mercado y estrategia en Uruguay",
     description:
-      "Investigación, análisis, consultoría y gestión integradas. Orientados a entender problemas reales y transformarlos en acciones concretas. Montevideo, Uruguay.",
+      "Investigación, datos y estrategia para empresas en Uruguay. Metodologías ágiles, estudios accesibles y enfoque local.",
     type: "website",
   },
 };
 
+const pillars = [
+  {
+    n: "01",
+    title: "Investigación",
+    body: "Datos confiables para entender mercados, consumidores y oportunidades.",
+  },
+  {
+    n: "02",
+    title: "Estrategia",
+    body: "Convertimos información en recomendaciones claras y accionables.",
+  },
+  {
+    n: "03",
+    title: "Agilidad",
+    body: "Estudios pensados para empresas que necesitan respuestas concretas sin procesos eternos.",
+  },
+];
+
 const values = [
   {
     label: "Información útil",
-    desc: "Trabajamos sobre datos reales y preguntas concretas. No generamos reportes teóricos sin aplicación.",
+    desc: "Trabajamos sobre datos reales y preguntas concretas. No generamos reportes que terminan archivados.",
   },
   {
-    label: "Criterio de negocio",
-    desc: "Integramos análisis con experiencia práctica para ofrecer perspectiva, no solo datos.",
+    label: "Criterio local",
+    desc: "Conocemos el mercado uruguayo. Nuestro enfoque es específico, no genérico.",
   },
   {
     label: "Foco en la acción",
@@ -32,7 +48,7 @@ const values = [
   },
   {
     label: "Acompañamiento real",
-    desc: "Cuando el proyecto lo requiere, también acompañamos la implementación.",
+    desc: "Cuando el proyecto lo requiere, también acompañamos la implementación de los insights.",
   },
 ];
 
@@ -44,34 +60,37 @@ export default function Nosotros() {
         <div className="max-w-4xl mx-auto px-6">
           <p className="section-label mb-4">Nosotros</p>
           <h1 className="font-display text-display-xl text-ink leading-tight mb-8">
-            Claridad para decidir.<br />Orden para ejecutar.
+            Investigación, datos<br />y estrategia para decidir mejor.
           </h1>
           <p className="text-xl text-muted leading-relaxed max-w-2xl">
-            Trabajamos con empresas y propietarios que necesitan más claridad
-            para decidir y más orden para ejecutar.
+            Somos una consultora de investigación de mercado y estrategia que
+            ayuda a empresas a transformar información en decisiones concretas.
           </p>
         </div>
       </section>
 
       {/* Main text */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-sand py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
           <Reveal>
             <div className="w-10 h-px bg-accent mb-8" />
             <p className="text-lg text-ink leading-relaxed mb-6">
-              Integramos investigación, análisis, consultoría y gestión con una
-              mirada práctica, orientada a entender problemas reales y
-              transformarlos en acciones concretas.
+              Trabajamos con metodologías ágiles, estudios accesibles y un
+              enfoque local para entender consumidores, mercados y oportunidades
+              en Uruguay.
             </p>
             <p className="text-base text-muted leading-relaxed">
               Nuestro enfoque combina información útil, criterio de negocio y
-              seguimiento operativo, adaptándonos a cada necesidad con
-              soluciones claras y aplicables.
+              recomendaciones accionables, adaptándonos a la necesidad de cada
+              empresa, agencia o emprendimiento.
             </p>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="bg-sand rounded-sm p-8 md:p-10">
+            <div
+              className="rounded-sm p-8 md:p-10"
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+            >
               <p className="section-label mb-6">Lo que nos define</p>
               <ul className="space-y-6">
                 {values.map((v) => (
@@ -86,38 +105,28 @@ export default function Nosotros() {
         </div>
       </section>
 
-      {/* Areas */}
-      <section className="bg-sand py-20 md:py-28">
+      {/* Three pillars */}
+      <section className="bg-bg py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <Reveal className="mb-12">
-            <p className="section-label mb-4">Áreas de trabajo</p>
-            <h2 className="font-display text-display-md text-ink">Tres líneas integradas</h2>
+            <p className="section-label mb-4">Cómo trabajamos</p>
+            <h2 className="font-display text-display-md text-ink">Tres pilares integrados</h2>
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                n: "01",
-                t: "Investigación de mercado",
-                d: "Estudios disponibles e investigaciones a medida para entender el mercado, el consumidor y las oportunidades.",
-              },
-              {
-                n: "02",
-                t: "Consultoría estratégica, comercial y de procesos",
-                d: "Acompañamiento en decisiones clave, mejora de procesos e implementación de iniciativas.",
-              },
-              {
-                n: "03",
-                t: "Gestión operativa y de propiedades",
-                d: "Extensión operativa para asegurar el funcionamiento y mejorar el rendimiento del negocio o la propiedad.",
-              },
-            ].map((a, i) => (
-              <Reveal key={a.n} delay={i * 0.1}>
-                <div className="bg-white border border-border rounded-sm p-7
-                                transition-all duration-300 hover:border-accent/25 hover:shadow-card-hover hover:-translate-y-0.5">
-                  <p className="font-display text-3xl font-light text-border mb-3">{a.n}</p>
-                  <h3 className="font-display text-lg font-semibold text-ink mb-2 leading-snug">{a.t}</h3>
-                  <p className="text-sm text-muted leading-relaxed">{a.d}</p>
+            {pillars.map((p, i) => (
+              <Reveal key={p.n} delay={i * 0.1}>
+                <div
+                  className="rounded-sm p-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <p className="font-bold text-3xl font-light mb-3" style={{ color: "rgba(255,255,255,0.06)" }}>{p.n}</p>
+                  <div className="w-6 h-px bg-accent mb-4" />
+                  <h3 className="font-display text-lg font-semibold text-ink mb-2">{p.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{p.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -126,19 +135,14 @@ export default function Nosotros() {
       </section>
 
       {/* CTA */}
-      <section className="bg-ink py-20 md:py-24">
+      <section className="bg-accent py-20 md:py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Reveal>
             <h2 className="font-display text-display-md text-white mb-5">¿Trabajamos juntos?</h2>
-            <p className="text-white/60 mb-8">Contanos tu situación y vemos cómo podemos ayudarte.</p>
+            <p className="text-white/70 mb-8">Contanos tu situación y vemos cómo podemos ayudarte.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contacto" className="btn-ghost">Contactar</Link>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-light"
-              >
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-light">
                 WhatsApp directo
               </a>
             </div>

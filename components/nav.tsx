@@ -6,12 +6,14 @@ import { useState } from "react";
 import { BRAND, WHATSAPP_URL } from "@/lib/config";
 
 const links = [
-  { href: "/", label: "Inicio" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/servicios", label: "Servicios" },
-  { href: "/estudios", label: "Estudios" },
-  { href: "/metodologia", label: "Metodología" },
-  { href: "/contacto", label: "Contacto" },
+  { href: "/",           label: "Inicio" },
+  { href: "/nosotros",   label: "Nosotros" },
+  { href: "/servicios",  label: "Servicios" },
+  { href: "/estudios",   label: "Estudios" },
+  { href: "/metodologia",label: "Metodología" },
+  { href: "/aliados",    label: "Aliados" },
+  { href: "/clientes",   label: "Clientes" },
+  { href: "/contacto",   label: "Contacto" },
 ];
 
 export default function Nav() {
@@ -19,7 +21,7 @@ export default function Nav() {
   const path = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-bg/95 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link
@@ -30,7 +32,7 @@ export default function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-7">
+        <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-6">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -47,7 +49,7 @@ export default function Nav() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -58,15 +60,15 @@ export default function Nav() {
           </a>
           <Link
             href="/contacto"
-            className="text-sm bg-accent text-white px-4 py-2 rounded-sm hover:bg-accent/90 transition-colors"
+            className="text-sm bg-accent text-white px-4 py-2 rounded-sm hover:bg-blue-light transition-colors"
           >
-            Solicitar consulta
+            Solicitar estudio
           </Link>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 flex flex-col gap-1.5"
+          className="lg:hidden p-2 flex flex-col gap-1.5"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
@@ -89,9 +91,9 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu — visibility:hidden prevents keyboard focus when collapsed */}
+      {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 ${
           open ? "max-h-screen visible" : "max-h-0 invisible"
         }`}
         aria-hidden={!open}
@@ -116,9 +118,9 @@ export default function Nav() {
           <Link
             href="/contacto"
             onClick={() => setOpen(false)}
-            className="mt-4 text-sm bg-accent text-white px-4 py-3 rounded-sm text-center"
+            className="mt-4 text-sm bg-accent text-white px-4 py-3 rounded-sm text-center hover:bg-blue-light transition-colors"
           >
-            Solicitar consulta
+            Solicitar estudio
           </Link>
         </nav>
       </div>

@@ -5,16 +5,13 @@ import { ServiceBlock } from "@/components/service-block";
 import { WHATSAPP_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: {
-    absolute:
-      "Servicios de investigación, consultoría y gestión operativa",
-  },
+  title: { absolute: "Servicios de investigación de mercado y consultoría estratégica | Uruguay" },
   description:
-    "Investigación de mercado, consultoría estratégica comercial y mejora de procesos, gestión operativa y gestión de propiedades residenciales y comerciales. Montevideo, Uruguay.",
+    "Investigación de mercado, consultoría estratégica y estudios para empresas en Uruguay. Encuestas, análisis de consumidores, posicionamiento y más.",
   openGraph: {
-    title: "Servicios de investigación, consultoría y gestión operativa",
+    title: "Servicios de investigación de mercado y consultoría estratégica",
     description:
-      "Tres áreas integradas: investigación de mercado, consultoría estratégica y de procesos, y gestión operativa y de propiedades. Trabajamos en Uruguay.",
+      "Tres áreas integradas: investigación de mercado, consultoría estratégica y estudios para empresas. Trabajamos en Uruguay.",
     type: "website",
   },
 };
@@ -31,7 +28,7 @@ export default function Servicios() {
           </h1>
           <p className="text-xl text-muted leading-relaxed max-w-xl">
             Trabajamos en tres áreas que se complementan: investigación,
-            consultoría y gestión. Según la necesidad, trabajamos en una o las
+            estrategia y estudios. Según la necesidad, trabajamos en una o las
             combinamos.
           </p>
         </div>
@@ -40,114 +37,103 @@ export default function Servicios() {
       <ServiceBlock
         number="01"
         title="Investigación de mercado"
-        intro="Diseñamos herramientas para entender mejor al consumidor, el mercado y las oportunidades de negocio, combinando estudios disponibles y proyectos a medida."
+        intro="Diseñamos estudios para entender consumidores, mercados, categorías, oportunidades y decisiones de compra."
         services={[
           {
-            category: "Estudios prontos",
+            category: "Investigación cuantitativa",
             items: [
-              "Estudios de mercado listos para adquirir sobre sectores específicos",
-              "Análisis de hábitos y preferencias del consumidor",
-              "Informes de tendencias y contexto sectorial",
-              "Análisis competitivos",
+              "Encuestas online",
+              "Estudios de opinión",
+              "Análisis de consumidores",
+              "Validación de productos o servicios",
+              "Segmentación de mercado",
+              "Medición de percepción de marca",
             ],
           },
           {
-            category: "Investigaciones ad hoc",
+            category: "Investigación cualitativa",
             items: [
-              "Diseño y ejecución de estudios cuantitativos",
-              "Investigación cualitativa: entrevistas, focus groups",
-              "Análisis de posicionamiento y percepción de marca",
-              "Estudios de satisfacción y experiencia del cliente",
-              "Evaluación de nuevos productos o servicios",
-              "Análisis de precio y disposición a pagar",
+              "Entrevistas en profundidad",
+              "Focus groups",
+              "Análisis de motivaciones de compra",
+              "Evaluación de conceptos y comunicación",
             ],
           },
         ]}
         cta="Ver estudios disponibles"
         ctaHref="/estudios"
-        bgLight
       />
 
       <ServiceBlock
         number="02"
-        title="Consultoría estratégica, comercial y de procesos"
-        intro="Acompañamos a empresas en la toma de decisiones, la mejora de procesos y la implementación de iniciativas clave, combinando análisis, criterio y foco en la acción."
+        title="Consultoría estratégica"
+        intro="Basados en información e insights de investigación, trabajamos junto a la empresa para convertir datos en accionables concretos."
         services={[
           {
-            category: "Área comercial y estratégica",
+            category: "Estrategia y posicionamiento",
             items: [
-              "Decisiones comerciales y estratégicas",
+              "Estrategia comercial",
+              "Posicionamiento de marca",
+              "Go-to-market",
               "Pricing y estrategia de precio",
-              "Análisis de clientes y segmentos",
-              "Optimización del funnel de conversión",
-              "Evaluación de nuevos mercados o productos",
+              "Análisis competitivo",
+              "Decisiones basadas en datos",
+            ],
+          },
+          {
+            category: "Análisis y diagnóstico",
+            items: [
               "Diagnóstico comercial",
-            ],
-          },
-          {
-            category: "Procesos y operación",
-            items: [
-              "Optimización de procesos internos",
-              "Digitalización de flujos de trabajo",
-              "Automatización de procesos repetitivos",
-              "Uso aplicado de inteligencia artificial",
-              "Mapeo y documentación de procesos",
-            ],
-          },
-          {
-            category: "Proyectos e implementación",
-            items: [
-              "Liderazgo y seguimiento de proyectos",
-              "Gestión del cambio organizacional",
-              "Soporte en implementación de iniciativas",
+              "Análisis de clientes y segmentos",
+              "Evaluación de nuevos mercados o productos",
+              "Oportunidades de crecimiento",
             ],
           },
         ]}
         cta="Coordinar una consulta"
         ctaHref="/contacto"
+        altBg
       />
 
       <ServiceBlock
         number="03"
-        title="Gestión operativa y de propiedades"
-        intro="Actuamos como una extensión de la operación, combinando gestión diaria, coordinación y apoyo en decisiones para asegurar el funcionamiento y mejorar el rendimiento."
+        title="Estudios para empresas"
+        intro="Soluciones flexibles para empresas que necesitan información clara, rápida y adaptada a sus objetivos."
         services={[
           {
-            category: "Gestión operativa de negocios",
+            category: "Estudios prontos",
             items: [
-              "Gestión operativa y coordinación diaria",
-              "Seguimiento y control de procesos",
-              "Soporte administrativo y organizacional",
-              "Coordinación de equipos y tareas",
-              "Reportes de seguimiento y control de gestión",
+              "Estudios prearmados sobre temas relevantes",
+              "Rápida disponibilidad y costo accesible",
+              "Útiles para contenido, prensa y estrategia",
+              "Análisis del consumidor uruguayo",
+              "Tendencias y contexto sectorial",
             ],
           },
           {
-            category: "Gestión de propiedades",
+            category: "Estudios ad hoc",
             items: [
-              "Gestión de propiedades residenciales y comerciales",
-              "Coordinación de proveedores y servicios",
-              "Seguimiento de incidencias y mantenimiento",
-              "Gestión de alquileres y contratos",
-              "Control de gastos y rendimiento del activo",
+              "Diseño completamente personalizado",
+              "Preguntas y segmentos a medida",
+              "Reportes ejecutivos y presentaciones",
+              "Recomendaciones accionables",
+              "Acompañamiento estratégico en la implementación",
             ],
           },
         ]}
-        cta="WhatsApp directo"
-        ctaHref={WHATSAPP_URL}
-        ctaExternal
-        bgLight
+        cta="Solicitar un estudio"
+        ctaHref="/contacto"
       />
 
       {/* CTA final */}
-      <section className="bg-ink py-20 md:py-24">
+      <section className="bg-accent py-20 md:py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Reveal>
             <h2 className="font-display text-display-md text-white mb-5">
               ¿No sabés por dónde empezar?
             </h2>
-            <p className="text-white/60 mb-8">
-              Contanos tu situación y definimos juntos qué tipo de trabajo tiene más sentido.
+            <p className="text-white/70 mb-8">
+              Contanos tu situación y definimos juntos qué tipo de estudio tiene más sentido.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contacto" className="btn-ghost">

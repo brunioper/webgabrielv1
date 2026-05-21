@@ -14,7 +14,7 @@ export type Study = {
 export const studyCategories = [
   "Todos",
   "Consumidor",
-  "Inmobiliario",
+  "Marcas",
   "Empresas",
 ] as const;
 
@@ -34,12 +34,12 @@ export const studies: Study[] = [
   },
   {
     id: 2,
-    title: "Contexto del mercado inmobiliario – Montevideo",
+    title: "Percepción de marcas en el mercado uruguayo",
     description:
-      "Panorama del mercado residencial y comercial en Montevideo: precios, tendencias, demanda y dinámica por zona.",
-    category: "Inmobiliario",
-    date: "Diciembre 2024",
-    format: "Informe PDF",
+      "Estudio de reconocimiento, posicionamiento y atributos percibidos de marcas en categorías clave del mercado local.",
+    category: "Marcas",
+    date: "Marzo 2025",
+    format: "Informe PDF + presentación ejecutiva",
     price: "Consultar",
     available: true,
   },

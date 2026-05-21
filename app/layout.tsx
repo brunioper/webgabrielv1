@@ -1,48 +1,39 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import WhatsAppBubble from "@/components/whatsapp-bubble";
 import { BRAND, CONTACT } from "@/lib/config";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-  weight: ["400", "500", "700"],
-});
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  // Replace "https://tudominio.com" with the actual production URL before launch.
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://tudominio.com"
   ),
   title: {
-    default:
-      "Decisiones basadas en información | Consultoría, investigación y gestión",
-    template: "%s | Consultoría",
+    default: "Investigación de mercado en Uruguay | Estudios e insights para empresas",
+    template: "%s | Investigación de mercado Uruguay",
   },
   description:
-    "Investigación de mercado, consultoría estratégica comercial y de procesos, y gestión operativa para empresas y propiedades en Montevideo, Uruguay.",
+    "Consultora de investigación de mercado en Uruguay. Estudios prontos, estudios ad hoc y consultoría estratégica para tomar decisiones con datos reales.",
   keywords: [
-    "consultoría estratégica",
-    "consultoría comercial",
-    "investigación de mercado",
-    "gestión operativa",
-    "gestión de propiedades",
-    "mejora de procesos",
-    "digitalización",
-    "inteligencia artificial aplicada",
-    "Montevideo",
-    "Uruguay",
+    "investigación de mercado Uruguay",
+    "estudios de mercado Uruguay",
+    "encuestas online Uruguay",
+    "consultora de investigación de mercado Uruguay",
+    "estudios de opinión Uruguay",
+    "investigación para empresas Uruguay",
+    "estudios para marcas Uruguay",
+    "insights de consumidores Uruguay",
+    "consultoría estratégica Uruguay",
+    "datos de mercado Uruguay",
   ],
   robots: {
     index: true,
@@ -50,24 +41,21 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   openGraph: {
-    title:
-      "Decisiones basadas en información | Consultoría, investigación y gestión",
+    title: "Investigación de mercado en Uruguay | Estudios e insights para empresas",
     description:
-      "Investigación de mercado, consultoría estratégica y gestión operativa para empresas y propiedades en Montevideo, Uruguay.",
+      "Consultora de investigación de mercado en Uruguay. Estudios prontos, estudios ad hoc y consultoría estratégica para tomar decisiones con datos reales.",
     locale: "es_UY",
     type: "website",
     siteName: BRAND.name,
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Decisiones basadas en información | Consultoría, investigación y gestión",
+    title: "Investigación de mercado en Uruguay | Estudios e insights para empresas",
     description:
-      "Investigación de mercado, consultoría estratégica y gestión operativa. Montevideo, Uruguay.",
+      "Estudios de mercado prontos y a medida, consultoría estratégica basada en datos. Montevideo, Uruguay.",
   },
 };
 
-// JSON-LD structured data for local business discovery
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -83,11 +71,11 @@ const jsonLd = {
   areaServed: "Uruguay",
   serviceType: [
     "Investigación de mercado",
+    "Estudios de mercado",
+    "Estudios ad hoc",
     "Consultoría estratégica",
-    "Consultoría comercial",
-    "Mejora de procesos",
-    "Gestión operativa",
-    "Gestión de propiedades",
+    "Análisis de consumidores",
+    "Encuestas online Uruguay",
   ],
 };
 
@@ -95,15 +83,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="es" className={inter.variable}>
       <body className="font-body bg-bg text-ink antialiased">
-        {/* Structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        {/* Skip link — visible on keyboard focus, hidden otherwise */}
         <a href="#main-content" className="skip-link">
           Saltar al contenido principal
         </a>

@@ -2,34 +2,35 @@ import Link from "next/link";
 import { BRAND, CONTACT, WHATSAPP_URL } from "@/lib/config";
 
 const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/servicios", label: "Servicios" },
-  { href: "/estudios", label: "Estudios" },
+  { href: "/",            label: "Inicio" },
+  { href: "/nosotros",    label: "Nosotros" },
+  { href: "/servicios",   label: "Servicios" },
+  { href: "/estudios",    label: "Estudios" },
   { href: "/metodologia", label: "Metodología" },
-  { href: "/contacto", label: "Contacto" },
+  { href: "/aliados",     label: "Aliados" },
+  { href: "/clientes",    label: "Clientes" },
+  { href: "/contacto",    label: "Contacto" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-white/70">
+    <footer className="bg-deep text-white/70">
       {/* Accent top line */}
-      <div className="h-px bg-gradient-to-r from-accent via-accent/60 to-transparent" />
+      <div className="h-px" style={{ background: "linear-gradient(to right, #2E7DC8, rgba(46,125,200,0.3), transparent)" }} />
 
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/10">
 
-          {/* Brand — wider column */}
+          {/* Brand */}
           <div className="md:col-span-5">
-            <p className="font-display font-bold text-white text-xl mb-3 tracking-tight">
+            <p className="font-bold text-white text-xl mb-3 tracking-tight">
               {BRAND.name}
             </p>
-            <p className="text-sm text-accent/80 font-medium mb-4 tracking-wide">
+            <p className="text-sm font-medium mb-4 tracking-wide" style={{ color: "rgba(110,231,249,0.7)" }}>
               {BRAND.tagline}
             </p>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs">
-              Trabajamos con empresas y propietarios en Montevideo, Uruguay.
-              Investigación, consultoría y gestión integradas.
+              Consultora de investigación de mercado y estrategia para empresas en Montevideo, Uruguay.
             </p>
           </div>
 
