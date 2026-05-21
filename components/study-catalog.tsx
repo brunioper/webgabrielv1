@@ -26,10 +26,10 @@ export function StudyCatalog() {
             className="px-4 py-1.5 rounded-sm text-sm transition-all duration-200"
             style={
               active === cat
-                ? { background: "#2E7DC8", color: "#fff", border: "1px solid #2E7DC8" }
+                ? { background: "#CB7B35", color: "#fff", border: "1px solid #CB7B35" }
                 : {
                     background: "transparent",
-                    color: "#AAB8C8",
+                    color: "#8A7A6C",
                     border: "1px solid rgba(255,255,255,0.12)",
                   }
             }

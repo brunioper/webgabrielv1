@@ -20,16 +20,16 @@ export default function LogoMarquee({ logos = placeholderLogos }: { logos?: Logo
   const items = [...logos, ...logos];
 
   return (
-    <div className="overflow-hidden relative" style={{ background: "#0D2444" }}>
+    <div className="overflow-hidden relative" style={{ background: "#0E0B05" }}>
       <div className="py-10">
         {/* Fade edges */}
         <div
           className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #0D2444, transparent)" }}
+          style={{ background: "linear-gradient(to right, #0E0B05, transparent)" }}
         />
         <div
           className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #0D2444, transparent)" }}
+          style={{ background: "linear-gradient(to left, #0E0B05, transparent)" }}
         />
 
         <motion.div
@@ -48,7 +48,7 @@ export default function LogoMarquee({ logos = placeholderLogos }: { logos?: Logo
             >
               <div
                 className="w-8 h-8 rounded-sm flex items-center justify-center text-[10px] font-bold text-white/60"
-                style={{ background: "rgba(46,125,200,0.2)" }}
+                style={{ background: "rgba(203,123,53,0.2)" }}
               >
                 {logo.abbr}
               </div>

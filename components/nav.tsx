@@ -95,7 +95,7 @@ export default function Nav() {
                   {path.startsWith("/servicios") && (
                     <span
                       className="absolute bottom-0 left-0 right-0 h-px"
-                      style={{ background: "linear-gradient(to right, #6EE7F9, #2E7DC8)" }}
+                      style={{ background: "linear-gradient(to right, #E8B45A, #CB7B35)" }}
                     />
                   )}
                 </Link>
@@ -108,13 +108,13 @@ export default function Nav() {
                   <div
                     className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-80 rounded-sm overflow-hidden z-50"
                     style={{
-                      background: "rgba(11,35,69,0.98)",
-                      border: "1px solid rgba(46,125,200,0.25)",
+                      background: "rgba(14,11,6,0.98)",
+                      border: "1px solid rgba(203,123,53,0.25)",
                       backdropFilter: "blur(20px)",
                       boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
                     }}
                   >
-                    <div className="h-px" style={{ background: "linear-gradient(to right, #6EE7F9, #2E7DC8, transparent)" }} />
+                    <div className="h-px" style={{ background: "linear-gradient(to right, #E8B45A, #CB7B35, transparent)" }} />
                     <div className="p-2">
                       {serviceItems.map((item) => (
                         <Link
@@ -124,8 +124,8 @@ export default function Nav() {
                           className="flex items-start gap-3 px-4 py-3 rounded-sm hover:bg-white/5 transition-colors group"
                         >
                           <div
-                            className="w-7 h-7 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5 text-cyan transition-colors group-hover:bg-accent/20"
-                            style={{ background: "rgba(46,125,200,0.12)" }}
+                            className="w-7 h-7 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5 text-accent transition-colors group-hover:bg-accent/20"
+                            style={{ background: "rgba(203,123,53,0.12)" }}
                           >
                             {item.icon}
                           </div>
@@ -154,7 +154,7 @@ export default function Nav() {
                 {path === l.href && (
                   <span
                     className="absolute bottom-0 left-0 right-0 h-px"
-                    style={{ background: "linear-gradient(to right, #6EE7F9, #2E7DC8)" }}
+                    style={{ background: "linear-gradient(to right, #E8B45A, #CB7B35)" }}
                   />
                 )}
               </Link>
@@ -174,7 +174,7 @@ export default function Nav() {
           <Link
             href="/contacto"
             className="text-sm bg-accent text-white px-4 py-2 rounded-sm transition-all duration-200
-                       hover:bg-blue-light hover:shadow-[0_0_20px_rgba(46,125,200,0.4)]"
+                       hover:bg-accent-warm hover:shadow-[0_0_20px_rgba(203,123,53,0.4)]"
           >
             Solicitar estudio
           </Link>
@@ -218,7 +218,7 @@ export default function Nav() {
           <Link
             href="/contacto"
             onClick={() => setOpen(false)}
-            className="mt-4 text-sm bg-accent text-white px-4 py-3 rounded-sm text-center hover:bg-blue-light transition-colors"
+            className="mt-4 text-sm bg-accent text-white px-4 py-3 rounded-sm text-center hover:bg-accent-warm transition-colors"
           >
             Solicitar estudio
           </Link>

@@ -51,7 +51,7 @@ export default function Estudios() {
               <ul className="space-y-2">
                 {["Temas predefinidos", "Rápida disponibilidad", "Costo accesible", "Útiles para contenido, prensa y estrategia"].map((b) => (
                   <li key={b} className="flex items-center gap-2 text-sm text-muted">
-                    <span className="w-1 h-1 rounded-full bg-cyan/60 flex-shrink-0" />{b}
+                    <span className="w-1 h-1 rounded-full bg-accent/60 flex-shrink-0" />{b}
                   </li>
                 ))}
               </ul>
@@ -72,7 +72,7 @@ export default function Estudios() {
               <ul className="space-y-2">
                 {["Diseño personalizado", "Preguntas a medida", "Segmentación según objetivo", "Análisis profundo", "Recomendaciones finales"].map((b) => (
                   <li key={b} className="flex items-center gap-2 text-sm text-muted">
-                    <span className="w-1 h-1 rounded-full bg-cyan/60 flex-shrink-0" />{b}
+                    <span className="w-1 h-1 rounded-full bg-accent/60 flex-shrink-0" />{b}
                   </li>
                 ))}
               </ul>
