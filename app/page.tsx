@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HeroVisual from "@/components/hero-visual";
+import StatsBand from "@/components/stats-band";
+import MethodologyTimeline from "@/components/methodology-timeline";
 import { Reveal } from "@/components/reveal";
 import { WHATSAPP_URL } from "@/lib/config";
 
@@ -23,6 +25,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <StatsBand />
       <TrustSection />
       <ServicesSection />
       <StudiesSection />
@@ -38,38 +41,23 @@ export default function Home() {
 function HeroSection() {
   return (
     <section className="min-h-[calc(100vh-4rem)] flex items-center bg-bg py-24 md:py-0 relative overflow-hidden">
-      {/* Primary radial glow — right side, behind visual */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 65% 55% at 72% 50%, rgba(46,125,200,0.16) 0%, transparent 70%)",
-        }}
-      />
-      {/* Secondary glow — top left, cyan tint */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 45% 35% at 15% 20%, rgba(110,231,249,0.05) 0%, transparent 65%)",
-        }}
-      />
-      {/* Dot grid — fades toward the visual column */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px)",
-          backgroundSize: "36px 36px",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 80% 70% at 65% 50%, black 20%, transparent 75%)",
-          maskImage:
-            "radial-gradient(ellipse 80% 70% at 65% 50%, black 20%, transparent 75%)",
-        }}
-      />
+      {/* Primary radial glow — right side */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: "radial-gradient(ellipse 65% 55% at 72% 50%, rgba(46,125,200,0.16) 0%, transparent 70%)",
+      }} />
+      {/* Secondary glow — top left cyan tint */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: "radial-gradient(ellipse 45% 35% at 15% 20%, rgba(110,231,249,0.05) 0%, transparent 65%)",
+      }} />
+      {/* Dot grid — fades toward visual column */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px)",
+        backgroundSize: "36px 36px",
+        WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 65% 50%, black 20%, transparent 75%)",
+        maskImage: "radial-gradient(ellipse 80% 70% at 65% 50%, black 20%, transparent 75%)",
+      }} />
 
       <div className="max-w-6xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-16 items-center relative z-10">
-        {/* Text column */}
         <div className="max-w-lg">
           {/* Location badge */}
           <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full"
@@ -82,15 +70,12 @@ function HeroSection() {
 
           <h1 className="font-display font-bold text-display-xl text-ink mb-6 leading-[1.08]">
             Investigación de mercado en Uruguay{" "}
-            <span
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, #6EE7F9 0%, #5AA9FF 55%, #2E7DC8 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{
+              backgroundImage: "linear-gradient(135deg, #6EE7F9 0%, #5AA9FF 55%, #2E7DC8 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>
               con datos reales.
             </span>
           </h1>
@@ -102,19 +87,22 @@ function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/contacto" className="btn-primary">
-              Solicitar un estudio
-            </Link>
-            <Link href="/servicios" className="btn-secondary">
-              Ver servicios
-            </Link>
+            <Link href="/contacto" className="btn-primary">Solicitar un estudio</Link>
+            <Link href="/servicios" className="btn-secondary">Ver servicios</Link>
           </div>
 
-          {/* Service tags */}
-          <div className="flex flex-wrap gap-x-5 gap-y-2 mt-9 pt-7"
+          {/* Service pill badges */}
+          <div className="flex flex-wrap gap-2 mt-9 pt-7"
             style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
             {["Estudios prontos", "Estudios ad hoc", "Consultoría estratégica"].map((s) => (
-              <span key={s} className="flex items-center gap-2 text-xs text-muted/70">
+              <span
+                key={s}
+                className="flex items-center gap-1.5 text-xs text-muted/80 px-3 py-1 rounded-full transition-all duration-200 hover:text-cyan/80"
+                style={{
+                  border: "1px solid rgba(110,231,249,0.3)",
+                  background: "rgba(110,231,249,0.04)",
+                }}
+              >
                 <span className="w-1 h-1 rounded-full bg-cyan/50 flex-shrink-0" />
                 {s}
               </span>
@@ -122,7 +110,6 @@ function HeroSection() {
           </div>
         </div>
 
-        {/* Visual column */}
         <div className="hidden md:flex justify-center items-center">
           <HeroVisual />
         </div>
@@ -151,27 +138,42 @@ const trustItems = [
   },
 ];
 
+const badges = [
+  "Metodología propia",
+  "Datos primarios",
+  "GDPR-ready",
+  "Confidencialidad garantizada",
+];
+
 function TrustSection() {
   return (
-    <section className="bg-sand py-16 border-y border-border" aria-label="Por qué elegirnos">
+    <section className="bg-sand py-16 section-divider-top section-divider-bottom" aria-label="Por qué elegirnos">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {trustItems.map((item) => (
-              <div
-                key={item.label}
-                className="glass-card rounded-sm p-6 flex gap-4 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <div
-                  className="w-9 h-9 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: "rgba(46,125,200,0.14)", color: "#6EE7F9" }}
-                >
+              <div key={item.label} className="glass-card rounded-sm p-6 flex gap-4 transition-all duration-300 hover:-translate-y-0.5">
+                <div className="w-9 h-9 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5"
+                  style={{ background: "rgba(46,125,200,0.14)", color: "#6EE7F9" }}>
                   {item.icon}
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-ink mb-1.5">{item.label}</p>
                   <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Certification badges strip */}
+          <div className="flex flex-wrap justify-center gap-3 pt-6"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            {badges.map((b) => (
+              <div key={b}
+                className="badge-cert flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-medium text-muted/60 transition-all duration-300 cursor-default"
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}>
+                <span className="w-1 h-1 rounded-full bg-current flex-shrink-0" />
+                {b}
               </div>
             ))}
           </div>
@@ -192,17 +194,13 @@ function IconDatabase() {
     </svg>
   );
 }
-
 function IconTarget() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" />
-      <circle cx="12" cy="12" r="2" />
+      <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
     </svg>
   );
 }
-
 function IconLayers() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -224,6 +222,7 @@ const services = [
     bullets: ["Encuestas online", "Estudios de opinión", "Análisis de consumidores", "Segmentación de mercado", "Medición de percepción de marca"],
     cta: "Ver estudios disponibles",
     ctaHref: "/estudios",
+    headerSvg: <ScatterSVG />,
   },
   {
     number: "02",
@@ -233,6 +232,7 @@ const services = [
     bullets: ["Estrategia comercial", "Posicionamiento", "Go-to-market", "Pricing", "Análisis competitivo"],
     cta: "Coordinar una consulta",
     ctaHref: "/contacto",
+    headerSvg: <MatrixSVG />,
   },
   {
     number: "03",
@@ -242,6 +242,7 @@ const services = [
     bullets: ["Estudios prontos", "Estudios ad hoc", "Reportes ejecutivos", "Presentaciones para dirección", "Recomendaciones accionables"],
     cta: "Solicitar un estudio",
     ctaHref: "/contacto",
+    headerSvg: <DocumentSVG />,
   },
 ];
 
@@ -250,43 +251,39 @@ function ServicesSection() {
     <section className="bg-bg py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal className="mb-14">
-          <p className="section-label mb-4">Servicios</p>
-          <h2 className="font-display font-bold text-display-lg text-ink">
-            ¿En qué trabajamos?
-          </h2>
+          <p className="section-label mb-3">Servicios</p>
+          <h2 className="font-display font-bold text-display-lg text-ink">¿En qué trabajamos?</h2>
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <Reveal key={s.number} delay={i * 0.1} className="flex flex-col">
-              <div className="service-card group flex flex-col flex-1 rounded-sm hover:-translate-y-1 hover:shadow-card-hover">
-                <div className="h-[2px] rounded-t-sm" style={{ background: "linear-gradient(to right, #6EE7F9, #2E7DC8, rgba(46,125,200,0.2))" }} />
+              <div className="service-card-v2 group flex flex-col flex-1 rounded-sm overflow-hidden hover:-translate-y-1">
+                {/* SVG illustration header */}
+                <div className="h-[110px] overflow-hidden flex items-center justify-center relative"
+                  style={{ background: "rgba(7,26,51,0.8)", borderBottom: "1px solid rgba(46,125,200,0.12)" }}>
+                  {s.headerSvg}
+                  {/* Number watermark */}
+                  <span className="absolute top-3 right-4 text-4xl font-bold tabular-nums leading-none"
+                    style={{
+                      backgroundImage: "linear-gradient(135deg, rgba(46,125,200,0.18) 0%, rgba(110,231,249,0.08) 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}>
+                    {s.number}
+                  </span>
+                </div>
 
-                <div className="p-7 md:p-8 flex flex-col flex-1">
-                  <div className="flex items-start justify-between mb-6">
-                    <div
-                      className="w-10 h-10 rounded-sm flex items-center justify-center text-cyan
-                                  transition-all duration-300 group-hover:scale-110"
-                      style={{ background: "rgba(46,125,200,0.14)" }}
-                    >
+                <div className="p-7 flex flex-col flex-1">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 rounded-sm flex items-center justify-center text-cyan transition-all duration-300 group-hover:scale-110"
+                      style={{ background: "rgba(46,125,200,0.14)" }}>
                       {s.icon}
                     </div>
-                    <span
-                      className="font-bold text-3xl leading-none mt-0.5 tabular-nums"
-                      style={{
-                        backgroundImage: "linear-gradient(135deg, rgba(46,125,200,0.25) 0%, rgba(110,231,249,0.12) 100%)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        backgroundClip: "text",
-                      }}
-                    >
-                      {s.number}
-                    </span>
+                    <h3 className="font-display font-semibold text-base text-ink leading-snug">{s.title}</h3>
                   </div>
 
-                  <h3 className="font-display font-semibold text-xl text-ink mb-3 leading-snug">
-                    {s.title}
-                  </h3>
                   <p className="text-sm text-muted leading-relaxed mb-5">{s.body}</p>
 
                   <ul className="space-y-2 mb-0 flex-1">
@@ -298,13 +295,10 @@ function ServicesSection() {
                     ))}
                   </ul>
 
-                  <div className="mt-7 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-                    <Link
-                      href={s.ctaHref}
-                      className="group/cta inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-cyan transition-colors duration-200"
-                    >
-                      {s.cta}
-                      <span className="transition-transform duration-300 group-hover/cta:translate-x-1.5">→</span>
+                  <div className="mt-6 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+                    <Link href={s.ctaHref}
+                      className="group/cta inline-flex items-center gap-1.5 text-sm font-semibold text-cyan hover:gap-2.5 transition-all duration-200">
+                      {s.cta} <span>→</span>
                     </Link>
                   </div>
                 </div>
@@ -323,33 +317,88 @@ function ServicesSection() {
   );
 }
 
+// ─── Service card SVG headers ─────────────────────────────────────
+
+function ScatterSVG() {
+  return (
+    <svg viewBox="0 0 240 110" fill="none" className="w-full h-full opacity-80" xmlns="http://www.w3.org/2000/svg">
+      {[0,1,2,3].map(i => (
+        <line key={i} x1="20" y1={15 + i * 22} x2="220" y2={15 + i * 22} stroke="#2E7DC8" strokeWidth="0.4" strokeOpacity="0.25" />
+      ))}
+      {[0,1,2,3,4].map(i => (
+        <line key={i} x1={20 + i * 50} y1="10" x2={20 + i * 50} y2="100" stroke="#2E7DC8" strokeWidth="0.4" strokeOpacity="0.2" />
+      ))}
+      <circle cx="48"  cy="82" r="5" fill="#2E7DC8" opacity="0.7" />
+      <circle cx="78"  cy="62" r="6" fill="#6EE7F9" opacity="0.6" />
+      <circle cx="108" cy="72" r="4" fill="#2E7DC8" opacity="0.55" />
+      <circle cx="135" cy="44" r="7" fill="#6EE7F9" opacity="0.55" />
+      <circle cx="162" cy="54" r="5" fill="#2E7DC8" opacity="0.7" />
+      <circle cx="192" cy="32" r="6" fill="#6EE7F9" opacity="0.65" />
+      <circle cx="90"  cy="88" r="3" fill="#2E7DC8" opacity="0.45" />
+      <circle cx="175" cy="68" r="4" fill="#5AA9FF" opacity="0.5" />
+      <line x1="40" y1="92" x2="205" y2="24" stroke="#6EE7F9" strokeWidth="1" strokeDasharray="5 4" strokeOpacity="0.4" />
+    </svg>
+  );
+}
+
+function MatrixSVG() {
+  return (
+    <svg viewBox="0 0 240 110" fill="none" className="w-full h-full opacity-80" xmlns="http://www.w3.org/2000/svg">
+      <line x1="20" y1="95" x2="215" y2="95" stroke="#2E7DC8" strokeWidth="1" strokeOpacity="0.4" />
+      <line x1="20" y1="10" x2="20"  y2="100" stroke="#2E7DC8" strokeWidth="1" strokeOpacity="0.4" />
+      <polygon points="215,92 220,95 215,98" fill="#2E7DC8" opacity="0.4" />
+      <polygon points="17,10 20,5 23,10"    fill="#2E7DC8" opacity="0.4" />
+      <line x1="117" y1="10" x2="117" y2="95" stroke="#2E7DC8" strokeWidth="0.5" strokeDasharray="4 4" strokeOpacity="0.2" />
+      <line x1="20" y1="52" x2="215" y2="52" stroke="#2E7DC8" strokeWidth="0.5" strokeDasharray="4 4" strokeOpacity="0.2" />
+      <circle cx="162" cy="26" r="16" fill="rgba(46,125,200,0.12)" stroke="#6EE7F9" strokeWidth="1" strokeOpacity="0.55" />
+      <circle cx="162" cy="26" r="6"  fill="#6EE7F9" opacity="0.65" />
+      <circle cx="58"  cy="74" r="10" fill="rgba(46,125,200,0.15)" stroke="#2E7DC8" strokeWidth="0.8" strokeOpacity="0.4" />
+      <circle cx="160" cy="74" r="12" fill="rgba(46,125,200,0.1)"  stroke="#2E7DC8" strokeWidth="0.8" strokeOpacity="0.3" />
+      <circle cx="62"  cy="30" r="8"  fill="rgba(46,125,200,0.08)" stroke="#2E7DC8" strokeWidth="0.8" strokeOpacity="0.3" />
+      <path d="M88 68 Q110 48 138 32" stroke="#6EE7F9" strokeWidth="1.5" strokeOpacity="0.5" fill="none" />
+      <polygon points="134,29 142,30 138,37" fill="#6EE7F9" opacity="0.5" />
+    </svg>
+  );
+}
+
+function DocumentSVG() {
+  return (
+    <svg viewBox="0 0 240 110" fill="none" className="w-full h-full opacity-80" xmlns="http://www.w3.org/2000/svg">
+      <rect x="75"  y="55" width="110" height="52" rx="2" fill="rgba(46,125,200,0.07)" stroke="#2E7DC8" strokeWidth="0.7" strokeOpacity="0.3" />
+      <rect x="63"  y="42" width="110" height="52" rx="2" fill="rgba(46,125,200,0.1)"  stroke="#2E7DC8" strokeWidth="0.7" strokeOpacity="0.4" />
+      <rect x="50"  y="28" width="110" height="52" rx="2" fill="rgba(11,35,69,0.95)"   stroke="#2E7DC8" strokeWidth="1"   strokeOpacity="0.6" />
+      <line x1="64" y1="44" x2="146" y2="44" stroke="#6EE7F9" strokeWidth="1"   strokeOpacity="0.6" />
+      <line x1="64" y1="55" x2="138" y2="55" stroke="#2E7DC8" strokeWidth="0.8" strokeOpacity="0.4" />
+      <line x1="64" y1="64" x2="142" y2="64" stroke="#2E7DC8" strokeWidth="0.8" strokeOpacity="0.3" />
+      <line x1="64" y1="73" x2="120" y2="73" stroke="#2E7DC8" strokeWidth="0.8" strokeOpacity="0.25" />
+      <circle cx="148" cy="57" r="13" fill="rgba(46,125,200,0.18)" stroke="#6EE7F9" strokeWidth="1" strokeOpacity="0.65" />
+      <polyline points="142,57 146,62 156,51" stroke="#6EE7F9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.9" />
+    </svg>
+  );
+}
+
 // ─── Service icons ────────────────────────────────────────────────
 
 function IconResearch() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="7" />
-      <line x1="16.5" y1="16.5" x2="22" y2="22" />
-      <line x1="8" y1="11" x2="14" y2="11" />
-      <line x1="11" y1="8" x2="11" y2="14" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="22" y2="22" />
+      <line x1="8" y1="11" x2="14" y2="11" /><line x1="11" y1="8" x2="11" y2="14" />
     </svg>
   );
 }
-
 function IconStrategy() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
     </svg>
   );
 }
-
 function IconData() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="3" width="18" height="18" rx="2" />
-      <line x1="3" y1="9" x2="21" y2="9" />
-      <line x1="3" y1="15" x2="21" y2="15" />
+      <line x1="3" y1="9" x2="21" y2="9" /><line x1="3" y1="15" x2="21" y2="15" />
       <line x1="9" y1="9" x2="9" y2="21" />
     </svg>
   );
@@ -359,50 +408,69 @@ function IconData() {
 
 function StudiesSection() {
   return (
-    <section className="bg-sand py-20 md:py-28 border-y border-border">
+    <section className="bg-sand py-20 md:py-28 section-divider-top section-divider-bottom">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal className="mb-12">
-          <p className="section-label mb-4">Estudios</p>
-          <h2 className="font-display font-bold text-display-lg text-ink">
-            Dos formas de investigar mejor
-          </h2>
+          <p className="section-label mb-3">Estudios</p>
+          <h2 className="font-display font-bold text-display-lg text-ink">Dos formas de investigar mejor</h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Connector line — desktop only */}
+          <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 z-10">
+            <div className="h-px w-full" style={{ borderTop: "1px dashed rgba(46,125,200,0.4)" }} />
+          </div>
+
           {[
             {
               tag: "Estudios prontos",
+              badge: "Disponible hoy",
+              badgeColor: "#6EE7F9",
+              accentBorder: "#6EE7F9",
               title: "Información disponible hoy",
               body: "Estudios prearmados sobre temas relevantes para empresas, agencias y marcas. Ideales para generar contenido, detectar oportunidades y ganar velocidad.",
               bullets: ["Temas predefinidos", "Rápida disponibilidad", "Costo accesible", "Útiles para contenido y estrategia"],
               cta: "Ver estudios disponibles",
               href: "/estudios",
-              accent: "#6EE7F9",
             },
             {
               tag: "Estudios ad hoc",
+              badge: "A tu medida",
+              badgeColor: "#2E7DC8",
+              accentBorder: "#2E7DC8",
               title: "Investigación a tu medida",
               body: "Diseñamos el estudio según tus objetivos, preguntas, segmentos y decisiones. Cada proyecto empieza por entender qué necesitás resolver.",
               bullets: ["Diseño personalizado", "Preguntas a medida", "Segmentación según objetivo", "Recomendaciones finales"],
               cta: "Solicitar un estudio",
               href: "/contacto",
-              accent: "#2E7DC8",
             },
           ].map((card, i) => (
             <Reveal key={card.tag} delay={i * 0.1}>
               <div
-                className="rounded-sm overflow-hidden h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
+                className="rounded-sm overflow-hidden h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover relative"
                 style={{
                   background: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.1)",
+                  borderLeft: `3px solid ${card.accentBorder}`,
                 }}
               >
-                <div className="h-[2px]" style={{ background: `linear-gradient(to right, ${card.accent}, transparent)` }} />
-                <div className="p-8">
+                {/* Top-right badge */}
+                <div className="absolute top-4 right-4">
                   <span
-                    className="text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block"
-                    style={{ color: card.accent }}
+                    className="text-[9px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full"
+                    style={{
+                      background: card.badgeColor + "18",
+                      border: `1px solid ${card.badgeColor}55`,
+                      color: card.badgeColor,
+                    }}
                   >
+                    {card.badge}
+                  </span>
+                </div>
+
+                <div className="p-8 pt-10">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block"
+                    style={{ color: card.accentBorder }}>
                     {card.tag}
                   </span>
                   <h3 className="font-display text-xl font-semibold text-ink mb-3">{card.title}</h3>
@@ -410,7 +478,7 @@ function StudiesSection() {
                   <ul className="space-y-2 mb-7">
                     {card.bullets.map((b) => (
                       <li key={b} className="flex items-center gap-2 text-sm text-muted">
-                        <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: card.accent + "99" }} />
+                        <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: card.accentBorder + "99" }} />
                         {b}
                       </li>
                     ))}
@@ -436,47 +504,63 @@ function AdvantageSection() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
           <Reveal>
-            <p className="section-label mb-4">Nuestra diferencia</p>
-            <h2 className="font-display font-bold text-display-lg text-ink mb-6 leading-tight">
-              Una forma más accesible de investigar en Uruguay
-            </h2>
-            <p className="text-base text-muted leading-relaxed mb-6">
-              Muchas empresas necesitan información confiable para decidir, pero
-              los estudios tradicionales suelen ser lentos, costosos o poco
-              adaptados a la escala de PyMEs, agencias y startups.
-            </p>
-            <p className="text-base text-muted leading-relaxed">
-              Combinamos metodología, conocimiento local y enfoque estratégico
-              para entregar estudios concretos, entendibles y accionables.
-            </p>
+            {/* Decorative bracket behind text */}
+            <div className="relative">
+              <span className="absolute -left-6 -top-4 text-8xl font-bold leading-none pointer-events-none select-none"
+                style={{ color: "rgba(46,125,200,0.08)", fontFamily: "Georgia, serif" }}>
+                [
+              </span>
+              <p className="section-label mb-3 relative z-10">Nuestra diferencia</p>
+              <h2 className="font-display font-bold text-display-lg text-ink mb-6 leading-tight relative z-10">
+                Una forma más accesible de investigar en Uruguay
+              </h2>
+              <p className="text-base text-muted leading-relaxed mb-6 relative z-10">
+                Muchas empresas necesitan información confiable para decidir, pero
+                los estudios tradicionales suelen ser lentos, costosos o poco
+                adaptados a la escala de PyMEs, agencias y startups.
+              </p>
+              <p className="text-base text-muted leading-relaxed relative z-10">
+                Combinamos metodología, conocimiento local y enfoque estratégico
+                para entregar estudios concretos, entendibles y accionables.
+              </p>
+            </div>
           </Reveal>
 
           <Reveal delay={0.1}>
             <div className="space-y-4">
-              {[
-                { label: "Brecha identificada", body: "El mercado necesita soluciones de investigación más ágiles y accesibles para empresas que quieren decidir con datos, sin grandes presupuestos ni equipos internos." },
-                { label: "Nuestra ventaja", body: "Metodología probada, enfoque local y entregables pensados para ser usados, no archivados." },
-              ].map((item, i) => (
-                <div
-                  key={item.label}
-                  className="rounded-sm p-6 relative overflow-hidden"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-                >
-                  {/* Subtle left accent bar */}
-                  <div
-                    className="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-sm"
-                    style={{
-                      background: i === 0
-                        ? "linear-gradient(to bottom, rgba(110,231,249,0.6), rgba(46,125,200,0.4))"
-                        : "linear-gradient(to bottom, rgba(46,125,200,0.6), rgba(46,125,200,0.2))",
-                    }}
-                  />
-                  <div className="pl-4">
-                    <p className="text-xs font-bold text-accent uppercase tracking-[0.15em] mb-2">{item.label}</p>
-                    <p className="text-sm text-muted leading-relaxed">{item.body}</p>
-                  </div>
+              {/* Problem box — warm red tint */}
+              <div className="rounded-sm p-6 relative overflow-hidden"
+                style={{
+                  background: "rgba(255,107,107,0.04)",
+                  border: "1px solid rgba(255,107,107,0.25)",
+                }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-base" aria-hidden="true">⚠</span>
+                  <p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: "rgba(255,107,107,0.8)" }}>
+                    Brecha identificada
+                  </p>
                 </div>
-              ))}
+                <p className="text-sm text-muted leading-relaxed">
+                  El mercado necesita soluciones de investigación más ágiles y accesibles para empresas que quieren decidir con datos, sin grandes presupuestos ni equipos internos.
+                </p>
+              </div>
+
+              {/* Solution box — cyan tint */}
+              <div className="rounded-sm p-6 relative overflow-hidden"
+                style={{
+                  background: "rgba(110,231,249,0.04)",
+                  border: "1px solid rgba(110,231,249,0.25)",
+                }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-base" aria-hidden="true">✓</span>
+                  <p className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: "rgba(110,231,249,0.8)" }}>
+                    Nuestra ventaja
+                  </p>
+                </div>
+                <p className="text-sm text-muted leading-relaxed">
+                  Metodología probada, enfoque local y entregables pensados para ser usados, no archivados.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -487,7 +571,7 @@ function AdvantageSection() {
 
 // ─── 6. Methodology preview ───────────────────────────────────────
 
-const steps = [
+const methodologySteps = [
   { n: "01", label: "Entendemos la decisión" },
   { n: "02", label: "Diseñamos el estudio" },
   { n: "03", label: "Ejecutamos el relevamiento" },
@@ -498,55 +582,19 @@ const steps = [
 
 function MethodologySection() {
   return (
-    <section className="bg-sand py-20 md:py-28 border-y border-border">
+    <section className="bg-sand py-20 md:py-28 section-divider-top section-divider-bottom">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <p className="section-label mb-4">Proceso</p>
-            <h2 className="font-display font-bold text-display-lg text-ink">
-              Nuestra metodología
-            </h2>
+            <p className="section-label mb-3">Proceso</p>
+            <h2 className="font-display font-bold text-display-lg text-ink">Nuestra metodología</h2>
           </div>
           <Link href="/metodologia" className="text-sm font-semibold text-accent hover:underline underline-offset-4 transition-all self-start md:self-auto">
             Ver metodología completa →
           </Link>
         </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
-          {steps.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.07}>
-              <div
-                className="relative flex flex-col h-full rounded-sm p-5 transition-all duration-300 hover:-translate-y-0.5 group"
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
-              >
-                {/* Numbered circle with gradient border */}
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center mb-4 flex-shrink-0"
-                  style={{
-                    background: "rgba(46,125,200,0.12)",
-                    border: "1px solid rgba(46,125,200,0.3)",
-                  }}
-                >
-                  <span
-                    className="text-[10px] font-bold"
-                    style={{ color: "#6EE7F9" }}
-                  >
-                    {s.n}
-                  </span>
-                </div>
-                <p className="text-sm font-medium text-ink leading-snug">{s.label}</p>
-
-                {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-[30px] -right-[8px] w-4 h-px z-10"
-                    style={{ background: "rgba(46,125,200,0.25)" }} />
-                )}
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <MethodologyTimeline steps={methodologySteps} />
       </div>
     </section>
   );
@@ -556,36 +604,16 @@ function MethodologySection() {
 
 function CtaSection() {
   return (
-    <section
-      className="py-24 md:py-32 relative overflow-hidden"
-      style={{
-        background: "linear-gradient(160deg, #0B1F40 0%, #163868 45%, #0B2040 100%)",
-      }}
-    >
-      {/* Radial glow — bottom center */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 75% 65% at 50% 110%, rgba(46,125,200,0.35) 0%, transparent 65%)",
-        }}
-      />
-      {/* Cyan accent glow — top */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 50% 30% at 50% 0%, rgba(110,231,249,0.06) 0%, transparent 70%)",
-        }}
-      />
-      {/* Top border gradient line */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to right, transparent 0%, rgba(110,231,249,0.5) 50%, transparent 100%)",
-        }}
-      />
+    <section className="py-24 md:py-32 relative overflow-hidden"
+      style={{ background: "linear-gradient(160deg, #0B1F40 0%, #163868 45%, #0B2040 100%)" }}>
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: "radial-gradient(ellipse 75% 65% at 50% 110%, rgba(46,125,200,0.35) 0%, transparent 65%)",
+      }} />
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: "radial-gradient(ellipse 50% 30% at 50% 0%, rgba(110,231,249,0.06) 0%, transparent 70%)",
+      }} />
+      <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{ background: "linear-gradient(to right, transparent 0%, rgba(110,231,249,0.5) 50%, transparent 100%)" }} />
 
       <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
         <Reveal>
@@ -594,17 +622,14 @@ function CtaSection() {
             <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.22em]">¿Trabajamos juntos?</p>
             <div className="w-5 h-px bg-white/20" />
           </div>
-
           <h2 className="font-display font-bold text-display-lg text-white mb-6 leading-tight">
             ¿Querés tomar mejores decisiones{" "}
-            <span
-              style={{
-                backgroundImage: "linear-gradient(135deg, #6EE7F9 0%, #5AA9FF 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <span style={{
+              backgroundImage: "linear-gradient(135deg, #6EE7F9 0%, #5AA9FF 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>
               con información real?
             </span>
           </h2>
@@ -612,15 +637,8 @@ function CtaSection() {
             Contanos qué necesitás investigar y te ayudamos a definir el mejor tipo de estudio.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/contacto" className="btn-ghost">
-              Solicitar un estudio
-            </Link>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-light"
-            >
+            <Link href="/contacto" className="btn-ghost">Solicitar un estudio</Link>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-light">
               <WhatsAppIcon />
               WhatsApp directo
             </a>

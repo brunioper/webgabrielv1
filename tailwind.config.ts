@@ -9,9 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg:             "#071A33",   // deep navy — main bg
-        sand:           "#0B2345",   // slightly lighter navy — section bg
-        deep:           "#040E1C",   // darkest navy — footer
+        bg:             "#071A33",   // dark tier — hero, CTA, footer
+        sand:           "#0D2444",   // mid tier — trust, advantage, methodology
+        surface:        "#112D52",   // surface tier — elevated cards, studies
+        deep:           "#040E1C",   // darkest — footer bg
         ink:            "#F7FAFC",   // near-white — primary text
         muted:          "#AAB8C8",   // muted blue-grey — secondary text
         accent:         "#2E7DC8",   // core blue
