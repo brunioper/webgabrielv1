@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <footer className="bg-deep text-white/70">
       {/* Accent top line */}
-      <div className="h-px" style={{ background: "linear-gradient(to right, #CB7B35, rgba(203,123,53,0.3), transparent)" }} />
+      <div className="h-px" style={{ background: "linear-gradient(to right, #3D6BF5, rgba(61,107,245,0.3), transparent)" }} />
 
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/10">
@@ -26,7 +26,7 @@ export default function Footer() {
             <p className="font-bold text-white text-xl mb-3 tracking-tight">
               {BRAND.name}
             </p>
-            <p className="text-sm font-medium mb-4 tracking-wide" style={{ color: "rgba(203,123,53,0.8)" }}>
+            <p className="text-sm font-medium mb-4 tracking-wide" style={{ color: "rgba(61,107,245,0.8)" }}>
               {BRAND.tagline}
             </p>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs">

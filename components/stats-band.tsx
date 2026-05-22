@@ -42,7 +42,7 @@ export default function StatsBand() {
     <section
       ref={ref}
       className="relative py-14 overflow-hidden"
-      style={{ background: "#100D06" }}
+      style={{ background: "#080A14" }}
       aria-label="Cifras de la empresa"
     >
       {/* Horizontal glow stripe */}
@@ -50,7 +50,7 @@ export default function StatsBand() {
         className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(203,123,53,0.2) 25%, rgba(203,123,53,0.2) 75%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(61,107,245,0.2) 25%, rgba(61,107,245,0.2) 75%, transparent 100%)",
         }}
       />
 
@@ -66,7 +66,7 @@ export default function StatsBand() {
               <p className="text-5xl font-bold text-white tabular-nums leading-none tracking-tight">
                 <Counter target={s.value} prefix={s.prefix} suffix={s.suffix} trigger={inView} />
               </p>
-              <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#E8B45A" }}>
+              <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#7BA4FF" }}>
                 {s.label}
               </p>
             </div>

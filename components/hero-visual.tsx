@@ -25,46 +25,46 @@ export default function HeroVisual() {
       <div
         className="rounded-sm overflow-hidden"
         style={{
-          background: "rgba(12,10,7,0.97)",
-          border: "1px solid rgba(203,123,53,0.28)",
-          boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 40px rgba(203,123,53,0.08)",
+          background: "rgba(5,6,12,0.97)",
+          border: "1px solid rgba(61,107,245,0.28)",
+          boxShadow: "0 32px 80px rgba(0,0,0,0.7), 0 0 40px rgba(61,107,245,0.08)",
         }}
       >
         {/* Terminal header */}
         <div
           className="flex items-center justify-between px-5 py-2.5"
-          style={{ borderBottom: "1px solid rgba(203,123,53,0.18)", background: "rgba(203,123,53,0.05)" }}
+          style={{ borderBottom: "1px solid rgba(61,107,245,0.18)", background: "rgba(61,107,245,0.05)" }}
         >
           <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#CB7B35" }} />
+            <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#3D6BF5" }} />
             <span
               className="text-[8px] font-semibold uppercase tracking-[0.22em]"
-              style={{ color: "rgba(203,123,53,0.75)" }}
+              style={{ color: "rgba(61,107,245,0.75)" }}
             >
               Panel · Mercado UY
             </span>
           </div>
-          <span className="text-[8px] tabular-nums" style={{ color: "rgba(203,123,53,0.35)", fontFamily: "monospace" }}>
+          <span className="text-[8px] tabular-nums" style={{ color: "rgba(61,107,245,0.35)", fontFamily: "monospace" }}>
             {mounted ? new Date().toLocaleDateString("es-UY", { day: "2-digit", month: "short", year: "2-digit" }) : "—"}
           </span>
         </div>
 
         {/* Big stat + sparkline */}
-        <div className="px-5 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(203,123,53,0.1)" }}>
-          <p className="text-[8px] font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: "rgba(203,123,53,0.55)" }}>
+        <div className="px-5 pt-5 pb-4" style={{ borderBottom: "1px solid rgba(61,107,245,0.1)" }}>
+          <p className="text-[8px] font-semibold uppercase tracking-[0.2em] mb-2" style={{ color: "rgba(61,107,245,0.55)" }}>
             Índice de oportunidad
           </p>
           <div className="flex items-end gap-4">
             <p
               className="font-display font-bold leading-none"
-              style={{ fontSize: "clamp(3rem,7vw,4rem)", color: "#CB7B35", letterSpacing: "-0.02em" }}
+              style={{ fontSize: "clamp(3rem,7vw,4rem)", color: "#3D6BF5", letterSpacing: "-0.02em" }}
             >
               87<span style={{ fontSize: "42%", opacity: 0.6 }}>%</span>
             </p>
             <div className="mb-1 flex-1 flex flex-col gap-1.5 items-end">
               <span
                 className="inline-flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-sm"
-                style={{ background: "rgba(203,123,53,0.15)", color: "#E8B45A" }}
+                style={{ background: "rgba(61,107,245,0.15)", color: "#7BA4FF" }}
               >
                 ↑ +23pp vs 2023
               </span>
@@ -72,12 +72,12 @@ export default function HeroVisual() {
                 <polyline
                   className="sparkline"
                   points="0,20 15,14 30,17 45,8 62,11 90,2"
-                  stroke="#CB7B35"
+                  stroke="#3D6BF5"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                <circle cx="90" cy="2" r="2.5" fill="#CB7B35" />
+                <circle cx="90" cy="2" r="2.5" fill="#3D6BF5" />
               </svg>
             </div>
           </div>
@@ -89,12 +89,12 @@ export default function HeroVisual() {
             <div key={row.label} className={`board-row board-row-${i + 1}`}>
               <div className="flex justify-between items-center mb-1.5">
                 <span className="text-[8.5px] font-medium" style={{ color: "rgba(238,229,216,0.55)" }}>{row.label}</span>
-                <span className="text-[8.5px] font-bold tabular-nums" style={{ color: "#E8B45A", fontFamily: "monospace" }}>{row.value}%</span>
+                <span className="text-[8.5px] font-bold tabular-nums" style={{ color: "#7BA4FF", fontFamily: "monospace" }}>{row.value}%</span>
               </div>
-              <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(203,123,53,0.1)" }}>
+              <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "rgba(61,107,245,0.1)" }}>
                 <div
                   className={`bar-fill bar-fill-${i + 1} h-full rounded-full`}
-                  style={{ width: `${row.value}%`, background: "linear-gradient(to right, rgba(203,123,53,0.7), #E8B45A)" }}
+                  style={{ width: `${row.value}%`, background: "linear-gradient(to right, rgba(61,107,245,0.7), #7BA4FF)" }}
                 />
               </div>
             </div>
@@ -104,12 +104,12 @@ export default function HeroVisual() {
         {/* Footer status */}
         <div
           className="px-5 py-2 flex items-center justify-between"
-          style={{ borderTop: "1px solid rgba(203,123,53,0.1)", background: "rgba(203,123,53,0.03)" }}
+          style={{ borderTop: "1px solid rgba(61,107,245,0.1)", background: "rgba(61,107,245,0.03)" }}
         >
-          <span className="text-[7px]" style={{ color: "rgba(203,123,53,0.35)" }}>n=400 · Área metropolitana Mvd.</span>
+          <span className="text-[7px]" style={{ color: "rgba(61,107,245,0.35)" }}>n=400 · Área metropolitana Mvd.</span>
           <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#CB7B35" }} />
-            <span className="text-[7px]" style={{ color: "rgba(203,123,53,0.5)" }}>Live</span>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#3D6BF5" }} />
+            <span className="text-[7px]" style={{ color: "rgba(61,107,245,0.5)" }}>Live</span>
           </div>
         </div>
       </div>
@@ -124,12 +124,12 @@ export default function HeroVisual() {
         <div
           className="rounded-sm px-3 py-2"
           style={{
-            background: "rgba(12,10,7,0.99)",
-            border: "1px solid rgba(203,123,53,0.45)",
+            background: "rgba(5,6,12,0.99)",
+            border: "1px solid rgba(61,107,245,0.45)",
             boxShadow: "0 4px 16px rgba(0,0,0,0.6)",
           }}
         >
-          <p className="text-[7px] uppercase tracking-wider mb-0.5" style={{ color: "rgba(203,123,53,0.55)" }}>Segmento</p>
+          <p className="text-[7px] uppercase tracking-wider mb-0.5" style={{ color: "rgba(61,107,245,0.55)" }}>Segmento</p>
           <p className="text-xs font-semibold text-ink">B2B · PyMEs</p>
         </div>
       </motion.div>

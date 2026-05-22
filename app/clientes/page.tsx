@@ -56,7 +56,7 @@ export default function Clientes() {
               <Reveal key={item.title} delay={i * 0.07}>
                 <div className="rounded-sm p-7 h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, #E8B45A, #CB7B35)" }} />
+                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, #7BA4FF, #3D6BF5)" }} />
                   <h3 className="font-medium text-ink mb-2">{item.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{item.body}</p>
                 </div>
@@ -85,9 +85,9 @@ export default function Clientes() {
 
       {/* CTA */}
       <section className="py-20 md:py-24 relative overflow-hidden"
-        style={{ background: "linear-gradient(160deg, #0F0B04 0%, #1C1508 50%, #0F0B04 100%)" }}>
+        style={{ background: "linear-gradient(160deg, #060810 0%, #0D1430 50%, #060810 100%)" }}>
         <div className="absolute top-0 left-0 right-0 h-px"
-          style={{ background: "linear-gradient(to right, transparent, rgba(203,123,53,0.4), transparent)" }} />
+          style={{ background: "linear-gradient(to right, transparent, rgba(61,107,245,0.4), transparent)" }} />
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <Reveal>
             <h2 className="font-display text-display-md text-white mb-5">

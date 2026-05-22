@@ -102,14 +102,14 @@ export default function Nosotros() {
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
                   <p className="font-bold text-3xl mb-3"
                     style={{
-                      backgroundImage: "linear-gradient(135deg, rgba(203,123,53,0.3) 0%, rgba(232,180,90,0.15) 100%)",
+                      backgroundImage: "linear-gradient(135deg, rgba(61,107,245,0.3) 0%, rgba(123,164,255,0.15) 100%)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
                     }}>
                     {p.n}
                   </p>
-                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, #E8B45A, #CB7B35)" }} />
+                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, #7BA4FF, #3D6BF5)" }} />
                   <h3 className="font-display text-lg font-semibold text-ink mb-2">{p.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{p.body}</p>
                 </div>
@@ -131,7 +131,7 @@ export default function Nosotros() {
             {/* Vertical dashed line */}
             <div className="absolute left-[52px] md:left-1/2 top-2 bottom-2 w-px -translate-x-1/2 z-0"
               style={{
-                backgroundImage: "repeating-linear-gradient(to bottom, rgba(203,123,53,0.4) 0px, rgba(203,123,53,0.4) 6px, transparent 6px, transparent 14px)",
+                backgroundImage: "repeating-linear-gradient(to bottom, rgba(61,107,245,0.4) 0px, rgba(61,107,245,0.4) 6px, transparent 6px, transparent 14px)",
               }} />
 
             <div className="space-y-8">
@@ -143,7 +143,7 @@ export default function Nosotros() {
                     {/* Mobile: node + year */}
                     <div className="flex flex-col items-center flex-shrink-0 md:hidden">
                       <div className="w-[44px] h-[44px] rounded-full flex items-center justify-center z-10"
-                        style={{ background: "#CB7B35", boxShadow: "0 0 16px rgba(203,123,53,0.4)" }}>
+                        style={{ background: "#3D6BF5", boxShadow: "0 0 16px rgba(61,107,245,0.4)" }}>
                         <span className="text-[9px] font-bold text-white leading-tight text-center">{item.year}</span>
                       </div>
                     </div>
@@ -162,7 +162,7 @@ export default function Nosotros() {
                     {/* Desktop center node */}
                     <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-10" style={{ marginTop: "10px" }}>
                       <div className="w-11 h-11 rounded-full flex items-center justify-center"
-                        style={{ background: "#CB7B35", boxShadow: "0 0 16px rgba(203,123,53,0.4)" }}>
+                        style={{ background: "#3D6BF5", boxShadow: "0 0 16px rgba(61,107,245,0.4)" }}>
                         <span className="text-[9px] font-bold text-white leading-tight text-center">{item.year}</span>
                       </div>
                     </div>
@@ -192,9 +192,9 @@ export default function Nosotros() {
 
       {/* CTA */}
       <section className="py-20 md:py-24 relative overflow-hidden"
-        style={{ background: "linear-gradient(160deg, #0F0B04 0%, #1C1508 50%, #0F0B04 100%)" }}>
+        style={{ background: "linear-gradient(160deg, #060810 0%, #0D1430 50%, #060810 100%)" }}>
         <div className="absolute top-0 left-0 right-0 h-px"
-          style={{ background: "linear-gradient(to right, transparent, rgba(203,123,53,0.4), transparent)" }} />
+          style={{ background: "linear-gradient(to right, transparent, rgba(61,107,245,0.4), transparent)" }} />
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <Reveal>
             <h2 className="font-display text-display-md text-white mb-5">¿Trabajamos juntos?</h2>
@@ -216,7 +216,7 @@ function TimelineCard({ item }: { item: { year: string; title: string; desc: str
   return (
     <div className="rounded-sm p-5 w-full max-w-sm"
       style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-      <p className="text-[9px] font-bold uppercase tracking-[0.18em] mb-1.5" style={{ color: "#E8B45A" }}>
+      <p className="text-[9px] font-bold uppercase tracking-[0.18em] mb-1.5" style={{ color: "#7BA4FF" }}>
         {item.year}
       </p>
       <h3 className="font-semibold text-sm text-ink mb-1.5">{item.title}</h3>

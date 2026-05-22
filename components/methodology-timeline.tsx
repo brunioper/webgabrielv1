@@ -15,7 +15,7 @@ function StepCard({ step }: { step: TimelineStep }) {
     >
       <p
         className="text-[9px] font-bold uppercase tracking-[0.18em] mb-1.5"
-        style={{ color: "#E8B45A" }}
+        style={{ color: "#7BA4FF" }}
       >
         PASO {step.n}
       </p>
@@ -37,7 +37,7 @@ export default function MethodologyTimeline({ steps }: { steps: TimelineStep[] }
           className="absolute left-1/2 top-5 bottom-5 w-px -translate-x-1/2 z-0 pointer-events-none"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(to bottom, rgba(203,123,53,0.4) 0px, rgba(203,123,53,0.4) 6px, transparent 6px, transparent 14px)",
+              "repeating-linear-gradient(to bottom, rgba(61,107,245,0.4) 0px, rgba(61,107,245,0.4) 6px, transparent 6px, transparent 14px)",
           }}
         />
 
@@ -57,14 +57,14 @@ export default function MethodologyTimeline({ steps }: { steps: TimelineStep[] }
                     <div
                       className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{
-                        background: "#0A0804",
-                        border: "1.5px solid rgba(203,123,53,0.7)",
-                        boxShadow: "0 0 14px rgba(203,123,53,0.2)",
+                        background: "#050612",
+                        border: "1.5px solid rgba(61,107,245,0.7)",
+                        boxShadow: "0 0 14px rgba(61,107,245,0.2)",
                       }}
                     >
                       <span
                         className="text-[11px] font-bold tabular-nums"
-                        style={{ color: "#E8B45A" }}
+                        style={{ color: "#7BA4FF" }}
                       >
                         {s.n}
                       </span>
@@ -88,7 +88,7 @@ export default function MethodologyTimeline({ steps }: { steps: TimelineStep[] }
           className="absolute left-4 top-2 bottom-2 w-px z-0"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(to bottom, rgba(203,123,53,0.4) 0px, rgba(203,123,53,0.4) 6px, transparent 6px, transparent 14px)",
+              "repeating-linear-gradient(to bottom, rgba(61,107,245,0.4) 0px, rgba(61,107,245,0.4) 6px, transparent 6px, transparent 14px)",
           }}
         />
         {steps.map((s, i) => (
@@ -97,13 +97,13 @@ export default function MethodologyTimeline({ steps }: { steps: TimelineStep[] }
               <div
                 className="absolute -left-9 top-3 w-8 h-8 rounded-full flex items-center justify-center z-10 flex-shrink-0"
                 style={{
-                  background: "#0A0804",
-                  border: "1.5px solid rgba(203,123,53,0.6)",
+                  background: "#050612",
+                  border: "1.5px solid rgba(61,107,245,0.6)",
                 }}
               >
                 <span
                   className="text-[9px] font-bold tabular-nums"
-                  style={{ color: "#E8B45A" }}
+                  style={{ color: "#7BA4FF" }}
                 >
                   {s.n}
                 </span>
