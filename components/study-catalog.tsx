@@ -29,8 +29,8 @@ export function StudyCatalog() {
                 ? { background: "#2952CB", color: "#fff", border: "1px solid #2952CB" }
                 : {
                     background: "transparent",
-                    color: "#8A7A6C",
-                    border: "1px solid rgba(255,255,255,0.12)",
+                    color: "#5A6478",
+                    border: "1px solid #D2D8E4",
                   }
             }
           >
@@ -49,11 +49,11 @@ export function StudyCatalog() {
       {/* Coming soon — always visible below filtered results */}
       <div
         className="rounded-sm p-7 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-8"
-        style={{ border: "1px dashed rgba(255,255,255,0.15)" }}
+        style={{ border: "1px dashed #D2D8E4" }}
       >
         <div
           className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center"
-          style={{ border: "1px solid rgba(255,255,255,0.15)" }}
+          style={{ border: "1px solid #D2D8E4" }}
         >
           <span className="text-lg text-muted leading-none select-none">+</span>
         </div>

@@ -20,39 +20,39 @@ export default function LogoMarquee({ logos = placeholderLogos }: { logos?: Logo
   const items = [...logos, ...logos];
 
   return (
-    <div className="overflow-hidden relative" style={{ background: "#070910" }}>
-      <div className="py-10">
+    <div className="overflow-hidden relative">
+      <div className="py-4">
         {/* Fade edges */}
         <div
           className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #0E0B05, transparent)" }}
+          style={{ background: "linear-gradient(to right, #FBFBFD, transparent)" }}
         />
         <div
           className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #0E0B05, transparent)" }}
+          style={{ background: "linear-gradient(to left, #FBFBFD, transparent)" }}
         />
 
         <motion.div
-          className="flex gap-8 items-center w-max"
+          className="flex gap-6 items-center w-max"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
         >
           {items.map((logo, i) => (
             <div
               key={i}
-              className="logo-item flex items-center gap-3 px-5 py-3 rounded-sm cursor-default select-none"
+              className="logo-item flex items-center gap-3 px-5 py-3 rounded-lg cursor-default select-none"
               style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "#FFFFFF",
+                border: "1px solid #E5E8F0",
               }}
             >
               <div
-                className="w-8 h-8 rounded-sm flex items-center justify-center text-[10px] font-bold text-white/60"
-                style={{ background: "rgba(41,82,203,0.2)" }}
+                className="w-8 h-8 rounded-md flex items-center justify-center text-[10px] font-bold"
+                style={{ background: "#EAEFFB", color: "#2952CB" }}
               >
                 {logo.abbr}
               </div>
-              <span className="text-sm font-medium text-white/50 whitespace-nowrap">
+              <span className="text-sm font-medium text-ink/55 whitespace-nowrap">
                 {logo.name}
               </span>
             </div>

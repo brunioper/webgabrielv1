@@ -58,7 +58,7 @@ export default function Nav() {
   const path = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-bg/95 backdrop-blur-md section-divider-bottom">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md section-divider-bottom">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link
@@ -95,7 +95,7 @@ export default function Nav() {
                   {path.startsWith("/servicios") && (
                     <span
                       className="absolute bottom-0 left-0 right-0 h-px"
-                      style={{ background: "linear-gradient(to right, #6B8FFF, #2952CB)" }}
+                      style={{ background: "linear-gradient(to right, #2952CB, #1E40A6)" }}
                     />
                   )}
                 </Link>
@@ -106,26 +106,25 @@ export default function Nav() {
                 {/* Mega dropdown */}
                 {servicesOpen && (
                   <div
-                    className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-80 rounded-sm overflow-hidden z-50"
+                    className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-80 rounded-lg overflow-hidden z-50"
                     style={{
-                      background: "rgba(7,8,16,0.98)",
-                      border: "1px solid rgba(41,82,203,0.25)",
-                      backdropFilter: "blur(20px)",
-                      boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
+                      background: "#FFFFFF",
+                      border: "1px solid #E5E8F0",
+                      boxShadow: "0 24px 60px -16px rgba(20,23,31,0.22)",
                     }}
                   >
-                    <div className="h-px" style={{ background: "linear-gradient(to right, #6B8FFF, #2952CB, transparent)" }} />
+                    <div className="h-px" style={{ background: "linear-gradient(to right, #2952CB, #1E40A6, transparent)" }} />
                     <div className="p-2">
                       {serviceItems.map((item) => (
                         <Link
                           key={item.label}
                           href={item.href}
                           onClick={() => setServicesOpen(false)}
-                          className="flex items-start gap-3 px-4 py-3 rounded-sm hover:bg-white/5 transition-colors group"
+                          className="flex items-start gap-3 px-4 py-3 rounded-md hover:bg-sand transition-colors group"
                         >
                           <div
-                            className="w-7 h-7 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5 text-accent transition-colors group-hover:bg-accent/20"
-                            style={{ background: "rgba(41,82,203,0.12)" }}
+                            className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5 text-accent transition-colors group-hover:bg-accent/10"
+                            style={{ background: "#EAEFFB" }}
                           >
                             {item.icon}
                           </div>
@@ -154,7 +153,7 @@ export default function Nav() {
                 {path === l.href && (
                   <span
                     className="absolute bottom-0 left-0 right-0 h-px"
-                    style={{ background: "linear-gradient(to right, #6B8FFF, #2952CB)" }}
+                    style={{ background: "linear-gradient(to right, #2952CB, #1E40A6)" }}
                   />
                 )}
               </Link>

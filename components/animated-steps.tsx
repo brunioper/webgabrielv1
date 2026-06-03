@@ -25,13 +25,13 @@ function StepRow({ step, index }: { step: Step; index: number }) {
       className="group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8
                  py-8 border-t border-border
                  -mx-6 px-6 md:-mx-8 md:px-8
-                 transition-colors duration-300 hover:bg-white/[0.03] rounded-sm"
+                 transition-colors duration-300 hover:bg-sand rounded-sm"
     >
       {/* Step number */}
       <div className="md:col-span-1 flex md:block items-center gap-3">
         <p
-          className="font-bold text-2xl font-light leading-none transition-colors duration-300 group-hover:text-accent/60"
-          style={{ color: "rgba(255,255,255,0.15)" }}
+          className="font-display font-extrabold text-3xl leading-none transition-colors duration-300 group-hover:text-accent"
+          style={{ color: "#D7E0F4", letterSpacing: "-0.03em" }}
         >
           {step.n}
         </p>

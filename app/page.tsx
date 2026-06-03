@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HeroVisual from "@/components/hero-visual";
+import LogoMarquee from "@/components/logo-marquee";
 import { Reveal } from "@/components/reveal";
 import { WHATSAPP_URL } from "@/lib/config";
 import { studies } from "@/lib/studies";
@@ -22,7 +23,9 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <TrustStrip />
       <ServicesSection />
+      <ValuesSection />
       <StudiesSection />
       <CtaSection />
     </>
@@ -41,57 +44,51 @@ const heroStats = [
 function HeroSection() {
   return (
     <section className="min-h-screen flex flex-col bg-bg relative overflow-hidden">
-      {/* Ambient glow */}
+      {/* Soft ambient blue */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: "radial-gradient(ellipse 55% 60% at 80% 45%, rgba(41,82,203,0.14) 0%, transparent 65%)",
+        background: "radial-gradient(ellipse 55% 60% at 82% 40%, rgba(41,82,203,0.08) 0%, transparent 62%)",
       }} />
       <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)",
-        backgroundSize: "32px 32px",
-        WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 75% 50%, black 10%, transparent 70%)",
-        maskImage: "radial-gradient(ellipse 70% 60% at 75% 50%, black 10%, transparent 70%)",
+        backgroundImage: "radial-gradient(circle, rgba(41,82,203,0.06) 1px, transparent 1px)",
+        backgroundSize: "30px 30px",
+        WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 78% 45%, black 5%, transparent 70%)",
+        maskImage: "radial-gradient(ellipse 70% 60% at 78% 45%, black 5%, transparent 70%)",
       }} />
 
       {/* Main content */}
       <div className="flex-1 flex items-center relative z-10">
-        <div className="max-w-6xl mx-auto px-6 w-full py-20 grid grid-cols-1 lg:grid-cols-[1fr,400px] gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-6 w-full py-24 grid grid-cols-1 lg:grid-cols-[1fr,400px] gap-16 items-center">
           <div>
             {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-10">
+            <div className="flex items-center gap-3 mb-9">
               <div className="w-8 h-px bg-accent" />
-              <span className="text-[11px] font-semibold text-muted tracking-[0.24em] uppercase">
-                Montevideo, Uruguay
+              <span className="text-[11px] font-bold text-accent tracking-[0.22em] uppercase">
+                Investigación de mercado · Montevideo
               </span>
             </div>
 
             {/* Headline */}
             <h1
               className="font-display font-extrabold text-ink leading-[1.04] mb-8"
-              style={{ fontSize: "clamp(3rem, 6.5vw, 5.8rem)", letterSpacing: "-0.03em" }}
+              style={{ fontSize: "clamp(2.75rem, 6vw, 5.4rem)", letterSpacing: "-0.035em" }}
             >
-              Investigación<br />
-              de mercado en<br />
-              <span style={{
-                backgroundImage: "linear-gradient(135deg, #6B8FFF 0%, #2952CB 60%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>
-                Uruguay.
-              </span>
+              Datos confiables,<br />
+              decisiones<br />
+              <span className="text-accent">más inteligentes.</span>
             </h1>
 
-            <p className="text-lg text-muted leading-[1.7] max-w-md mb-12">
-              Ayudamos a empresas a entender mejor a sus consumidores a través de estudios prontos, investigaciones a medida y consultoría estratégica basada en información.
+            <p className="text-lg text-muted leading-[1.7] max-w-md mb-10">
+              Ayudamos a empresas a entender mejor a sus consumidores a través de estudios prontos, investigaciones a medida y consultoría estratégica basada en información real.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link href="/contacto" className="btn-primary">
                 Solicitar un estudio
+                <span className="text-xs">→</span>
               </Link>
               <Link
                 href="/servicios"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-ink transition-colors duration-200"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-accent transition-colors duration-200"
               >
                 Ver servicios <span className="text-xs">→</span>
               </Link>
@@ -106,17 +103,17 @@ function HeroSection() {
       </div>
 
       {/* Stats strip */}
-      <div className="border-t relative z-10" style={{ borderColor: "rgba(41,82,203,0.15)" }}>
+      <div className="border-t relative z-10 bg-white/50" style={{ borderColor: "#E5E8F0" }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4">
             {heroStats.map((s, i) => (
               <div
                 key={s.label}
-                className={`py-5 px-6 ${i > 0 ? "border-l" : ""} ${i < 2 ? "border-b md:border-b-0" : ""} first:pl-0`}
-                style={{ borderColor: "rgba(41,82,203,0.12)" }}
+                className={`py-6 px-6 ${i > 0 ? "border-l" : ""} ${i < 2 ? "border-b md:border-b-0" : ""} first:pl-0`}
+                style={{ borderColor: "#E5E8F0" }}
               >
-                <p className="font-display font-bold text-xl text-ink tracking-tight"
-                  style={{ letterSpacing: "-0.02em" }}>
+                <p className="font-display font-extrabold text-2xl text-ink tracking-tight"
+                  style={{ letterSpacing: "-0.03em" }}>
                   {s.value}
                 </p>
                 <p className="text-xs text-muted mt-0.5 tracking-wide">{s.label}</p>
@@ -124,6 +121,21 @@ function HeroSection() {
             ))}
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Trust strip ──────────────────────────────────────────────────
+
+function TrustStrip() {
+  return (
+    <section className="bg-bg py-12 border-b" style={{ borderColor: "#E5E8F0" }}>
+      <div className="max-w-6xl mx-auto px-6">
+        <p className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-muted/70 mb-7">
+          Empresas que confían en nosotros
+        </p>
+        <LogoMarquee />
       </div>
     </section>
   );
@@ -157,11 +169,11 @@ const services = [
 
 function ServicesSection() {
   return (
-    <section className="bg-sand py-28 md:py-36">
+    <section className="bg-bg py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section header */}
         <Reveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
               <span className="section-label block mb-4">Servicios</span>
               <h2
@@ -173,7 +185,7 @@ function ServicesSection() {
             </div>
             <Link
               href="/servicios"
-              className="hidden md:block text-sm font-semibold text-muted hover:text-ink transition-colors duration-200 pb-1"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-warm transition-colors duration-200 pb-1"
             >
               Ver todos los servicios →
             </Link>
@@ -181,21 +193,21 @@ function ServicesSection() {
         </Reveal>
 
         {/* Editorial numbered list */}
-        <div style={{ borderTop: "1px solid rgba(41,82,203,0.14)" }}>
+        <div style={{ borderTop: "1px solid #E5E8F0" }}>
           {services.map((s, i) => (
             <Reveal key={s.number} delay={i * 0.07}>
               <Link
                 href={s.href}
-                className="group flex items-start gap-6 md:gap-12 py-10 md:py-12 -mx-6 px-6 transition-colors duration-300 hover:bg-white/[0.02]"
-                style={{ borderBottom: "1px solid rgba(41,82,203,0.14)" }}
+                className="group flex items-start gap-6 md:gap-12 py-10 md:py-11 -mx-6 px-6 transition-colors duration-300 hover:bg-sand rounded-lg"
+                style={{ borderBottom: "1px solid #E5E8F0" }}
               >
                 {/* Number */}
                 <span
-                  className="font-display font-bold tabular-nums leading-none pt-1 w-14 flex-shrink-0 hidden md:block"
+                  className="font-display font-extrabold tabular-nums leading-none pt-1 w-14 flex-shrink-0 hidden md:block"
                   style={{
                     fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
                     letterSpacing: "-0.04em",
-                    color: "rgba(41,82,203,0.12)",
+                    color: "#D7E0F4",
                   }}
                 >
                   {s.number}
@@ -214,7 +226,7 @@ function ServicesSection() {
                   </p>
                   <div className="flex flex-wrap gap-x-4 gap-y-1">
                     {s.tags.map((tag) => (
-                      <span key={tag} className="text-xs text-muted/40 tracking-wide">
+                      <span key={tag} className="text-xs text-muted/60 tracking-wide">
                         {tag}
                       </span>
                     ))}
@@ -222,7 +234,7 @@ function ServicesSection() {
                 </div>
 
                 {/* Arrow */}
-                <span className="text-muted/20 group-hover:text-accent group-hover:translate-x-2 transition-all duration-300 text-2xl flex-shrink-0 pt-1 hidden md:block">
+                <span className="text-border-strong group-hover:text-accent group-hover:translate-x-2 transition-all duration-300 text-2xl flex-shrink-0 pt-1 hidden md:block">
                   →
                 </span>
               </Link>
@@ -231,9 +243,89 @@ function ServicesSection() {
         </div>
 
         <div className="mt-8 md:hidden">
-          <Link href="/servicios" className="text-sm font-semibold text-muted hover:text-ink transition-colors">
+          <Link href="/servicios" className="text-sm font-semibold text-accent hover:text-accent-warm transition-colors">
             Ver todos los servicios →
           </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Values ───────────────────────────────────────────────────────
+
+const values = [
+  {
+    title: "Rigor metodológico",
+    desc: "Cada estudio sigue un diseño cuidado: muestras representativas, instrumentos validados y análisis transparente.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+      </svg>
+    ),
+  },
+  {
+    title: "Datos primarios",
+    desc: "Trabajamos con información de primera mano, recolectada directamente para responder a tus preguntas.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5v14a9 3 0 0 0 18 0V5" /><path d="M3 12a9 3 0 0 0 18 0" />
+      </svg>
+    ),
+  },
+  {
+    title: "Insights accionables",
+    desc: "No entregamos solo números: traducimos los resultados en recomendaciones claras para decidir.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 18h6" /><path d="M10 22h4" /><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Cercanía local",
+    desc: "Conocemos el mercado uruguayo en profundidad y acompañamos cada proyecto de cerca, sin intermediarios.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
+      </svg>
+    ),
+  },
+];
+
+function ValuesSection() {
+  return (
+    <section className="bg-sand py-24 md:py-32 border-y" style={{ borderColor: "#E5E8F0" }}>
+      <div className="max-w-6xl mx-auto px-6">
+        <Reveal>
+          <div className="max-w-2xl mb-14">
+            <span className="section-label block mb-4">Por qué nosotros</span>
+            <h2
+              className="font-display font-bold text-ink"
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.03em", lineHeight: "1.1" }}
+            >
+              Investigación seria, sin la distancia de las grandes firmas
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {values.map((v, i) => (
+            <Reveal key={v.title} delay={i * 0.07}>
+              <div className="card h-full">
+                <div
+                  className="w-12 h-12 rounded-lg flex items-center justify-center text-accent mb-6"
+                  style={{ background: "#EAEFFB" }}
+                >
+                  {v.icon}
+                </div>
+                <h3 className="font-display font-bold text-ink text-lg mb-2.5 tracking-tight">
+                  {v.title}
+                </h3>
+                <p className="text-sm text-muted leading-relaxed">{v.desc}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
@@ -247,10 +339,10 @@ function StudiesSection() {
   const coming = studies.filter((s) => !s.available);
 
   return (
-    <section className="bg-bg py-28 md:py-36 section-divider-top">
+    <section className="bg-bg py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
             <div>
               <span className="section-label block mb-4">Estudios</span>
               <h2
@@ -262,21 +354,22 @@ function StudiesSection() {
             </div>
             <Link
               href="/estudios"
-              className="hidden md:block text-sm font-semibold text-muted hover:text-ink transition-colors duration-200"
+              className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-warm transition-colors duration-200"
             >
               Ver catálogo completo →
             </Link>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: "rgba(41,82,203,0.14)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Estudios prontos */}
           <Reveal>
-            <div className="bg-bg p-10 md:p-14 h-full flex flex-col">
-              <div className="mb-8">
+            <div className="rounded-xl p-9 md:p-11 h-full flex flex-col bg-white"
+              style={{ border: "1px solid #E5E8F0", boxShadow: "0 1px 2px rgba(20,23,31,0.04), 0 4px 16px -8px rgba(20,23,31,0.10)" }}>
+              <div className="mb-7">
                 <span
-                  className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-sm mb-6"
-                  style={{ background: "rgba(41,82,203,0.12)", color: "#6B8FFF" }}
+                  className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-md mb-6"
+                  style={{ background: "#EAEFFB", color: "#1E40A6" }}
                 >
                   Disponibles hoy
                 </span>
@@ -291,31 +384,31 @@ function StudiesSection() {
                 </p>
               </div>
 
-              <div className="flex-1 space-y-0" style={{ borderTop: "1px solid rgba(41,82,203,0.12)" }}>
+              <div className="flex-1" style={{ borderTop: "1px solid #EEF1F7" }}>
                 {available.map((study) => (
-                  <div key={study.id} className="py-5" style={{ borderBottom: "1px solid rgba(41,82,203,0.08)" }}>
+                  <div key={study.id} className="py-4" style={{ borderBottom: "1px solid #F0F2F8" }}>
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-accent/60 block mb-1">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-accent block mb-1">
                           {study.category}
                         </span>
-                        <p className="text-sm font-medium text-ink/80 leading-snug">{study.title}</p>
+                        <p className="text-sm font-medium text-ink/85 leading-snug">{study.title}</p>
                       </div>
-                      <span className="text-[10px] font-semibold text-ink/30 flex-shrink-0 pt-0.5">{study.date}</span>
+                      <span className="text-[10px] font-semibold text-muted/70 flex-shrink-0 pt-0.5">{study.date}</span>
                     </div>
                   </div>
                 ))}
                 {coming.map((study) => (
-                  <div key={study.id} className="py-5 opacity-40" style={{ borderBottom: "1px solid rgba(41,82,203,0.08)" }}>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-muted/50 block mb-1">
+                  <div key={study.id} className="py-4 opacity-50" style={{ borderBottom: "1px solid #F0F2F8" }}>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-muted block mb-1">
                       Próximamente
                     </span>
-                    <p className="text-sm font-medium text-ink/50 leading-snug">{study.title}</p>
+                    <p className="text-sm font-medium text-ink/60 leading-snug">{study.title}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8">
+              <div className="mt-7">
                 <Link href="/estudios" className="text-sm font-semibold text-accent hover:text-accent-warm transition-colors">
                   Ver catálogo →
                 </Link>
@@ -326,34 +419,34 @@ function StudiesSection() {
           {/* Estudios ad hoc */}
           <Reveal delay={0.08}>
             <div
-              className="p-10 md:p-14 h-full flex flex-col relative overflow-hidden"
-              style={{ background: "rgba(41,82,203,0.06)" }}
+              className="rounded-xl p-9 md:p-11 h-full flex flex-col relative overflow-hidden"
+              style={{ background: "#0B1A33" }}
             >
               {/* Background accent */}
-              <div className="absolute top-0 right-0 w-64 h-64 pointer-events-none" style={{
-                background: "radial-gradient(circle at 100% 0%, rgba(41,82,203,0.2) 0%, transparent 60%)",
+              <div className="absolute top-0 right-0 w-72 h-72 pointer-events-none" style={{
+                background: "radial-gradient(circle at 100% 0%, rgba(75,115,232,0.35) 0%, transparent 60%)",
               }} />
 
               <div className="relative z-10 flex flex-col h-full">
-                <div className="mb-8">
+                <div className="mb-7">
                   <span
-                    className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-sm mb-6"
-                    style={{ background: "rgba(41,82,203,0.15)", color: "#6B8FFF", border: "1px solid rgba(41,82,203,0.25)" }}
+                    className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-md mb-6"
+                    style={{ background: "rgba(255,255,255,0.1)", color: "#9FB8FF" }}
                   >
                     A tu medida
                   </span>
                   <h3
-                    className="font-display font-bold text-ink mb-3"
+                    className="font-display font-bold text-white mb-3"
                     style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)", letterSpacing: "-0.02em" }}
                   >
                     Estudios ad hoc
                   </h3>
-                  <p className="text-muted text-sm leading-relaxed">
+                  <p className="text-white/65 text-sm leading-relaxed">
                     Diseñamos el estudio según tus objetivos, preguntas y segmentos. Cada proyecto empieza por entender qué necesitás resolver.
                   </p>
                 </div>
 
-                <div className="flex-1 space-y-5 my-8">
+                <div className="flex-1 space-y-4 my-7">
                   {[
                     "Diseño personalizado del cuestionario",
                     "Segmentación según tu objetivo",
@@ -361,15 +454,18 @@ function StudiesSection() {
                     "Recomendaciones accionables",
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3">
-                      <div className="w-1 h-1 rounded-full bg-accent/50 flex-shrink-0 mt-2" />
-                      <p className="text-sm text-muted/80">{item}</p>
+                      <svg className="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#9FBFFF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <p className="text-sm text-white/80">{item}</p>
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-auto">
-                  <Link href="/contacto" className="btn-primary inline-flex">
+                  <Link href="/contacto" className="btn-light inline-flex">
                     Solicitar estudio ad hoc
+                    <span className="text-xs">→</span>
                   </Link>
                 </div>
               </div>
@@ -386,25 +482,21 @@ function StudiesSection() {
 function CtaSection() {
   return (
     <section
-      className="relative overflow-hidden py-36 md:py-48"
-      style={{ background: "#040A12" }}
+      className="relative overflow-hidden py-32 md:py-44"
+      style={{ background: "#0B1A33" }}
     >
       {/* Centered glow */}
       <div className="absolute inset-0 pointer-events-none flex items-end justify-center">
         <div style={{
           width: "70%",
-          height: "50%",
-          background: "radial-gradient(ellipse at 50% 100%, rgba(41,82,203,0.35) 0%, transparent 65%)",
+          height: "55%",
+          background: "radial-gradient(ellipse at 50% 100%, rgba(75,115,232,0.4) 0%, transparent 65%)",
         }} />
       </div>
 
-      {/* Top rule */}
-      <div className="absolute top-0 inset-x-0 h-px"
-        style={{ background: "linear-gradient(to right, transparent, rgba(41,82,203,0.4), transparent)" }} />
-
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <Reveal>
-          <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-muted/50 mb-8">
+          <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/45 mb-8">
             ¿Trabajamos juntos?
           </p>
           <h2
@@ -412,24 +504,19 @@ function CtaSection() {
             style={{ fontSize: "clamp(2.2rem, 5vw, 4.2rem)", letterSpacing: "-0.03em", lineHeight: "1.08" }}
           >
             Tomá mejores decisiones{" "}
-            <span style={{
-              backgroundImage: "linear-gradient(135deg, #6B8FFF 0%, #2952CB 70%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>
+            <span style={{ color: "#9FBFFF" }}>
               con información real.
             </span>
           </h2>
-          <p className="text-white/50 text-base mb-12 max-w-sm mx-auto leading-relaxed">
+          <p className="text-white/55 text-base mb-12 max-w-sm mx-auto leading-relaxed">
             Contanos qué necesitás investigar y te ayudamos a definir el estudio correcto.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contacto" className="btn-ghost">Solicitar un estudio</Link>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-light">
               <WhatsAppIcon />
               WhatsApp
             </a>
+            <Link href="/contacto" className="btn-ghost">Solicitar un estudio</Link>
           </div>
         </Reveal>
       </div>

@@ -73,7 +73,7 @@ function ContactInfoBlock() {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-accent text-white px-5 py-3 rounded-sm text-sm font-medium
-                     transition-all duration-300 hover:bg-blue-light hover:-translate-y-px hover:shadow-glow"
+                     transition-all duration-300 hover:bg-accent-warm hover:-translate-y-px hover:shadow-glow"
         >
           <WhatsAppIcon />
           Escribir por WhatsApp

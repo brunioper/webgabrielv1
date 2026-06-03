@@ -9,17 +9,17 @@ function StepCard({ step }: { step: TimelineStep }) {
     <div
       className="rounded-sm p-5 transition-all duration-300 hover:-translate-y-0.5 w-full"
       style={{
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.08)",
+        background: "#FFFFFF",
+        border: "1px solid #E5E8F0",
       }}
     >
       <p
         className="text-[9px] font-bold uppercase tracking-[0.18em] mb-1.5"
-        style={{ color: "#6B8FFF" }}
+        style={{ color: "#1E40A6" }}
       >
         PASO {step.n}
       </p>
-      <h3 className="font-semibold text-sm text-white leading-snug">{step.label}</h3>
+      <h3 className="font-semibold text-sm text-ink leading-snug">{step.label}</h3>
       {step.desc && (
         <p className="text-xs text-muted mt-1.5 leading-relaxed">{step.desc}</p>
       )}
@@ -57,14 +57,14 @@ export default function MethodologyTimeline({ steps }: { steps: TimelineStep[] }
                     <div
                       className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
                       style={{
-                        background: "#050612",
-                        border: "1.5px solid rgba(41,82,203,0.7)",
+                        background: "#FFFFFF",
+                        border: "1.5px solid rgba(41,82,203,0.5)",
                         boxShadow: "0 0 14px rgba(41,82,203,0.2)",
                       }}
                     >
                       <span
                         className="text-[11px] font-bold tabular-nums"
-                        style={{ color: "#6B8FFF" }}
+                        style={{ color: "#1E40A6" }}
                       >
                         {s.n}
                       </span>
@@ -97,13 +97,13 @@ export default function MethodologyTimeline({ steps }: { steps: TimelineStep[] }
               <div
                 className="absolute -left-9 top-3 w-8 h-8 rounded-full flex items-center justify-center z-10 flex-shrink-0"
                 style={{
-                  background: "#050612",
-                  border: "1.5px solid rgba(41,82,203,0.6)",
+                  background: "#FFFFFF",
+                  border: "1.5px solid rgba(41,82,203,0.5)",
                 }}
               >
                 <span
                   className="text-[9px] font-bold tabular-nums"
-                  style={{ color: "#6B8FFF" }}
+                  style={{ color: "#1E40A6" }}
                 >
                   {s.n}
                 </span>
