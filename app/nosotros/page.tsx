@@ -72,7 +72,7 @@ export default function Nosotros() {
 
           <Reveal delay={0.1}>
             <div className="rounded-sm p-8 md:p-10"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+              style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}>
               <p className="section-label mb-6">Lo que nos define</p>
               <ul className="space-y-6">
                 {values.map((v) => (
@@ -99,17 +99,11 @@ export default function Nosotros() {
             {pillars.map((p, i) => (
               <Reveal key={p.n} delay={i * 0.1}>
                 <div className="rounded-sm p-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <p className="font-bold text-3xl mb-3"
-                    style={{
-                      backgroundImage: "linear-gradient(135deg, rgba(41,82,203,0.3) 0%, rgba(107,143,255,0.15) 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}>
+                  style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}>
+                  <p className="font-display font-extrabold text-4xl mb-3" style={{ color: "#D7E0F4", letterSpacing: "-0.04em" }}>
                     {p.n}
                   </p>
-                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, #6B8FFF, #2952CB)" }} />
+                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, #1E40A6, #2952CB)" }} />
                   <h3 className="font-display text-lg font-semibold text-ink mb-2">{p.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{p.body}</p>
                 </div>
@@ -215,8 +209,8 @@ export default function Nosotros() {
 function TimelineCard({ item }: { item: { year: string; title: string; desc: string } }) {
   return (
     <div className="rounded-sm p-5 w-full max-w-sm"
-      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-      <p className="text-[9px] font-bold uppercase tracking-[0.18em] mb-1.5" style={{ color: "#6B8FFF" }}>
+      style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}>
+      <p className="text-[9px] font-bold uppercase tracking-[0.18em] mb-1.5" style={{ color: "#1E40A6" }}>
         {item.year}
       </p>
       <h3 className="font-semibold text-sm text-ink mb-1.5">{item.title}</h3>

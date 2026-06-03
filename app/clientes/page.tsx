@@ -55,8 +55,8 @@ export default function Clientes() {
             {audiences.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.07}>
                 <div className="rounded-sm p-7 h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, #6B8FFF, #2952CB)" }} />
+                  style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}>
+                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, #1E40A6, #2952CB)" }} />
                   <h3 className="font-medium text-ink mb-2">{item.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{item.body}</p>
                 </div>

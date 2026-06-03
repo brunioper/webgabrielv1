@@ -74,7 +74,7 @@ function FAQItem({
                       transition-all duration-200"
           style={{
             background: isOpen ? "#2952CB" : "transparent",
-            borderColor: isOpen ? "#2952CB" : "rgba(255,255,255,0.2)",
+            borderColor: isOpen ? "#2952CB" : "#D2D8E4",
           }}
           aria-hidden="true"
         >
@@ -87,7 +87,7 @@ function FAQItem({
           >
             <path
               d="M4.5 1v7M1 4.5h7"
-              stroke={isOpen ? "white" : "#AAB8C8"}
+              stroke={isOpen ? "white" : "#8A93A8"}
               strokeWidth="1.5"
               strokeLinecap="round"
             />

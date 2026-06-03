@@ -51,7 +51,7 @@ export default function StatsBand() {
               key={s.label}
               className={`flex flex-col gap-3 ${
                 i < stats.length - 1
-                  ? "md:border-r md:border-white/[0.07] md:pr-10 md:mr-10"
+                  ? "md:border-r md:border-border md:pr-10 md:mr-10"
                   : ""
               }`}
             >

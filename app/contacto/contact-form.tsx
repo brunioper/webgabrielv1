@@ -91,9 +91,9 @@ export default function ContactForm() {
   }
 
   const inputStyle = {
-    background: "rgba(255,255,255,0.06)",
-    border: "1px solid rgba(255,255,255,0.12)",
-    color: "#F7FAFC",
+    background: "#FFFFFF",
+    border: "1px solid #D2D8E4",
+    color: "#14171F",
   };
   if (submitted) {
     return (
@@ -115,7 +115,7 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => { setSubmitted(false); setForm(EMPTY); setErrors({}); setTouched({}); }}
-          className="text-xs font-bold uppercase tracking-[0.15em] text-accent hover:text-blue-light transition-colors"
+          className="text-xs font-bold uppercase tracking-[0.15em] text-accent hover:text-accent-warm transition-colors"
         >
           Enviar otra consulta
         </button>
@@ -151,11 +151,11 @@ export default function ContactForm() {
 
       <Field label="Área de interés *" error={touched.area ? errors.area : undefined}>
         <select name="area" value={form.area} onChange={handleChange} onBlur={handleBlur}
-          className={fieldClass("area")} style={{ ...inputStyle, color: form.area === "" ? "rgba(170,184,200,0.55)" : "#F7FAFC" }}
+          className={fieldClass("area")} style={{ ...inputStyle, color: form.area === "" ? "#9AA3B2" : "#14171F" }}
           aria-required="true" aria-invalid={!!(touched.area && errors.area)}>
           <option value="" disabled>Seleccioná una opción</option>
           {AREA_OPTIONS.map((o) => (
-            <option key={o} value={o} style={{ background: "#0B2345", color: "#F7FAFC" }}>{o}</option>
+            <option key={o} value={o} style={{ background: "#FFFFFF", color: "#14171F" }}>{o}</option>
           ))}
         </select>
       </Field>

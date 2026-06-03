@@ -64,7 +64,7 @@ export default function Aliados() {
                   <div
                     key={item.title}
                     className="rounded-sm p-6"
-                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+                    style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}
                   >
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-4 h-px bg-accent" />
@@ -92,7 +92,7 @@ export default function Aliados() {
           <Reveal delay={0.1}>
             <div
               className="rounded-sm p-12 text-center"
-              style={{ border: "1px dashed rgba(255,255,255,0.12)" }}
+              style={{ border: "1px dashed #D2D8E4" }}
             >
               <p className="text-muted text-sm">Los logos de aliados aparecerán aquí.</p>
               <p className="text-muted/50 text-xs mt-2">Agregá los logos en este componente cuando estén disponibles.</p>
