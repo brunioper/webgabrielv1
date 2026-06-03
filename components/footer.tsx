@@ -1,102 +1,95 @@
 import Link from "next/link";
 import { BRAND, CONTACT, WHATSAPP_URL } from "@/lib/config";
 
-const navLinks = [
-  { href: "/",            label: "Inicio" },
-  { href: "/nosotros",    label: "Nosotros" },
-  { href: "/servicios",   label: "Servicios" },
-  { href: "/estudios",    label: "Estudios" },
-  { href: "/metodologia", label: "Metodología" },
-  { href: "/aliados",     label: "Aliados" },
-  { href: "/clientes",    label: "Clientes" },
-  { href: "/contacto",    label: "Contacto" },
+const navColumns = [
+  {
+    label: "Empresa",
+    links: [
+      { href: "/nosotros",    label: "Nosotros" },
+      { href: "/metodologia", label: "Metodología" },
+      { href: "/aliados",     label: "Aliados" },
+      { href: "/clientes",    label: "Clientes" },
+    ],
+  },
+  {
+    label: "Servicios",
+    links: [
+      { href: "/servicios", label: "Investigación de mercado" },
+      { href: "/servicios", label: "Consultoría estratégica" },
+      { href: "/estudios",  label: "Estudios prontos" },
+      { href: "/contacto",  label: "Solicitar estudio" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-deep text-white/70">
-      {/* Accent top line */}
-      <div className="h-px" style={{ background: "linear-gradient(to right, #2952CB, rgba(41,82,203,0.3), transparent)" }} />
+    <footer className="bg-deep">
+      {/* Top rule */}
+      <div className="h-px" style={{ background: "linear-gradient(to right, rgba(41,82,203,0.5), rgba(41,82,203,0.15), transparent)" }} />
 
-      <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/10">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Main grid */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr,auto] gap-16 py-20 md:py-24"
+          style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
 
-          {/* Brand */}
-          <div className="md:col-span-5">
-            <p className="font-bold text-white text-xl mb-3 tracking-tight">
+          {/* Brand column */}
+          <div className="max-w-xs">
+            <p className="font-display font-bold text-white text-2xl mb-2 tracking-tight"
+              style={{ letterSpacing: "-0.02em" }}>
               {BRAND.name}
             </p>
-            <p className="text-sm font-medium mb-4 tracking-wide" style={{ color: "rgba(41,82,203,0.8)" }}>
+            <p className="text-sm text-white/40 leading-relaxed mb-8">
               {BRAND.tagline}
             </p>
-            <p className="text-sm text-white/40 leading-relaxed max-w-xs">
-              Consultora de investigación de mercado y estrategia para empresas en Montevideo, Uruguay.
-            </p>
+            <div className="space-y-2.5">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-sm text-white/40 hover:text-white transition-colors duration-200"
+              >
+                <WhatsAppIcon />
+                WhatsApp directo
+              </a>
+              <a href={CONTACT.emailHref}
+                className="block text-sm text-white/40 hover:text-white transition-colors duration-200">
+                {CONTACT.email}
+              </a>
+              <p className="text-sm text-white/25">{CONTACT.location}</p>
+            </div>
           </div>
 
-          {/* Navigation */}
-          <div className="md:col-span-3">
-            <p className="text-[10px] font-bold text-white/35 uppercase tracking-[0.2em] mb-5">
-              Páginas
-            </p>
-            <ul className="space-y-3">
-              {navLinks.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-white/55 hover:text-white transition-colors duration-200"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="md:col-span-4">
-            <p className="text-[10px] font-bold text-white/35 uppercase tracking-[0.2em] mb-5">
-              Contacto
-            </p>
-            <ul className="space-y-3.5">
-              <li>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors duration-200"
-                >
-                  <WhatsAppIcon />
-                  WhatsApp directo
-                </a>
-              </li>
-              <li>
-                <a
-                  href={CONTACT.phoneHref}
-                  className="text-sm text-white/55 hover:text-white transition-colors duration-200 block"
-                >
-                  {CONTACT.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={CONTACT.emailHref}
-                  className="text-sm text-white/55 hover:text-white transition-colors duration-200 break-all block"
-                >
-                  {CONTACT.email}
-                </a>
-              </li>
-              <li className="pt-1">
-                <p className="text-xs text-white/35">{CONTACT.location}</p>
-                <p className="text-xs text-white/25 mt-1 leading-relaxed">{CONTACT.meetings}</p>
-              </li>
-            </ul>
+          {/* Nav columns */}
+          <div className="grid grid-cols-2 gap-12 md:gap-20">
+            {navColumns.map((col) => (
+              <div key={col.label}>
+                <p className="text-[10px] font-bold text-white/25 uppercase tracking-[0.22em] mb-6">
+                  {col.label}
+                </p>
+                <ul className="space-y-3.5">
+                  {col.links.map((l) => (
+                    <li key={l.label}>
+                      <Link
+                        href={l.href}
+                        className="text-sm text-white/45 hover:text-white transition-colors duration-200"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs text-white/25">
-          <p>© {new Date().getFullYear()} {BRAND.name}. Todos los derechos reservados.</p>
-          <p>Montevideo, Uruguay</p>
+        {/* Legal strip */}
+        <div className="py-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+          <p className="text-xs text-white/20">
+            © {new Date().getFullYear()} {BRAND.name}. Todos los derechos reservados.
+          </p>
+          <p className="text-xs text-white/15">Montevideo, Uruguay</p>
         </div>
       </div>
     </footer>
