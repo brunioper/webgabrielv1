@@ -95,7 +95,7 @@ export default function Nav() {
                   {path.startsWith("/servicios") && (
                     <span
                       className="absolute bottom-0 left-0 right-0 h-px"
-                      style={{ background: "linear-gradient(to right, #7BA4FF, #3D6BF5)" }}
+                      style={{ background: "linear-gradient(to right, #6B8FFF, #2952CB)" }}
                     />
                   )}
                 </Link>
@@ -109,12 +109,12 @@ export default function Nav() {
                     className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-80 rounded-sm overflow-hidden z-50"
                     style={{
                       background: "rgba(7,8,16,0.98)",
-                      border: "1px solid rgba(61,107,245,0.25)",
+                      border: "1px solid rgba(41,82,203,0.25)",
                       backdropFilter: "blur(20px)",
                       boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
                     }}
                   >
-                    <div className="h-px" style={{ background: "linear-gradient(to right, #7BA4FF, #3D6BF5, transparent)" }} />
+                    <div className="h-px" style={{ background: "linear-gradient(to right, #6B8FFF, #2952CB, transparent)" }} />
                     <div className="p-2">
                       {serviceItems.map((item) => (
                         <Link
@@ -125,7 +125,7 @@ export default function Nav() {
                         >
                           <div
                             className="w-7 h-7 rounded-sm flex items-center justify-center flex-shrink-0 mt-0.5 text-accent transition-colors group-hover:bg-accent/20"
-                            style={{ background: "rgba(61,107,245,0.12)" }}
+                            style={{ background: "rgba(41,82,203,0.12)" }}
                           >
                             {item.icon}
                           </div>
@@ -154,7 +154,7 @@ export default function Nav() {
                 {path === l.href && (
                   <span
                     className="absolute bottom-0 left-0 right-0 h-px"
-                    style={{ background: "linear-gradient(to right, #7BA4FF, #3D6BF5)" }}
+                    style={{ background: "linear-gradient(to right, #6B8FFF, #2952CB)" }}
                   />
                 )}
               </Link>
@@ -174,7 +174,7 @@ export default function Nav() {
           <Link
             href="/contacto"
             className="text-sm bg-accent text-white px-4 py-2 rounded-sm transition-all duration-200
-                       hover:bg-accent-warm hover:shadow-[0_0_20px_rgba(61,107,245,0.4)]"
+                       hover:bg-accent-warm hover:shadow-[0_0_20px_rgba(41,82,203,0.4)]"
           >
             Solicitar estudio
           </Link>

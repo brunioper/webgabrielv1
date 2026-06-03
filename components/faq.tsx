@@ -73,8 +73,8 @@ function FAQItem({
           className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full border flex items-center justify-center
                       transition-all duration-200"
           style={{
-            background: isOpen ? "#3D6BF5" : "transparent",
-            borderColor: isOpen ? "#3D6BF5" : "rgba(255,255,255,0.2)",
+            background: isOpen ? "#2952CB" : "transparent",
+            borderColor: isOpen ? "#2952CB" : "rgba(255,255,255,0.2)",
           }}
           aria-hidden="true"
         >

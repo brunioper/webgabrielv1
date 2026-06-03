@@ -9,17 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg:             "#07080F",   // cool near-black — hero, page bg
-        sand:           "#0B0D1C",   // cool dark — alternate sections
-        surface:        "#10122A",   // elevated card surfaces
-        deep:           "#050609",   // footer
-        ink:            "#E4ECFF",   // cool off-white — primary text
-        muted:          "#7080A0",   // cool grey-blue — secondary text
-        accent:         "#3D6BF5",   // electric blue — signature accent
-        "accent-warm":  "#7BA4FF",   // ice blue — data highlights
-        amber:          "#7BA4FF",   // alias for inline use
-        border:         "#1A1D30",   // cool subtle border
-        "border-strong":"#252840",
+        bg:             "#06101E",   // deep navy — immersive, not generic dark
+        sand:           "#091629",   // slightly lighter navy — alternate sections
+        surface:        "#0D1E3A",   // elevated card surfaces
+        deep:           "#040A12",   // footer
+        ink:            "#EEF3FF",   // barely blue-tinted white — readable, refined
+        muted:          "#7890B4",   // blue-grey — secondary text
+        accent:         "#2952CB",   // royal blue — authoritative, not SaaS
+        "accent-warm":  "#6B8FFF",   // periwinkle — lighter accent
+        amber:          "#6B8FFF",   // alias for compat
+        border:         "#162640",   // subtle cool border
+        "border-strong":"#1E3358",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
@@ -31,10 +31,10 @@ const config: Config = {
         "display-md": ["clamp(1.65rem,3vw,2.25rem)",{ lineHeight: "1.12", letterSpacing: "-0.015em" }],
       },
       boxShadow: {
-        card:         "0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3)",
-        "card-hover": "0 8px 32px -6px rgba(0,0,0,0.6), 0 2px 8px -4px rgba(0,0,0,0.4)",
-        glow:         "0 0 40px rgba(61,107,245,0.25)",
-        "glow-warm":  "0 0 20px rgba(61,107,245,0.4)",
+        card:         "0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.4)",
+        "card-hover": "0 12px 40px -8px rgba(0,0,0,0.7), 0 2px 8px -4px rgba(0,0,0,0.5)",
+        glow:         "0 0 40px rgba(41,82,203,0.3)",
+        "glow-warm":  "0 0 24px rgba(41,82,203,0.45)",
       },
       letterSpacing: {
         tightest: "-0.04em",

@@ -103,9 +103,9 @@ export default function ContactForm() {
       >
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-5"
-          style={{ background: "rgba(61,107,245,0.15)" }}
+          style={{ background: "rgba(41,82,203,0.15)" }}
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D6BF5" strokeWidth="2.5" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2952CB" strokeWidth="2.5" aria-hidden="true">
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>

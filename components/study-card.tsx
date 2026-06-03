@@ -15,7 +15,7 @@ export function StudyCard({ study }: { study: Study }) {
       {/* Availability indicator */}
       <div
         className="h-[3px] rounded-t-sm"
-        style={{ background: study.available ? "#3D6BF5" : "rgba(255,255,255,0.1)" }}
+        style={{ background: study.available ? "#2952CB" : "rgba(255,255,255,0.1)" }}
       />
 
       <div className="p-7 flex flex-col flex-1">

@@ -13,7 +13,7 @@ html {
   left: 1.5rem;
   top: -5rem;
   z-index: 9999;
-  background: #3D6BF5;
+  background: #2952CB;
   color: #fff;
   padding: 0.625rem 1.25rem;
   border-radius: 2px;
@@ -33,11 +33,24 @@ html {
 @layer base {
   body {
     font-family: var(--font-dm-sans), system-ui, sans-serif;
-    background-color: #07080F;
-    color: #E4ECFF;
+    background-color: #06101E;
+    color: #EEF3FF;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
+    position: relative;
+  }
+
+  /* Film grain — premium tactile feel */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9997;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E");
+    opacity: 0.032;
+    mix-blend-mode: overlay;
   }
 
   h1, h2, h3, h4 {
@@ -48,7 +61,7 @@ html {
   a { text-decoration: none; }
 
   *:focus-visible {
-    outline: 2px solid #3D6BF5;
+    outline: 2px solid #2952CB;
     outline-offset: 3px;
   }
 }
@@ -61,12 +74,12 @@ html {
            px-7 py-3.5 text-white
            text-sm font-semibold tracking-wide rounded-sm
            transition-all duration-300;
-    background: #3D6BF5;
+    background: #2952CB;
   }
   .btn-primary:hover {
-    background: #5A7FFF;
+    background: #3661DC;
     transform: translateY(-1px);
-    box-shadow: 0 0 24px rgba(61,107,245,0.4);
+    box-shadow: 0 0 28px rgba(41,82,203,0.45);
   }
 
   .btn-secondary {
@@ -74,11 +87,11 @@ html {
            px-7 py-3.5 text-ink
            text-sm font-semibold tracking-wide rounded-sm
            transition-all duration-300;
-    border: 1px solid rgba(228,236,255,0.25);
+    border: 1px solid rgba(238,243,255,0.2);
   }
   .btn-secondary:hover {
-    background: rgba(228,236,255,0.07);
-    border-color: rgba(228,236,255,0.5);
+    background: rgba(238,243,255,0.06);
+    border-color: rgba(238,243,255,0.4);
     transform: translateY(-1px);
   }
 
@@ -87,11 +100,11 @@ html {
            px-7 py-3.5 text-white
            text-sm font-semibold tracking-wide rounded-sm
            transition-all duration-300;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.18);
   }
   .btn-ghost:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.35);
     transform: translateY(-1px);
   }
 
@@ -100,11 +113,11 @@ html {
            px-7 py-3.5 rounded-sm
            text-sm font-semibold tracking-wide
            transition-all duration-300;
-    background: #E4ECFF;
-    color: #3D6BF5;
+    background: #EEF3FF;
+    color: #2952CB;
   }
   .btn-light:hover {
-    background: #EFF3FF;
+    background: #F5F8FF;
     transform: translateY(-1px);
   }
 
@@ -112,7 +125,7 @@ html {
 
   .section-label {
     @apply text-[10px] font-semibold uppercase;
-    color: #3D6BF5;
+    color: #2952CB;
     letter-spacing: 0.18em;
     font-family: var(--font-dm-sans), system-ui, sans-serif;
   }
@@ -121,58 +134,57 @@ html {
 
   .card {
     @apply rounded-sm p-6 md:p-8;
-    background: rgba(16, 18, 42, 0.8);
-    border: 1px solid rgba(61, 107, 245, 0.15);
+    background: rgba(13, 30, 58, 0.9);
+    border: 1px solid rgba(41, 82, 203, 0.15);
   }
 
-  /* ─── Glass card (cool editorial) ────────────────────────────── */
+  /* ─── Surface card — no glassmorphism, solid premium dark ────── */
 
   .glass-card {
-    background: rgba(16, 18, 42, 0.92);
-    border: 1px solid rgba(61, 107, 245, 0.2);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(13, 30, 58, 0.95);
+    border: 1px solid rgba(41, 82, 203, 0.18);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
   }
 
   /* ─── Service card ────────────────────────────────────────────── */
 
   .service-card {
-    background: rgba(11, 13, 26, 0.7);
-    border: 1px solid rgba(61, 107, 245, 0.12);
+    background: rgba(9, 20, 44, 0.8);
+    border: 1px solid rgba(41, 82, 203, 0.12);
     transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
   }
   .service-card:hover {
-    background: rgba(16, 18, 34, 0.9);
-    border-color: rgba(61, 107, 245, 0.35);
+    background: rgba(13, 28, 56, 0.95);
+    border-color: rgba(41, 82, 203, 0.35);
   }
 
-  /* ─── Service card v2 — SVG-header with glow hover ───────────── */
+  /* ─── Service card v2 ─────────────────────────────────────────── */
 
   .service-card-v2 {
-    border: 1px solid rgba(61, 107, 245, 0.18);
-    background: rgba(11, 13, 26, 0.6);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(41, 82, 203, 0.15);
+    background: rgba(9, 20, 44, 0.7);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   }
   .service-card-v2:hover {
-    box-shadow: 0 20px 60px rgba(61, 107, 245, 0.15);
-    border-color: rgba(61, 107, 245, 0.4);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(41,82,203,0.3);
+    border-color: rgba(41, 82, 203, 0.4);
   }
 
   /* ─── Section dividers ────────────────────────────────────────── */
 
   .section-divider-top {
-    border-top: 1px solid rgba(61, 107, 245, 0.15);
+    border-top: 1px solid rgba(41, 82, 203, 0.14);
   }
   .section-divider-bottom {
-    border-bottom: 1px solid rgba(61, 107, 245, 0.15);
+    border-bottom: 1px solid rgba(41, 82, 203, 0.14);
   }
 
   /* ─── Text link with arrow ────────────────────────────────────── */
 
   .link-arrow {
     @apply inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300;
-    color: #3D6BF5;
+    color: #2952CB;
   }
 }
 
@@ -183,8 +195,8 @@ html {
     0deg,
     transparent,
     transparent 79px,
-    rgba(61, 107, 245, 0.05) 79px,
-    rgba(61, 107, 245, 0.05) 80px
+    rgba(41, 82, 203, 0.05) 79px,
+    rgba(41, 82, 203, 0.05) 80px
   );
 }
 
@@ -242,7 +254,7 @@ html {
 /* ─── Logo marquee hover ────────────────────────────────────────── */
 
 .logo-item {
-  filter: grayscale(0.8) brightness(1.3);
+  filter: grayscale(0.7) brightness(1.2);
   transition: filter 0.3s ease;
 }
 .logo-item:hover {
@@ -255,4 +267,5 @@ html {
   .board-row, .bar-fill, .wa-nudge, .wa-ring { animation: none; }
   .sparkline { animation: none; stroke-dashoffset: 0; }
   .bar-fill { width: var(--bar-target, 60%); }
+  body::after { display: none; }
 }

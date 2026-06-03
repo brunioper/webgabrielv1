@@ -7,7 +7,7 @@ const stats = [
   { value: 50,   prefix: "+", suffix: "",  label: "Estudios realizados" },
   { value: 12,   prefix: "+", suffix: "",  label: "Industrias atendidas" },
   { value: 100,  prefix: "",  suffix: "%", label: "Datos primarios" },
-  { value: 2017, prefix: "",  suffix: "",  label: "Fundada" },
+  { value: 2017, prefix: "",  suffix: "",  label: "Año de fundación" },
 ];
 
 function Counter({
@@ -19,7 +19,7 @@ function Counter({
 
   useEffect(() => {
     if (!trigger) return;
-    const duration = 1600;
+    const duration = 1800;
     const startTime = performance.now();
     const frame = (now: number) => {
       const elapsed = now - startTime;
@@ -36,37 +36,41 @@ function Counter({
 
 export default function StatsBand() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section
       ref={ref}
-      className="relative py-14 overflow-hidden"
-      style={{ background: "#080A14" }}
+      className="bg-sand section-divider-top section-divider-bottom py-16 md:py-20"
       aria-label="Cifras de la empresa"
     >
-      {/* Horizontal glow stripe */}
-      <div
-        className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, rgba(61,107,245,0.2) 25%, rgba(61,107,245,0.2) 75%, transparent 100%)",
-        }}
-      />
-
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-0">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`flex flex-col items-center text-center gap-2.5 py-4 ${
-                i < stats.length - 1 ? "border-r border-white/10" : ""
+              className={`flex flex-col gap-3 ${
+                i < stats.length - 1
+                  ? "md:border-r md:border-white/[0.07] md:pr-10 md:mr-10"
+                  : ""
               }`}
             >
-              <p className="text-5xl font-bold text-white tabular-nums leading-none tracking-tight">
-                <Counter target={s.value} prefix={s.prefix} suffix={s.suffix} trigger={inView} />
+              <p
+                className="font-display font-bold tabular-nums leading-none"
+                style={{
+                  fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)",
+                  color: "#2952CB",
+                  letterSpacing: "-0.04em",
+                }}
+              >
+                <Counter
+                  target={s.value}
+                  prefix={s.prefix}
+                  suffix={s.suffix}
+                  trigger={inView}
+                />
               </p>
-              <p className="text-xs font-semibold uppercase tracking-[0.15em]" style={{ color: "#7BA4FF" }}>
+              <p className="text-[11px] font-semibold text-muted/70 tracking-[0.16em] uppercase leading-tight">
                 {s.label}
               </p>
             </div>

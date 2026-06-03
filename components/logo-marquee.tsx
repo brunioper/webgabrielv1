@@ -48,7 +48,7 @@ export default function LogoMarquee({ logos = placeholderLogos }: { logos?: Logo
             >
               <div
                 className="w-8 h-8 rounded-sm flex items-center justify-center text-[10px] font-bold text-white/60"
-                style={{ background: "rgba(61,107,245,0.2)" }}
+                style={{ background: "rgba(41,82,203,0.2)" }}
               >
                 {logo.abbr}
               </div>
