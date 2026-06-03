@@ -67,15 +67,15 @@ function HeroSection() {
 
           <h1 className="font-display font-bold text-display-xl text-ink mb-7 leading-[1.06]">
             Investigación de mercado{" "}
-            <em style={{
-              fontStyle: "italic",
+            <span style={{
               backgroundImage: "linear-gradient(135deg, #6B8FFF 0%, #2952CB 65%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
+              fontWeight: 800,
             }}>
               con datos reales.
-            </em>
+            </span>
           </h1>
 
           <p className="text-base md:text-lg text-muted leading-[1.72] max-w-[420px] mb-10">

@@ -54,7 +54,7 @@ html {
   }
 
   h1, h2, h3, h4 {
-    font-family: var(--font-fraunces), Georgia, serif;
+    font-family: var(--font-display), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 

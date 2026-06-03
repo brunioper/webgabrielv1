@@ -22,7 +22,7 @@ const config: Config = {
         "border-strong":"#1E3358",
       },
       fontFamily: {
-        display: ["var(--font-fraunces)", "Georgia", "serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
         body:    ["var(--font-dm-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {

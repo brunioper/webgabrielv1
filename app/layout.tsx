@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { Fraunces, DM_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import WhatsAppBubble from "@/components/whatsapp-bubble";
 import { BRAND, CONTACT } from "@/lib/config";
 
-const fraunces = Fraunces({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-display",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 const dmSans = DM_Sans({
@@ -63,7 +62,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${fraunces.variable} ${dmSans.variable}`}>
+    <html lang="es" className={`${plusJakarta.variable} ${dmSans.variable}`}>
       <body className="font-body bg-bg text-ink antialiased">
         <script
           type="application/ld+json"
