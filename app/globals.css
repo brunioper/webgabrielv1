@@ -13,7 +13,7 @@ html {
   left: 1.5rem;
   top: -5rem;
   z-index: 9999;
-  background: #2952CB;
+  background: #21457E;
   color: #fff;
   padding: 0.625rem 1.25rem;
   border-radius: 2px;
@@ -32,227 +32,191 @@ html {
 
 @layer base {
   body {
-    font-family: var(--font-dm-sans), system-ui, sans-serif;
-    background-color: #FBFBFD;
-    color: #14171F;
+    font-family: var(--font-body), system-ui, sans-serif;
+    background-color: #F4F2EC;
+    color: #16243C;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
+    line-height: 1.65;
     position: relative;
   }
 
+  /* Editorial serif display — let it breathe */
   h1, h2, h3, h4 {
-    font-family: var(--font-display), system-ui, sans-serif;
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.005em;
     -webkit-font-smoothing: antialiased;
   }
 
   a { text-decoration: none; }
 
   *:focus-visible {
-    outline: 2px solid #2952CB;
+    outline: 2px solid #21457E;
     outline-offset: 3px;
   }
 }
 
 @layer components {
-  /* ─── Buttons ─────────────────────────────────────────────────── */
+  /* ─── Buttons — flat, editorial, color-shift only (no lift, no glow) ─ */
 
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3.5 text-white
-           text-sm font-semibold tracking-wide rounded-md
-           transition-all duration-300;
-    background: #2952CB;
-    box-shadow: 0 1px 2px rgba(41,82,203,0.25);
+           text-sm font-semibold tracking-wide rounded-[2px]
+           transition-colors duration-200;
+    background: #21457E;
+    font-family: var(--font-body), system-ui, sans-serif;
   }
-  .btn-primary:hover {
-    background: #1E40A6;
-    transform: translateY(-1px);
-    box-shadow: 0 10px 28px -8px rgba(41,82,203,0.5);
-  }
+  .btn-primary:hover { background: #16335E; }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3.5 text-ink
-           text-sm font-semibold tracking-wide rounded-md
-           transition-all duration-300;
-    border: 1px solid #D2D8E4;
-    background: #FFFFFF;
+           text-sm font-semibold tracking-wide rounded-[2px]
+           transition-colors duration-200;
+    border: 1px solid #16243C;
+    background: transparent;
+    font-family: var(--font-body), system-ui, sans-serif;
   }
-  .btn-secondary:hover {
-    border-color: #2952CB;
-    color: #2952CB;
-    transform: translateY(-1px);
-  }
+  .btn-secondary:hover { background: rgba(22,36,60,0.04); }
 
-  /* On dark sections (footer / CTA) */
+  /* On the deep-navy section / footer */
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3.5 text-white
-           text-sm font-semibold tracking-wide rounded-md
-           transition-all duration-300;
-    border: 1px solid rgba(255,255,255,0.25);
+           text-sm font-semibold tracking-wide rounded-[2px]
+           transition-colors duration-200;
+    border: 1px solid rgba(255,255,255,0.35);
+    font-family: var(--font-body), system-ui, sans-serif;
   }
-  .btn-ghost:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.5);
-    transform: translateY(-1px);
-  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
 
   .btn-light {
     @apply inline-flex items-center justify-center gap-2
-           px-7 py-3.5 rounded-md
+           px-7 py-3.5 rounded-[2px]
            text-sm font-semibold tracking-wide
-           transition-all duration-300;
-    background: #FFFFFF;
-    color: #1E40A6;
+           transition-colors duration-200;
+    background: #F4F2EC;
+    color: #16243C;
+    font-family: var(--font-body), system-ui, sans-serif;
   }
-  .btn-light:hover {
-    background: #EAEFFB;
-    transform: translateY(-1px);
-  }
+  .btn-light:hover { background: #fff; }
 
-  /* ─── Section label ───────────────────────────────────────────── */
+  /* ─── Section label — restrained small-caps, muted (not a blue eyebrow) ─ */
 
   .section-label {
-    @apply text-[11px] font-bold uppercase;
-    color: #2952CB;
-    letter-spacing: 0.16em;
-    font-family: var(--font-dm-sans), system-ui, sans-serif;
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    color: #6B7488;
   }
 
-  /* ─── Cards — light, soft elevation ───────────────────────────── */
+  /* ─── Cards — hairline + whitespace, no shadow, no hover lift ──────── */
 
   .card {
-    @apply rounded-lg p-6 md:p-8;
-    background: #FFFFFF;
-    border: 1px solid #E5E8F0;
-    box-shadow: 0 1px 2px rgba(20,23,31,0.04), 0 4px 16px -8px rgba(20,23,31,0.10);
+    @apply rounded-[3px] p-6 md:p-8;
+    background: #FBFAF6;
+    border: 1px solid #E1DCCF;
   }
 
   .glass-card {
-    background: #FFFFFF;
-    border: 1px solid #E5E8F0;
-    box-shadow: 0 1px 2px rgba(20,23,31,0.04), 0 4px 16px -8px rgba(20,23,31,0.10);
+    background: #FBFAF6;
+    border: 1px solid #E1DCCF;
   }
 
   .service-card {
-    background: #FFFFFF;
-    border: 1px solid #E5E8F0;
-    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    background: #FBFAF6;
+    border: 1px solid #E1DCCF;
+    transition: border-color 0.25s, background 0.25s;
   }
   .service-card:hover {
-    border-color: #C7D2EC;
-    box-shadow: 0 8px 30px -8px rgba(20,23,31,0.16);
-    transform: translateY(-2px);
+    border-color: #D4CEBD;
+    background: #fff;
   }
 
   .service-card-v2 {
-    border: 1px solid #E5E8F0;
-    background: #FFFFFF;
-    box-shadow: 0 1px 2px rgba(20,23,31,0.04);
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    border: 1px solid #E1DCCF;
+    background: #FBFAF6;
+    transition: border-color 0.25s, background 0.25s;
   }
   .service-card-v2:hover {
-    box-shadow: 0 16px 44px -12px rgba(20,23,31,0.20);
-    border-color: #C7D2EC;
-    transform: translateY(-2px);
+    border-color: #D4CEBD;
+    background: #fff;
   }
 
-  /* ─── Section dividers — neutral hairlines ────────────────────── */
+  /* ─── Section dividers — warm hairlines ───────────────────────────── */
 
-  .section-divider-top {
-    border-top: 1px solid #E5E8F0;
-  }
-  .section-divider-bottom {
-    border-bottom: 1px solid #E5E8F0;
-  }
+  .section-divider-top    { border-top: 1px solid #E1DCCF; }
+  .section-divider-bottom { border-bottom: 1px solid #E1DCCF; }
 
-  /* ─── Text link with arrow ────────────────────────────────────── */
+  /* ─── Text link with arrow ────────────────────────────────────────── */
 
   .link-arrow {
-    @apply inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300;
-    color: #2952CB;
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200;
+    color: #21457E;
   }
+  .link-arrow:hover { color: #16335E; }
 }
 
-/* ─── Hero editorial background rules ──────────────────────────── */
+/* ─── Hero editorial background rules (warm, faint) ────────────────── */
 
 .hero-rules {
   background-image: repeating-linear-gradient(
     0deg,
     transparent,
     transparent 79px,
-    rgba(41, 82, 203, 0.04) 79px,
-    rgba(41, 82, 203, 0.04) 80px
+    rgba(22, 36, 60, 0.04) 79px,
+    rgba(22, 36, 60, 0.04) 80px
   );
 }
 
-/* ─── Data board animations ─────────────────────────────────────── */
+/* ─── Legacy component animations (removed from use in later rounds) ── */
 
 @keyframes board-row-in {
   from { opacity: 0; transform: translateX(12px); }
   to   { opacity: 1; transform: translateX(0); }
 }
-
 .board-row { animation: board-row-in 0.5s ease-out both; }
 .board-row-1 { animation-delay: 0.25s; }
 .board-row-2 { animation-delay: 0.4s; }
 .board-row-3 { animation-delay: 0.55s; }
 .board-row-4 { animation-delay: 0.7s; }
 
-@keyframes bar-fill {
-  from { width: 0; }
-}
+@keyframes bar-fill { from { width: 0; } }
 .bar-fill { animation: bar-fill 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .bar-fill-1 { animation-delay: 0.6s; }
 .bar-fill-2 { animation-delay: 0.75s; }
 .bar-fill-3 { animation-delay: 0.9s; }
 
-/* ─── Sparkline draw-on ─────────────────────────────────────────── */
-
 @keyframes sparkline-draw {
   from { stroke-dashoffset: 200; }
   to   { stroke-dashoffset: 0; }
 }
-
 .sparkline {
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
   animation: sparkline-draw 1.8s ease-out 0.6s forwards;
 }
 
-/* ─── WhatsApp animations ───────────────────────────────────────── */
-
-@keyframes wa-nudge {
-  0%   { transform: scale(1); }
-  25%  { transform: scale(1.12); }
-  55%  { transform: scale(0.96); }
-  80%  { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-.wa-nudge { animation: wa-nudge 0.9s ease-in-out 4s both; }
-
-@keyframes wa-ring {
-  0%   { transform: scale(1);    opacity: 0.55; }
-  100% { transform: scale(1.75); opacity: 0; }
-}
-.wa-ring { animation: wa-ring 2.2s ease-out 5.2s infinite; }
-
-/* ─── Logo marquee hover ────────────────────────────────────────── */
+/* ─── WhatsApp bubble — subtle, no attention-seeking pulse ─────────── */
 
 .logo-item {
-  filter: grayscale(1) opacity(0.55);
+  filter: grayscale(1) opacity(0.6);
   transition: filter 0.3s ease;
 }
 .logo-item:hover {
-  filter: grayscale(0) opacity(1);
+  filter: grayscale(1) opacity(0.85);
 }
 
-/* ─── Reduced motion ────────────────────────────────────────────── */
+/* ─── Reduced motion ──────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
-  .board-row, .bar-fill, .wa-nudge, .wa-ring { animation: none; }
+  .board-row, .bar-fill { animation: none; }
   .sparkline { animation: none; stroke-dashoffset: 0; }
-  .bar-fill { width: var(--bar-target, 60%); }
+  html { scroll-behavior: auto; }
 }

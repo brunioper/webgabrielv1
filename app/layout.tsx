@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
+import { Newsreader, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import WhatsAppBubble from "@/components/whatsapp-bubble";
 import { BRAND, CONTACT } from "@/lib/config";
 
-const plusJakarta = Plus_Jakarta_Sans({
+// Editorial serif for display — refined italic available for accents
+const newsreader = Newsreader({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
+// Quiet, neutral grotesk for body / UI
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-body",
   display: "swap",
   weight: ["300", "400", "500", "600"],
 });
@@ -62,7 +65,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${plusJakarta.variable} ${dmSans.variable}`}>
+    <html lang="es" className={`${newsreader.variable} ${dmSans.variable}`}>
       <body className="font-body bg-bg text-ink antialiased">
         <script
           type="application/ld+json"
