@@ -27,8 +27,9 @@ export default function Contacto() {
             ¿Querés tomar mejores decisiones con información real?
           </h1>
           <p className="text-xl text-muted leading-relaxed max-w-xl">
-            Contanos qué necesitás investigar y te ayudamos a definir el mejor
-            tipo de estudio.
+            Si querés conversar sobre un estudio, una necesidad puntual o una
+            propuesta de trabajo, podés escribirnos por el formulario o
+            contactarnos directamente.
           </p>
         </div>
       </section>

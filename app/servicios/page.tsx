@@ -27,8 +27,8 @@ export default function Servicios() {
             ¿En qué podemos ayudarte?
           </h1>
           <p className="text-xl text-muted leading-relaxed max-w-xl">
-            Trabajamos en tres áreas que se complementan: investigación,
-            estrategia y estudios. Según la necesidad, trabajamos en una o las
+            Trabajamos en dos áreas que se complementan: investigación de
+            mercado y consultoría. Según la necesidad, trabajamos en una o las
             combinamos.
           </p>
         </div>
@@ -37,26 +37,33 @@ export default function Servicios() {
       <ServiceBlock
         number="01"
         title="Investigación de mercado"
-        intro="Diseñamos estudios para entender consumidores, mercados, categorías, oportunidades y decisiones de compra."
+        intro="Diseñamos herramientas para entender mejor al consumidor, el mercado y las oportunidades de negocio, combinando estudios disponibles, proyectos a medida y un panel propio."
         services={[
           {
-            category: "Investigación cuantitativa",
+            category: "Estudios prontos",
             items: [
-              "Encuestas online",
-              "Estudios de opinión",
-              "Análisis de consumidores",
-              "Validación de productos o servicios",
-              "Segmentación de mercado",
-              "Medición de percepción de marca",
+              "Informes ya elaborados, listos para acceder de forma ágil",
+              "Información útil sin esperar un desarrollo desde cero",
+              "Generan contenido, imagen y tracción de marca",
+              "Análisis del consumidor y contexto sectorial",
             ],
           },
           {
-            category: "Investigación cualitativa",
+            category: "Investigaciones ad hoc",
             items: [
-              "Entrevistas en profundidad",
-              "Focus groups",
-              "Análisis de motivaciones de compra",
-              "Evaluación de conceptos y comunicación",
+              "Estudios diseñados a medida según cada necesidad",
+              "Ideales para validar decisiones y reducir incertidumbre",
+              "Diseño de cuestionario, segmentos y muestra",
+              "Reportes ejecutivos y recomendaciones accionables",
+            ],
+          },
+          {
+            category: "Panel propio",
+            items: [
+              "Panel de personas con perfil INSE completo",
+              "Listo para ejecutar estudios con rapidez",
+              "Registro abierto a quienes quieran participar",
+              "Encuestas online segmentadas",
             ],
           },
         ]}
@@ -66,63 +73,49 @@ export default function Servicios() {
 
       <ServiceBlock
         number="02"
-        title="Consultoría estratégica"
-        intro="Basados en información e insights de investigación, trabajamos junto a la empresa para convertir datos en accionables concretos."
+        title="Consultoría estratégica, comercial y de procesos"
+        intro="Acompañamos a empresas en la toma de decisiones, la mejora de procesos y la implementación de iniciativas clave, combinando análisis, criterio y foco en la acción. No nos quedamos en el diagnóstico: acompañamos decisiones, mejoras e implementación."
         services={[
           {
-            category: "Estrategia y posicionamiento",
+            category: "Decisiones comerciales",
             items: [
-              "Estrategia comercial",
-              "Posicionamiento de marca",
-              "Go-to-market",
-              "Pricing y estrategia de precio",
-              "Análisis competitivo",
-              "Decisiones basadas en datos",
+              "Propuesta de valor y pricing",
+              "Análisis de clientes y segmentos",
+              "Priorización de oportunidades",
+              "Acompañamiento en lanzamientos",
             ],
           },
           {
-            category: "Análisis y diagnóstico",
+            category: "Optimización y mejora de procesos",
             items: [
-              "Diagnóstico comercial",
-              "Análisis de clientes y segmentos",
-              "Evaluación de nuevos mercados o productos",
-              "Oportunidades de crecimiento",
+              "Revisión de procesos comerciales y operativos",
+              "Mejora del funnel de conversión",
+              "Identificación de cuellos de botella",
+              "Simplificación y eficiencia operativa",
+            ],
+          },
+          {
+            category: "Digitalización y automatización",
+            items: [
+              "Incorporación de herramientas digitales",
+              "Automatización de tareas repetitivas",
+              "Mejora de procesos de atención y back office",
+              "Uso aplicado de inteligencia artificial",
+            ],
+          },
+          {
+            category: "Liderazgo y seguimiento de proyectos",
+            items: [
+              "Coordinación de iniciativas y equipos",
+              "Seguimiento de proyectos y control de avances",
+              "Implementación de mejoras",
+              "Acompañamiento hasta la ejecución",
             ],
           },
         ]}
         cta="Coordinar una consulta"
         ctaHref="/contacto"
         altBg
-      />
-
-      <ServiceBlock
-        number="03"
-        title="Estudios para empresas"
-        intro="Soluciones flexibles para empresas que necesitan información clara, rápida y adaptada a sus objetivos."
-        services={[
-          {
-            category: "Estudios prontos",
-            items: [
-              "Estudios prearmados sobre temas relevantes",
-              "Rápida disponibilidad y costo accesible",
-              "Útiles para contenido, prensa y estrategia",
-              "Análisis del consumidor uruguayo",
-              "Tendencias y contexto sectorial",
-            ],
-          },
-          {
-            category: "Estudios ad hoc",
-            items: [
-              "Diseño completamente personalizado",
-              "Preguntas y segmentos a medida",
-              "Reportes ejecutivos y presentaciones",
-              "Recomendaciones accionables",
-              "Acompañamiento estratégico en la implementación",
-            ],
-          },
-        ]}
-        cta="Solicitar un estudio"
-        ctaHref="/contacto"
       />
 
       {/* CTA final */}

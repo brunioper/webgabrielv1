@@ -11,8 +11,8 @@ const links = [
   { href: "/nosotros",    label: "Nosotros" },
   { href: "/servicios",   label: "Servicios", hasDropdown: true },
   { href: "/estudios",    label: "Estudios" },
+  { href: "/panel",       label: "Panel" },
   { href: "/metodologia", label: "Metodología" },
-  { href: "/aliados",     label: "Aliados" },
   { href: "/clientes",    label: "Clientes" },
   { href: "/contacto",    label: "Contacto" },
 ];
@@ -21,7 +21,7 @@ const serviceItems = [
   {
     href: "/servicios",
     label: "Investigación de mercado",
-    desc: "Estudios para entender consumidores y mercados",
+    desc: "Estudios prontos, ad hoc y panel propio",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="22" y2="22" />
@@ -31,8 +31,8 @@ const serviceItems = [
   },
   {
     href: "/servicios",
-    label: "Consultoría estratégica",
-    desc: "Insights convertidos en accionables concretos",
+    label: "Consultoría estratégica y de procesos",
+    desc: "Decisiones, procesos, digitalización e IA",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
@@ -40,14 +40,13 @@ const serviceItems = [
     ),
   },
   {
-    href: "/estudios",
-    label: "Estudios para empresas",
-    desc: "Prontos y ad hoc, según tu objetivo",
+    href: "/panel",
+    label: "Panel Uruguay",
+    desc: "Sumate y participá en encuestas",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <line x1="3" y1="9" x2="21" y2="9" /><line x1="3" y1="15" x2="21" y2="15" />
-        <line x1="9" y1="9" x2="9" y2="21" />
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
   },

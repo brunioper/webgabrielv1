@@ -19,33 +19,33 @@ export const metadata: Metadata = {
 const steps = [
   {
     n: "01",
-    title: "Entendemos la decisión",
-    body: "Definimos qué necesita resolver la empresa y qué información falta para tomar esa decisión con más claridad.",
+    title: "Entendemos la necesidad",
+    body: "Definimos qué necesita resolver la empresa: entender una situación, reducir incertidumbre o mejorar una decisión.",
   },
   {
     n: "02",
-    title: "Diseñamos el estudio",
-    body: "Armamos preguntas, segmentos, muestra y metodología según los objetivos específicos del proyecto.",
+    title: "Ordenamos la pregunta",
+    body: "Convertimos esa necesidad en una pregunta clara que orienta todo el trabajo y define el enfoque.",
   },
   {
     n: "03",
-    title: "Ejecutamos el relevamiento",
-    body: "Recolectamos información con el método más adecuado para cada objetivo: encuestas, entrevistas, análisis de datos secundarios.",
+    title: "Analizamos información",
+    body: "Relevamos o analizamos la información necesaria con el método más adecuado para cada objetivo.",
   },
   {
     n: "04",
-    title: "Analizamos resultados",
-    body: "Transformamos datos en hallazgos claros, visuales y comprensibles. Jerarquizamos lo que sabemos, lo que inferimos y lo incierto.",
+    title: "Definimos conclusiones",
+    body: "Transformamos los datos en hallazgos claros y comprensibles, con próximos pasos posibles.",
   },
   {
     n: "05",
-    title: "Construimos recomendaciones",
-    body: "Pasamos de información a accionables concretos. Priorizamos según impacto y viabilidad para el negocio.",
+    title: "Proponemos acciones",
+    body: "Pasamos de la información a accionables concretos, priorizados por impacto y viabilidad.",
   },
   {
     n: "06",
-    title: "Acompañamos la decisión",
-    body: "Trabajamos junto al cliente para aplicar los insights en la estrategia. Cuando el proyecto lo requiere, también acompañamos la implementación.",
+    title: "Acompañamos la ejecución",
+    body: "Cuando el proyecto lo requiere, acompañamos la implementación de las decisiones.",
   },
 ];
 
@@ -79,9 +79,9 @@ export default function Metodologia() {
             De la pregunta<br />a la decisión.
           </h1>
           <p className="text-xl text-muted leading-relaxed max-w-2xl">
-            Nuestro trabajo parte de entender qué necesita resolver la empresa.
-            A partir de ahí, diseñamos el estudio, relevamos información y
-            entregamos conclusiones claras con próximos pasos posibles.
+            Nuestro trabajo parte de una necesidad concreta: entender mejor una
+            situación, reducir incertidumbre, mejorar una decisión o hacer que
+            una operación funcione mejor.
           </p>
         </div>
       </section>
@@ -91,14 +91,15 @@ export default function Metodologia() {
         <div className="max-w-3xl mx-auto px-6">
           <Reveal>
             <p className="text-lg text-ink leading-relaxed mb-4">
-              No todos los trabajos necesitan todas las etapas. El proceso se
-              adapta a la naturaleza de cada necesidad: algunos proyectos
-              arrancan directamente en el análisis, otros requieren acompañamiento
-              hasta la implementación.
+              A partir de ahí, ordenamos la pregunta, definimos el enfoque de
+              trabajo, relevamos o analizamos información y entregamos
+              conclusiones claras con próximos pasos posibles. Cuando el proyecto
+              lo requiere, también acompañamos la implementación.
             </p>
             <p className="text-base text-muted leading-relaxed">
-              Lo que siempre mantenemos es el foco en producir información útil
-              y recomendaciones accionables.
+              No todos los trabajos necesitan todas las etapas: el proceso se
+              adapta a cada necesidad, manteniendo el foco en información útil y
+              acciones concretas.
             </p>
           </Reveal>
         </div>

@@ -23,6 +23,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <ProblemSection />
       <TrustStrip />
       <ServicesSection />
       <ValuesSection />
@@ -63,35 +64,36 @@ function HeroSection() {
             <div className="flex items-center gap-3 mb-9">
               <div className="w-8 h-px bg-accent" />
               <span className="text-[11px] font-bold text-accent tracking-[0.22em] uppercase">
-                Investigación de mercado · Montevideo
+                Investigación · Consultoría · Panel · Montevideo
               </span>
             </div>
 
             {/* Headline */}
             <h1
-              className="font-display font-extrabold text-ink leading-[1.04] mb-8"
-              style={{ fontSize: "clamp(2.75rem, 6vw, 5.4rem)", letterSpacing: "-0.035em" }}
+              className="font-display text-ink leading-[1.04] mb-8"
+              style={{ fontSize: "clamp(2.75rem, 6vw, 5.4rem)", letterSpacing: "-0.02em" }}
             >
-              Datos confiables,<br />
-              decisiones<br />
-              <span className="text-accent">más inteligentes.</span>
+              Decisiones basadas<br />
+              en <span className="text-accent italic">información.</span>
             </h1>
 
             <p className="text-lg text-muted leading-[1.7] max-w-md mb-10">
-              Ayudamos a empresas a entender mejor a sus consumidores a través de estudios prontos, investigaciones a medida y consultoría estratégica basada en información real.
+              Investigación de mercado, consultoría y un panel propio para empresas que necesitan entender, decidir y ejecutar con claridad.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link href="/contacto" className="btn-primary">
-                Solicitar un estudio
+                Solicitar una consulta
                 <span className="text-xs">→</span>
               </Link>
-              <Link
-                href="/servicios"
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-accent transition-colors duration-200"
               >
-                Ver servicios <span className="text-xs">→</span>
-              </Link>
+                <WhatsAppIcon /> Escribir por WhatsApp
+              </a>
             </div>
           </div>
 
@@ -128,6 +130,25 @@ function HeroSection() {
 
 // ─── Trust strip ──────────────────────────────────────────────────
 
+function ProblemSection() {
+  return (
+    <section className="bg-bg py-24 md:py-32 section-divider-top">
+      <div className="max-w-3xl mx-auto px-6">
+        <Reveal>
+          <div className="w-10 h-px bg-accent mb-8" />
+          <p className="font-display text-ink leading-[1.3]"
+            style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", letterSpacing: "-0.01em" }}>
+            No siempre faltan ideas. Muchas veces falta información clara, criterio para priorizar y capacidad de ejecución.
+          </p>
+          <p className="text-lg text-muted leading-relaxed mt-6 max-w-2xl">
+            Trabajamos para convertir preguntas de negocio en información útil, decisiones concretas y acciones bien enfocadas.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function TrustStrip() {
   return (
     <section className="bg-bg py-12 border-b" style={{ borderColor: "rgb(var(--c-border))" }}>
@@ -147,23 +168,23 @@ const services = [
   {
     number: "01",
     title: "Investigación de mercado",
-    desc: "Diseñamos estudios para entender consumidores, mercados, categorías y decisiones de compra en Uruguay.",
-    tags: ["Encuestas online", "Estudios de opinión", "Segmentación", "Medición de marca"],
+    desc: "Diseñamos herramientas para entender mejor al consumidor, el mercado y las oportunidades de negocio, combinando estudios disponibles y proyectos a medida.",
+    tags: ["Estudios prontos", "Investigaciones ad hoc", "Panel propio"],
     href: "/servicios",
   },
   {
     number: "02",
-    title: "Consultoría estratégica",
-    desc: "Convertimos datos e insights en recomendaciones claras y accionables para tu negocio.",
-    tags: ["Posicionamiento", "Go-to-market", "Análisis competitivo", "Pricing"],
+    title: "Consultoría estratégica, comercial y de procesos",
+    desc: "Acompañamos decisiones, la mejora de procesos y la implementación de iniciativas clave, combinando análisis, criterio y foco en la acción.",
+    tags: ["Decisiones comerciales", "Mejora de procesos y funnel", "Digitalización e IA", "Liderazgo de proyectos"],
     href: "/servicios",
   },
   {
     number: "03",
-    title: "Estudios para empresas",
-    desc: "Soluciones de investigación accesibles pensadas para la escala y velocidad que las empresas uruguayas necesitan.",
-    tags: ["Estudios prontos", "Estudios ad hoc", "Reportes ejecutivos"],
-    href: "/estudios",
+    title: "Panel Uruguay",
+    desc: "El motor de todo: un panel propio de personas con perfil INSE completo, listo para ejecutar estudios y abierto a quienes quieran participar.",
+    tags: ["Perfil INSE", "Registro abierto", "Encuestas online"],
+    href: "/panel",
   },
 ];
 
@@ -177,10 +198,10 @@ function ServicesSection() {
             <div>
               <span className="section-label block mb-4">Servicios</span>
               <h2
-                className="font-display font-bold text-ink"
-                style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.03em", lineHeight: "1.1" }}
+                className="font-display text-ink"
+                style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.02em", lineHeight: "1.1" }}
               >
-                Cómo trabajamos
+                En qué podemos ayudarte
               </h2>
             </div>
             <Link
@@ -252,77 +273,44 @@ function ServicesSection() {
   );
 }
 
-// ─── Values ───────────────────────────────────────────────────────
+// ─── Diferencial ──────────────────────────────────────────────────
 
-const values = [
-  {
-    title: "Rigor metodológico",
-    desc: "Cada estudio sigue un diseño cuidado: muestras representativas, instrumentos validados y análisis transparente.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-      </svg>
-    ),
-  },
-  {
-    title: "Datos primarios",
-    desc: "Trabajamos con información de primera mano, recolectada directamente para responder a tus preguntas.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5v14a9 3 0 0 0 18 0V5" /><path d="M3 12a9 3 0 0 0 18 0" />
-      </svg>
-    ),
-  },
-  {
-    title: "Insights accionables",
-    desc: "No entregamos solo números: traducimos los resultados en recomendaciones claras para decidir.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 18h6" /><path d="M10 22h4" /><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Cercanía local",
-    desc: "Conocemos el mercado uruguayo en profundidad y acompañamos cada proyecto de cerca, sin intermediarios.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
-      </svg>
-    ),
-  },
+const differentiators = [
+  { title: "Información útil", desc: "Entregamos información aplicable, no reportes teóricos sin uso." },
+  { title: "Foco en decisiones reales", desc: "Trabajamos sobre las decisiones concretas que tenés que tomar." },
+  { title: "Análisis y ejecución integrados", desc: "No separamos el diagnóstico de la implementación." },
+  { title: "Acompañamiento práctico", desc: "No nos quedamos en el diagnóstico: acompañamos la ejecución." },
+  { title: "Digital e IA aplicada", desc: "Uso concreto de herramientas digitales e inteligencia artificial." },
 ];
 
 function ValuesSection() {
   return (
     <section className="bg-sand py-24 md:py-32 border-y" style={{ borderColor: "rgb(var(--c-border))" }}>
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <Reveal>
-          <div className="max-w-2xl mb-14">
-            <span className="section-label block mb-4">Por qué nosotros</span>
+          <div className="max-w-2xl mb-12">
+            <span className="section-label block mb-4">Diferencial</span>
             <h2
-              className="font-display font-bold text-ink"
-              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.03em", lineHeight: "1.1" }}
+              className="font-display text-ink"
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)", letterSpacing: "-0.02em", lineHeight: "1.1" }}
             >
-              Investigación seria, sin la distancia de las grandes firmas
+              Una forma distinta de trabajar
             </h2>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {values.map((v, i) => (
-            <Reveal key={v.title} delay={i * 0.07}>
-              <div className="card h-full">
-                <div
-                  className="w-12 h-12 rounded-lg flex items-center justify-center text-accent mb-6"
-                  style={{ background: "rgb(var(--c-accent-soft))" }}
-                >
-                  {v.icon}
-                </div>
-                <h3 className="font-display font-bold text-ink text-lg mb-2.5 tracking-tight">
-                  {v.title}
+        <div style={{ borderTop: "1px solid rgb(var(--c-border))" }}>
+          {differentiators.map((d, i) => (
+            <Reveal key={d.title} delay={i * 0.06}>
+              <div
+                className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-10 py-7"
+                style={{ borderBottom: "1px solid rgb(var(--c-border))" }}
+              >
+                <h3 className="font-display text-ink md:w-72 flex-shrink-0"
+                  style={{ fontSize: "1.3rem", letterSpacing: "-0.01em" }}>
+                  {d.title}
                 </h3>
-                <p className="text-sm text-muted leading-relaxed">{v.desc}</p>
+                <p className="text-base text-muted leading-relaxed">{d.desc}</p>
               </div>
             </Reveal>
           ))}
@@ -500,23 +488,23 @@ function CtaSection() {
             ¿Trabajamos juntos?
           </p>
           <h2
-            className="font-display font-bold text-white mb-6"
-            style={{ fontSize: "clamp(2.2rem, 5vw, 4.2rem)", letterSpacing: "-0.03em", lineHeight: "1.08" }}
+            className="font-display text-white mb-6"
+            style={{ fontSize: "clamp(2.2rem, 5vw, 4.2rem)", letterSpacing: "-0.02em", lineHeight: "1.08" }}
           >
-            Tomá mejores decisiones{" "}
-            <span style={{ color: "#9FBFFF" }}>
-              con información real.
+            ¿Tenés una decisión que necesitás{" "}
+            <span className="italic" style={{ color: "#9FBFFF" }}>
+              tomar con más claridad?
             </span>
           </h2>
           <p className="text-white/55 text-base mb-12 max-w-sm mx-auto leading-relaxed">
-            Contanos qué necesitás investigar y te ayudamos a definir el estudio correcto.
+            Contanos tu situación y te ayudamos a definir el mejor camino: un estudio, una consulta o un proyecto.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-light">
               <WhatsAppIcon />
-              WhatsApp
+              Escribir por WhatsApp
             </a>
-            <Link href="/contacto" className="btn-ghost">Solicitar un estudio</Link>
+            <Link href="/contacto" className="btn-ghost">Solicitar consulta</Link>
           </div>
         </Reveal>
       </div>

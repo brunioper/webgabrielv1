@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 
 const audiences = [
   { title: "Empresas en crecimiento", body: "Que necesitan información para expandirse, lanzar nuevos productos o entender mejor su mercado." },
-  { title: "Agencias",               body: "Que necesitan datos para respaldar estrategias de comunicación, posicionamiento o lanzamientos." },
-  { title: "PyMEs",                  body: "Que quieren tomar decisiones con datos sin los costos de una consultora grande." },
+  { title: "PyMEs",                   body: "Que quieren tomar decisiones con datos y ordenar su operación sin los costos de una consultora grande." },
+  { title: "Equipos comerciales",     body: "Que buscan mejorar su funnel de conversión, su pricing y la priorización de oportunidades." },
+  { title: "Marcas que lanzan",       body: "Que lanzan productos o servicios y necesitan validar decisiones y medir su posicionamiento." },
+  { title: "Negocios a ordenar",      body: "Que necesitan ordenar su operación, mejorar procesos y ganar eficiencia." },
   { title: "Startups",               body: "Que necesitan validar hipótesis, entender su mercado objetivo y reducir incertidumbre." },
-  { title: "Marcas",                 body: "Que quieren medir su posicionamiento, percepción y evolución en el mercado uruguayo." },
-  { title: "Organizaciones",         body: "Que necesitan información para diseñar programas, comunicar mejor o tomar decisiones estratégicas." },
 ];
 
 export default function Clientes() {
