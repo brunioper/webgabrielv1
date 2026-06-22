@@ -39,7 +39,7 @@ export default function Estudios() {
           <Reveal>
             <div
               className="rounded-sm p-7 h-full"
-              style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}
+              style={{ background: "rgb(var(--c-surface))", border: "1px solid rgb(var(--c-border))" }}
             >
               <span className="section-label mb-3 block text-accent">Estudios prontos</span>
               <h2 className="font-display text-xl font-semibold text-ink mb-3">Información disponible hoy</h2>
@@ -61,7 +61,7 @@ export default function Estudios() {
           <Reveal delay={0.1}>
             <div
               className="rounded-sm p-7 h-full"
-              style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}
+              style={{ background: "rgb(var(--c-surface))", border: "1px solid rgb(var(--c-border))" }}
             >
               <span className="section-label mb-3 block text-accent">Estudios ad hoc</span>
               <h2 className="font-display text-xl font-semibold text-ink mb-3">Investigación a tu medida</h2>

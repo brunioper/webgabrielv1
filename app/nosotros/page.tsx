@@ -72,7 +72,7 @@ export default function Nosotros() {
 
           <Reveal delay={0.1}>
             <div className="rounded-sm p-8 md:p-10"
-              style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}>
+              style={{ background: "rgb(var(--c-surface))", border: "1px solid rgb(var(--c-border))" }}>
               <p className="section-label mb-6">Lo que nos define</p>
               <ul className="space-y-6">
                 {values.map((v) => (
@@ -99,11 +99,11 @@ export default function Nosotros() {
             {pillars.map((p, i) => (
               <Reveal key={p.n} delay={i * 0.1}>
                 <div className="rounded-sm p-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
-                  style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}>
-                  <p className="font-display font-extrabold text-4xl mb-3" style={{ color: "#D7E0F4", letterSpacing: "-0.04em" }}>
+                  style={{ background: "rgb(var(--c-surface))", border: "1px solid rgb(var(--c-border))" }}>
+                  <p className="font-display font-extrabold text-4xl mb-3" style={{ color: "rgb(var(--c-border-strong))", letterSpacing: "-0.04em" }}>
                     {p.n}
                   </p>
-                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, #1E40A6, #2952CB)" }} />
+                  <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, rgb(var(--c-accent)), rgb(var(--c-accent)))" }} />
                   <h3 className="font-display text-lg font-semibold text-ink mb-2">{p.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{p.body}</p>
                 </div>
@@ -125,7 +125,7 @@ export default function Nosotros() {
             {/* Vertical dashed line */}
             <div className="absolute left-[52px] md:left-1/2 top-2 bottom-2 w-px -translate-x-1/2 z-0"
               style={{
-                backgroundImage: "repeating-linear-gradient(to bottom, rgba(41,82,203,0.4) 0px, rgba(41,82,203,0.4) 6px, transparent 6px, transparent 14px)",
+                backgroundImage: "repeating-linear-gradient(to bottom, rgb(var(--c-accent) / 0.4) 0px, rgb(var(--c-accent) / 0.4) 6px, transparent 6px, transparent 14px)",
               }} />
 
             <div className="space-y-8">
@@ -137,7 +137,7 @@ export default function Nosotros() {
                     {/* Mobile: node + year */}
                     <div className="flex flex-col items-center flex-shrink-0 md:hidden">
                       <div className="w-[44px] h-[44px] rounded-full flex items-center justify-center z-10"
-                        style={{ background: "#2952CB", boxShadow: "0 0 16px rgba(41,82,203,0.4)" }}>
+                        style={{ background: "rgb(var(--c-accent))", boxShadow: "0 0 16px rgb(var(--c-accent) / 0.4)" }}>
                         <span className="text-[9px] font-bold text-white leading-tight text-center">{item.year}</span>
                       </div>
                     </div>
@@ -156,7 +156,7 @@ export default function Nosotros() {
                     {/* Desktop center node */}
                     <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-10" style={{ marginTop: "10px" }}>
                       <div className="w-11 h-11 rounded-full flex items-center justify-center"
-                        style={{ background: "#2952CB", boxShadow: "0 0 16px rgba(41,82,203,0.4)" }}>
+                        style={{ background: "rgb(var(--c-accent))", boxShadow: "0 0 16px rgb(var(--c-accent) / 0.4)" }}>
                         <span className="text-[9px] font-bold text-white leading-tight text-center">{item.year}</span>
                       </div>
                     </div>
@@ -186,9 +186,9 @@ export default function Nosotros() {
 
       {/* CTA */}
       <section className="py-20 md:py-24 relative overflow-hidden"
-        style={{ background: "linear-gradient(160deg, #060810 0%, #0D1430 50%, #060810 100%)" }}>
+        style={{ background: "linear-gradient(160deg, rgb(var(--c-deep)) 0%, rgb(var(--c-deep)) 50%, rgb(var(--c-deep)) 100%)" }}>
         <div className="absolute top-0 left-0 right-0 h-px"
-          style={{ background: "linear-gradient(to right, transparent, rgba(41,82,203,0.4), transparent)" }} />
+          style={{ background: "linear-gradient(to right, transparent, rgb(var(--c-accent) / 0.4), transparent)" }} />
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
           <Reveal>
             <h2 className="font-display text-display-md text-white mb-5">¿Trabajamos juntos?</h2>
@@ -209,8 +209,8 @@ export default function Nosotros() {
 function TimelineCard({ item }: { item: { year: string; title: string; desc: string } }) {
   return (
     <div className="rounded-sm p-5 w-full max-w-sm"
-      style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}>
-      <p className="text-[9px] font-bold uppercase tracking-[0.18em] mb-1.5" style={{ color: "#1E40A6" }}>
+      style={{ background: "rgb(var(--c-surface))", border: "1px solid rgb(var(--c-border))" }}>
+      <p className="text-[9px] font-bold uppercase tracking-[0.18em] mb-1.5" style={{ color: "rgb(var(--c-accent))" }}>
         {item.year}
       </p>
       <h3 className="font-semibold text-sm text-ink mb-1.5">{item.title}</h3>

@@ -129,7 +129,7 @@ export default function Metodologia() {
               <Reveal key={p.title} delay={i * 0.1}>
                 <div
                   className="rounded-sm p-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
-                  style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}
+                  style={{ background: "rgb(var(--c-surface))", border: "1px solid rgb(var(--c-border))" }}
                 >
                   <div className="w-6 h-px bg-accent mb-4" />
                   <h3 className="font-medium text-ink mb-2">{p.title}</h3>
@@ -145,10 +145,10 @@ export default function Metodologia() {
       <section className="bg-accent py-20 md:py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Reveal>
-            <h2 className="font-display text-display-md text-white mb-5">
+            <h2 className="font-display text-display-md text-on-accent mb-5">
               ¿Tiene sentido trabajar juntos?
             </h2>
-            <p className="text-white/70 mb-8">
+            <p className="text-on-accent/80 mb-8">
               Contanos qué necesitás investigar y evaluamos cómo podemos ayudarte.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

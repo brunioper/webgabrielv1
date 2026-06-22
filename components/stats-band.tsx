@@ -59,7 +59,7 @@ export default function StatsBand() {
                 className="font-display font-bold tabular-nums leading-none"
                 style={{
                   fontSize: "clamp(2.8rem, 5.5vw, 4.5rem)",
-                  color: "#2952CB",
+                  color: "rgb(var(--c-accent))",
                   letterSpacing: "-0.04em",
                 }}
               >

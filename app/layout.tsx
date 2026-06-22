@@ -63,10 +63,16 @@ const jsonLd = {
   serviceType: ["Investigación de mercado", "Estudios de mercado", "Consultoría estratégica"],
 };
 
+// Runs before first paint: applies saved theme or the device preference,
+// avoiding a flash of the wrong theme.
+const themeScript = `(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${newsreader.variable} ${dmSans.variable}`}>
+    <html lang="es" suppressHydrationWarning className={`${newsreader.variable} ${dmSans.variable}`}>
       <body className="font-body bg-bg text-ink antialiased">
+        {/* Sets theme class before paint — must be the first thing in body */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

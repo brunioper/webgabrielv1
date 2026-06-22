@@ -129,10 +129,10 @@ export default function Servicios() {
       <section className="bg-accent py-20 md:py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Reveal>
-            <h2 className="font-display text-display-md text-white mb-5">
+            <h2 className="font-display text-display-md text-on-accent mb-5">
               ¿No sabés por dónde empezar?
             </h2>
-            <p className="text-white/70 mb-8">
+            <p className="text-on-accent/80 mb-8">
               Contanos tu situación y definimos juntos qué tipo de estudio tiene más sentido.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

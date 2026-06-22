@@ -33,7 +33,7 @@ export function ServiceBlock({
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
           {/* Left: number + title + intro + CTA */}
           <Reveal className="md:col-span-2">
-            <p className="font-bold text-5xl font-light leading-none mb-4" style={{ color: "#E5E8F0" }}>
+            <p className="font-bold text-5xl font-light leading-none mb-4" style={{ color: "rgb(var(--c-border))" }}>
               {number}
             </p>
             <h2 className="font-display text-display-md text-ink mb-4 leading-tight">

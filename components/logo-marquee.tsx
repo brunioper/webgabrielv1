@@ -25,11 +25,11 @@ export default function LogoMarquee({ logos = placeholderLogos }: { logos?: Logo
         {/* Fade edges */}
         <div
           className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #FBFBFD, transparent)" }}
+          style={{ background: "linear-gradient(to right, rgb(var(--c-surface)), transparent)" }}
         />
         <div
           className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #FBFBFD, transparent)" }}
+          style={{ background: "linear-gradient(to left, rgb(var(--c-surface)), transparent)" }}
         />
 
         <motion.div
@@ -42,13 +42,13 @@ export default function LogoMarquee({ logos = placeholderLogos }: { logos?: Logo
               key={i}
               className="logo-item flex items-center gap-3 px-5 py-3 rounded-lg cursor-default select-none"
               style={{
-                background: "#FFFFFF",
-                border: "1px solid #E5E8F0",
+                background: "rgb(var(--c-surface))",
+                border: "1px solid rgb(var(--c-border))",
               }}
             >
               <div
                 className="w-8 h-8 rounded-md flex items-center justify-center text-[10px] font-bold"
-                style={{ background: "#EAEFFB", color: "#2952CB" }}
+                style={{ background: "rgb(var(--c-accent-soft))", color: "rgb(var(--c-accent))" }}
               >
                 {logo.abbr}
               </div>
