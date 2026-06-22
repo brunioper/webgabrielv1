@@ -47,8 +47,8 @@ export default function Nosotros() {
             Investigación, datos<br />y estrategia para decidir mejor.
           </h1>
           <p className="text-xl text-muted leading-relaxed max-w-2xl">
-            Somos una consultora de investigación de mercado y estrategia que
-            ayuda a empresas a transformar información en decisiones concretas.
+            Trabajamos con empresas que necesitan más claridad para decidir y
+            más capacidad para ejecutar.
           </p>
         </div>
       </section>
@@ -59,14 +59,14 @@ export default function Nosotros() {
           <Reveal>
             <div className="w-10 h-px bg-accent mb-8" />
             <p className="text-lg text-ink leading-relaxed mb-6">
-              Trabajamos con metodologías ágiles, estudios accesibles y un
-              enfoque local para entender consumidores, mercados y oportunidades
-              en Uruguay.
+              Integramos investigación, análisis y consultoría con una mirada
+              práctica, orientada a entender problemas reales y transformarlos
+              en acciones concretas.
             </p>
             <p className="text-base text-muted leading-relaxed">
               Nuestro enfoque combina información útil, criterio de negocio y
-              recomendaciones accionables, adaptándonos a la necesidad de cada
-              empresa, agencia o emprendimiento.
+              foco en la ejecución, adaptándonos a cada necesidad con soluciones
+              claras y aplicables.
             </p>
           </Reveal>
 
