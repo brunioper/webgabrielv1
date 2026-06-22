@@ -26,7 +26,7 @@ export default function Footer() {
   return (
     <footer className="bg-deep">
       {/* Top rule */}
-      <div className="h-px" style={{ background: "linear-gradient(to right, rgba(41,82,203,0.5), rgba(41,82,203,0.15), transparent)" }} />
+      <div className="h-px" style={{ background: "linear-gradient(to right, rgb(var(--c-accent) / 0.5), rgb(var(--c-accent) / 0.15), transparent)" }} />
 
       <div className="max-w-6xl mx-auto px-6">
         {/* Main grid */}

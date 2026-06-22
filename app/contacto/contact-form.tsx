@@ -91,21 +91,21 @@ export default function ContactForm() {
   }
 
   const inputStyle = {
-    background: "#FFFFFF",
-    border: "1px solid #D2D8E4",
-    color: "#14171F",
+    background: "rgb(var(--c-surface))",
+    border: "1px solid rgb(var(--c-border-strong))",
+    color: "rgb(var(--c-ink))",
   };
   if (submitted) {
     return (
       <div
         className="rounded-sm p-10 text-center"
-        style={{ background: "rgba(46,125,200,0.1)", border: "1px solid rgba(46,125,200,0.25)" }}
+        style={{ background: "rgb(var(--c-accent) / 0.1)", border: "1px solid rgb(var(--c-accent) / 0.25)" }}
       >
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-5"
-          style={{ background: "rgba(41,82,203,0.15)" }}
+          style={{ background: "rgb(var(--c-accent) / 0.15)" }}
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2952CB" strokeWidth="2.5" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgb(var(--c-accent))" strokeWidth="2.5" aria-hidden="true">
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
@@ -151,11 +151,11 @@ export default function ContactForm() {
 
       <Field label="Área de interés *" error={touched.area ? errors.area : undefined}>
         <select name="area" value={form.area} onChange={handleChange} onBlur={handleBlur}
-          className={fieldClass("area")} style={{ ...inputStyle, color: form.area === "" ? "#9AA3B2" : "#14171F" }}
+          className={fieldClass("area")} style={{ ...inputStyle, color: form.area === "" ? "rgb(var(--c-muted))" : "rgb(var(--c-ink))" }}
           aria-required="true" aria-invalid={!!(touched.area && errors.area)}>
           <option value="" disabled>Seleccioná una opción</option>
           {AREA_OPTIONS.map((o) => (
-            <option key={o} value={o} style={{ background: "#FFFFFF", color: "#14171F" }}>{o}</option>
+            <option key={o} value={o} style={{ background: "rgb(var(--c-surface))", color: "rgb(var(--c-ink))" }}>{o}</option>
           ))}
         </select>
       </Field>

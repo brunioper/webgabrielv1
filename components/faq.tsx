@@ -73,8 +73,8 @@ function FAQItem({
           className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full border flex items-center justify-center
                       transition-all duration-200"
           style={{
-            background: isOpen ? "#2952CB" : "transparent",
-            borderColor: isOpen ? "#2952CB" : "#D2D8E4",
+            background: isOpen ? "rgb(var(--c-accent))" : "transparent",
+            borderColor: isOpen ? "rgb(var(--c-accent))" : "rgb(var(--c-border-strong))",
           }}
           aria-hidden="true"
         >
@@ -87,7 +87,7 @@ function FAQItem({
           >
             <path
               d="M4.5 1v7M1 4.5h7"
-              stroke={isOpen ? "white" : "#8A93A8"}
+              stroke={isOpen ? "white" : "rgb(var(--c-muted))"}
               strokeWidth="1.5"
               strokeLinecap="round"
             />

@@ -2,9 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+/* ─── Theme variables (channel triples: "R G B") ──────────────────── */
+
+:root {
+  --c-bg:            244 242 236;  /* warm ivory paper */
+  --c-sand:          236 233 224;  /* alt section */
+  --c-surface:       251 250 246;  /* raised / cards */
+  --c-deep:           18  37  68;  /* deep navy anchor band */
+  --c-ink:            22  36  60;  /* blue-charcoal text */
+  --c-muted:         107 116 136;  /* secondary text */
+  --c-accent:         33  69 126;  /* deep serious blue */
+  --c-accent-warm:    22  51  94;  /* hover blue */
+  --c-accent-soft:   230 226 214;  /* warm neutral tint */
+  --c-border:        225 220 207;  /* warm hairline */
+  --c-border-strong: 212 206 189;
+  --c-on-accent:     255 255 255;  /* text on accent fills */
+  color-scheme: light;
 }
+
+.dark {
+  --c-bg:             15  24  38;  /* deep blue-charcoal paper */
+  --c-sand:           20  31  48;  /* alt section */
+  --c-surface:        23  35  57;  /* raised / cards */
+  --c-deep:            9  15  26;  /* darkest anchor band */
+  --c-ink:           230 233 240;  /* warm off-white text */
+  --c-muted:         148 160 181;  /* secondary text */
+  --c-accent:        122 158 226;  /* lifted blue (contrast on dark) */
+  --c-accent-warm:   154 183 235;  /* hover blue (lighter) */
+  --c-accent-soft:    27  41  66;  /* deep blue tint */
+  --c-border:         38  51  74;
+  --c-border-strong:  51  66  92;
+  --c-on-accent:      15  24  38;  /* dark text on light-blue fills */
+  color-scheme: dark;
+}
+
+html { scroll-behavior: smooth; }
 
 /* ─── Skip to main content ──────────────────────────────────────── */
 
@@ -13,7 +45,7 @@ html {
   left: 1.5rem;
   top: -5rem;
   z-index: 9999;
-  background: #21457E;
+  background: rgb(var(--c-accent));
   color: #fff;
   padding: 0.625rem 1.25rem;
   border-radius: 2px;
@@ -33,12 +65,13 @@ html {
 @layer base {
   body {
     font-family: var(--font-body), system-ui, sans-serif;
-    background-color: #F4F2EC;
-    color: #16243C;
+    background-color: rgb(var(--c-bg));
+    color: rgb(var(--c-ink));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.65;
     position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Editorial serif display — let it breathe */
@@ -53,7 +86,7 @@ html {
   a { text-decoration: none; }
 
   *:focus-visible {
-    outline: 2px solid #21457E;
+    outline: 2px solid rgb(var(--c-accent));
     outline-offset: 3px;
   }
 }
@@ -63,26 +96,28 @@ html {
 
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
-           px-7 py-3.5 text-white
+           px-7 py-3.5
            text-sm font-semibold tracking-wide rounded-[2px]
            transition-colors duration-200;
-    background: #21457E;
+    background: rgb(var(--c-accent));
+    color: rgb(var(--c-on-accent));
     font-family: var(--font-body), system-ui, sans-serif;
   }
-  .btn-primary:hover { background: #16335E; }
+  .btn-primary:hover { background: rgb(var(--c-accent-warm)); }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
-           px-7 py-3.5 text-ink
+           px-7 py-3.5
            text-sm font-semibold tracking-wide rounded-[2px]
            transition-colors duration-200;
-    border: 1px solid #16243C;
+    border: 1px solid rgb(var(--c-ink));
+    color: rgb(var(--c-ink));
     background: transparent;
     font-family: var(--font-body), system-ui, sans-serif;
   }
-  .btn-secondary:hover { background: rgba(22,36,60,0.04); }
+  .btn-secondary:hover { background: rgb(var(--c-ink) / 0.05); }
 
-  /* On the deep-navy section / footer */
+  /* On the deep-navy band — always light-on-dark, theme-independent */
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2
            px-7 py-3.5 text-white
@@ -104,7 +139,7 @@ html {
   }
   .btn-light:hover { background: #fff; }
 
-  /* ─── Section label — restrained small-caps, muted (not a blue eyebrow) ─ */
+  /* ─── Section label — restrained small-caps, muted ────────────────── */
 
   .section-label {
     font-family: var(--font-body), system-ui, sans-serif;
@@ -113,54 +148,45 @@ html {
     letter-spacing: 0.06em;
     text-transform: lowercase;
     font-variant: small-caps;
-    color: #6B7488;
+    color: rgb(var(--c-muted));
   }
 
   /* ─── Cards — hairline + whitespace, no shadow, no hover lift ──────── */
 
   .card {
     @apply rounded-[3px] p-6 md:p-8;
-    background: #FBFAF6;
-    border: 1px solid #E1DCCF;
+    background: rgb(var(--c-surface));
+    border: 1px solid rgb(var(--c-border));
   }
 
   .glass-card {
-    background: #FBFAF6;
-    border: 1px solid #E1DCCF;
+    background: rgb(var(--c-surface));
+    border: 1px solid rgb(var(--c-border));
   }
 
-  .service-card {
-    background: #FBFAF6;
-    border: 1px solid #E1DCCF;
-    transition: border-color 0.25s, background 0.25s;
-  }
-  .service-card:hover {
-    border-color: #D4CEBD;
-    background: #fff;
-  }
-
+  .service-card,
   .service-card-v2 {
-    border: 1px solid #E1DCCF;
-    background: #FBFAF6;
+    background: rgb(var(--c-surface));
+    border: 1px solid rgb(var(--c-border));
     transition: border-color 0.25s, background 0.25s;
   }
+  .service-card:hover,
   .service-card-v2:hover {
-    border-color: #D4CEBD;
-    background: #fff;
+    border-color: rgb(var(--c-border-strong));
   }
 
   /* ─── Section dividers — warm hairlines ───────────────────────────── */
 
-  .section-divider-top    { border-top: 1px solid #E1DCCF; }
-  .section-divider-bottom { border-bottom: 1px solid #E1DCCF; }
+  .section-divider-top    { border-top: 1px solid rgb(var(--c-border)); }
+  .section-divider-bottom { border-bottom: 1px solid rgb(var(--c-border)); }
 
   /* ─── Text link with arrow ────────────────────────────────────────── */
 
   .link-arrow {
     @apply inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-200;
-    color: #21457E;
+    color: rgb(var(--c-accent));
   }
-  .link-arrow:hover { color: #16335E; }
+  .link-arrow:hover { color: rgb(var(--c-accent-warm)); }
 }
 
 /* ─── Hero editorial background rules (warm, faint) ────────────────── */
@@ -170,12 +196,12 @@ html {
     0deg,
     transparent,
     transparent 79px,
-    rgba(22, 36, 60, 0.04) 79px,
-    rgba(22, 36, 60, 0.04) 80px
+    rgb(var(--c-ink) / 0.04) 79px,
+    rgb(var(--c-ink) / 0.04) 80px
   );
 }
 
-/* ─── Legacy component animations (removed from use in later rounds) ── */
+/* ─── Legacy component animations ─────────────────────────────────── */
 
 @keyframes board-row-in {
   from { opacity: 0; transform: translateX(12px); }
@@ -203,8 +229,6 @@ html {
   animation: sparkline-draw 1.8s ease-out 0.6s forwards;
 }
 
-/* ─── WhatsApp bubble — subtle, no attention-seeking pulse ─────────── */
-
 .logo-item {
   filter: grayscale(1) opacity(0.6);
   transition: filter 0.3s ease;
@@ -219,4 +243,5 @@ html {
   .board-row, .bar-fill { animation: none; }
   .sparkline { animation: none; stroke-dashoffset: 0; }
   html { scroll-behavior: auto; }
+  body { transition: none; }
 }

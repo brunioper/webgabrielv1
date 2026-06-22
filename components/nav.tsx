@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { BRAND, WHATSAPP_URL } from "@/lib/config";
+import ThemeToggle from "@/components/theme-toggle";
 
 const links = [
   { href: "/",            label: "Inicio" },
@@ -58,7 +59,7 @@ export default function Nav() {
   const path = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md section-divider-bottom">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-bg/85 backdrop-blur-md section-divider-bottom">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link
@@ -95,7 +96,7 @@ export default function Nav() {
                   {path.startsWith("/servicios") && (
                     <span
                       className="absolute bottom-0 left-0 right-0 h-px"
-                      style={{ background: "linear-gradient(to right, #2952CB, #1E40A6)" }}
+                      style={{ background: "linear-gradient(to right, rgb(var(--c-accent)), rgb(var(--c-accent)))" }}
                     />
                   )}
                 </Link>
@@ -108,12 +109,12 @@ export default function Nav() {
                   <div
                     className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-80 rounded-lg overflow-hidden z-50"
                     style={{
-                      background: "#FFFFFF",
-                      border: "1px solid #E5E8F0",
-                      boxShadow: "0 24px 60px -16px rgba(20,23,31,0.22)",
+                      background: "rgb(var(--c-surface))",
+                      border: "1px solid rgb(var(--c-border))",
+                      boxShadow: "0 24px 60px -16px rgb(var(--c-ink) / 0.22)",
                     }}
                   >
-                    <div className="h-px" style={{ background: "linear-gradient(to right, #2952CB, #1E40A6, transparent)" }} />
+                    <div className="h-px" style={{ background: "linear-gradient(to right, rgb(var(--c-accent)), rgb(var(--c-accent)), transparent)" }} />
                     <div className="p-2">
                       {serviceItems.map((item) => (
                         <Link
@@ -124,7 +125,7 @@ export default function Nav() {
                         >
                           <div
                             className="w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5 text-accent transition-colors group-hover:bg-accent/10"
-                            style={{ background: "#EAEFFB" }}
+                            style={{ background: "rgb(var(--c-accent-soft))" }}
                           >
                             {item.icon}
                           </div>
@@ -153,7 +154,7 @@ export default function Nav() {
                 {path === l.href && (
                   <span
                     className="absolute bottom-0 left-0 right-0 h-px"
-                    style={{ background: "linear-gradient(to right, #2952CB, #1E40A6)" }}
+                    style={{ background: "linear-gradient(to right, rgb(var(--c-accent)), rgb(var(--c-accent)))" }}
                   />
                 )}
               </Link>
@@ -162,6 +163,7 @@ export default function Nav() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -172,12 +174,15 @@ export default function Nav() {
           </a>
           <Link
             href="/contacto"
-            className="text-sm bg-accent text-white px-4 py-2 rounded-sm transition-all duration-200
-                       hover:bg-accent-warm hover:shadow-[0_0_20px_rgba(41,82,203,0.4)]"
+            className="text-sm bg-accent text-on-accent px-4 py-2 rounded-[2px] transition-colors duration-200
+                       hover:bg-accent-warm"
           >
             Solicitar estudio
           </Link>
         </div>
+
+        {/* Mobile actions */}
+        <ThemeToggle className="lg:hidden" />
 
         {/* Mobile hamburger */}
         <button
@@ -217,7 +222,7 @@ export default function Nav() {
           <Link
             href="/contacto"
             onClick={() => setOpen(false)}
-            className="mt-4 text-sm bg-accent text-white px-4 py-3 rounded-sm text-center hover:bg-accent-warm transition-colors"
+            className="mt-4 text-sm bg-accent text-on-accent px-4 py-3 rounded-[2px] text-center hover:bg-accent-warm transition-colors"
           >
             Solicitar estudio
           </Link>

@@ -46,10 +46,10 @@ function HeroSection() {
     <section className="min-h-screen flex flex-col bg-bg relative overflow-hidden">
       {/* Soft ambient blue */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: "radial-gradient(ellipse 55% 60% at 82% 40%, rgba(41,82,203,0.08) 0%, transparent 62%)",
+        background: "radial-gradient(ellipse 55% 60% at 82% 40%, rgb(var(--c-accent) / 0.08) 0%, transparent 62%)",
       }} />
       <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: "radial-gradient(circle, rgba(41,82,203,0.06) 1px, transparent 1px)",
+        backgroundImage: "radial-gradient(circle, rgb(var(--c-accent) / 0.06) 1px, transparent 1px)",
         backgroundSize: "30px 30px",
         WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 78% 45%, black 5%, transparent 70%)",
         maskImage: "radial-gradient(ellipse 70% 60% at 78% 45%, black 5%, transparent 70%)",
@@ -103,14 +103,14 @@ function HeroSection() {
       </div>
 
       {/* Stats strip */}
-      <div className="border-t relative z-10 bg-white/50" style={{ borderColor: "#E5E8F0" }}>
+      <div className="border-t relative z-10 bg-surface/50" style={{ borderColor: "rgb(var(--c-border))" }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4">
             {heroStats.map((s, i) => (
               <div
                 key={s.label}
                 className={`py-6 px-6 ${i > 0 ? "border-l" : ""} ${i < 2 ? "border-b md:border-b-0" : ""} first:pl-0`}
-                style={{ borderColor: "#E5E8F0" }}
+                style={{ borderColor: "rgb(var(--c-border))" }}
               >
                 <p className="font-display font-extrabold text-2xl text-ink tracking-tight"
                   style={{ letterSpacing: "-0.03em" }}>
@@ -130,7 +130,7 @@ function HeroSection() {
 
 function TrustStrip() {
   return (
-    <section className="bg-bg py-12 border-b" style={{ borderColor: "#E5E8F0" }}>
+    <section className="bg-bg py-12 border-b" style={{ borderColor: "rgb(var(--c-border))" }}>
       <div className="max-w-6xl mx-auto px-6">
         <p className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-muted/70 mb-7">
           Empresas que confían en nosotros
@@ -193,13 +193,13 @@ function ServicesSection() {
         </Reveal>
 
         {/* Editorial numbered list */}
-        <div style={{ borderTop: "1px solid #E5E8F0" }}>
+        <div style={{ borderTop: "1px solid rgb(var(--c-border))" }}>
           {services.map((s, i) => (
             <Reveal key={s.number} delay={i * 0.07}>
               <Link
                 href={s.href}
                 className="group flex items-start gap-6 md:gap-12 py-10 md:py-11 -mx-6 px-6 transition-colors duration-300 hover:bg-sand rounded-lg"
-                style={{ borderBottom: "1px solid #E5E8F0" }}
+                style={{ borderBottom: "1px solid rgb(var(--c-border))" }}
               >
                 {/* Number */}
                 <span
@@ -207,7 +207,7 @@ function ServicesSection() {
                   style={{
                     fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
                     letterSpacing: "-0.04em",
-                    color: "#D7E0F4",
+                    color: "rgb(var(--c-border-strong))",
                   }}
                 >
                   {s.number}
@@ -295,7 +295,7 @@ const values = [
 
 function ValuesSection() {
   return (
-    <section className="bg-sand py-24 md:py-32 border-y" style={{ borderColor: "#E5E8F0" }}>
+    <section className="bg-sand py-24 md:py-32 border-y" style={{ borderColor: "rgb(var(--c-border))" }}>
       <div className="max-w-6xl mx-auto px-6">
         <Reveal>
           <div className="max-w-2xl mb-14">
@@ -315,7 +315,7 @@ function ValuesSection() {
               <div className="card h-full">
                 <div
                   className="w-12 h-12 rounded-lg flex items-center justify-center text-accent mb-6"
-                  style={{ background: "#EAEFFB" }}
+                  style={{ background: "rgb(var(--c-accent-soft))" }}
                 >
                   {v.icon}
                 </div>
@@ -364,12 +364,12 @@ function StudiesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Estudios prontos */}
           <Reveal>
-            <div className="rounded-xl p-9 md:p-11 h-full flex flex-col bg-white"
-              style={{ border: "1px solid #E5E8F0", boxShadow: "0 1px 2px rgba(20,23,31,0.04), 0 4px 16px -8px rgba(20,23,31,0.10)" }}>
+            <div className="rounded-xl p-9 md:p-11 h-full flex flex-col bg-surface"
+              style={{ border: "1px solid rgb(var(--c-border))", boxShadow: "0 1px 2px rgb(var(--c-ink) / 0.04), 0 4px 16px -8px rgb(var(--c-ink) / 0.10)" }}>
               <div className="mb-7">
                 <span
                   className="inline-block text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-md mb-6"
-                  style={{ background: "#EAEFFB", color: "#1E40A6" }}
+                  style={{ background: "rgb(var(--c-accent-soft))", color: "rgb(var(--c-accent))" }}
                 >
                   Disponibles hoy
                 </span>
@@ -384,9 +384,9 @@ function StudiesSection() {
                 </p>
               </div>
 
-              <div className="flex-1" style={{ borderTop: "1px solid #EEF1F7" }}>
+              <div className="flex-1" style={{ borderTop: "1px solid rgb(var(--c-border))" }}>
                 {available.map((study) => (
-                  <div key={study.id} className="py-4" style={{ borderBottom: "1px solid #F0F2F8" }}>
+                  <div key={study.id} className="py-4" style={{ borderBottom: "1px solid rgb(var(--c-border))" }}>
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <span className="text-[10px] font-bold uppercase tracking-wider text-accent block mb-1">
@@ -399,7 +399,7 @@ function StudiesSection() {
                   </div>
                 ))}
                 {coming.map((study) => (
-                  <div key={study.id} className="py-4 opacity-50" style={{ borderBottom: "1px solid #F0F2F8" }}>
+                  <div key={study.id} className="py-4 opacity-50" style={{ borderBottom: "1px solid rgb(var(--c-border))" }}>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-muted block mb-1">
                       Próximamente
                     </span>
@@ -420,11 +420,11 @@ function StudiesSection() {
           <Reveal delay={0.08}>
             <div
               className="rounded-xl p-9 md:p-11 h-full flex flex-col relative overflow-hidden"
-              style={{ background: "#0B1A33" }}
+              style={{ background: "rgb(var(--c-deep))" }}
             >
               {/* Background accent */}
               <div className="absolute top-0 right-0 w-72 h-72 pointer-events-none" style={{
-                background: "radial-gradient(circle at 100% 0%, rgba(75,115,232,0.35) 0%, transparent 60%)",
+                background: "radial-gradient(circle at 100% 0%, rgb(var(--c-accent) / 0.35) 0%, transparent 60%)",
               }} />
 
               <div className="relative z-10 flex flex-col h-full">
@@ -483,14 +483,14 @@ function CtaSection() {
   return (
     <section
       className="relative overflow-hidden py-32 md:py-44"
-      style={{ background: "#0B1A33" }}
+      style={{ background: "rgb(var(--c-deep))" }}
     >
       {/* Centered glow */}
       <div className="absolute inset-0 pointer-events-none flex items-end justify-center">
         <div style={{
           width: "70%",
           height: "55%",
-          background: "radial-gradient(ellipse at 50% 100%, rgba(75,115,232,0.4) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse at 50% 100%, rgb(var(--c-accent) / 0.4) 0%, transparent 65%)",
         }} />
       </div>
 

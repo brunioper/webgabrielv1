@@ -64,7 +64,7 @@ export default function Aliados() {
                   <div
                     key={item.title}
                     className="rounded-sm p-6"
-                    style={{ background: "#FFFFFF", border: "1px solid #E5E8F0" }}
+                    style={{ background: "rgb(var(--c-surface))", border: "1px solid rgb(var(--c-border))" }}
                   >
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-4 h-px bg-accent" />
@@ -92,7 +92,7 @@ export default function Aliados() {
           <Reveal delay={0.1}>
             <div
               className="rounded-sm p-12 text-center"
-              style={{ border: "1px dashed #D2D8E4" }}
+              style={{ border: "1px dashed rgb(var(--c-border-strong))" }}
             >
               <p className="text-muted text-sm">Los logos de aliados aparecerán aquí.</p>
               <p className="text-muted/50 text-xs mt-2">Agregá los logos en este componente cuando estén disponibles.</p>
@@ -105,10 +105,10 @@ export default function Aliados() {
       <section className="bg-accent py-20 md:py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Reveal>
-            <h2 className="font-display text-display-md text-white mb-5">
+            <h2 className="font-display text-display-md text-on-accent mb-5">
               ¿Querés conocer oportunidades de alianza?
             </h2>
-            <p className="text-white/70 mb-8">
+            <p className="text-on-accent/80 mb-8">
               Contanos sobre tu empresa y exploramos cómo podemos trabajar juntos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

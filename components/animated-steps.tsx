@@ -31,7 +31,7 @@ function StepRow({ step, index }: { step: Step; index: number }) {
       <div className="md:col-span-1 flex md:block items-center gap-3">
         <p
           className="font-display font-extrabold text-3xl leading-none transition-colors duration-300 group-hover:text-accent"
-          style={{ color: "#D7E0F4", letterSpacing: "-0.03em" }}
+          style={{ color: "rgb(var(--c-border-strong))", letterSpacing: "-0.03em" }}
         >
           {step.n}
         </p>

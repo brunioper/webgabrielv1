@@ -26,11 +26,11 @@ export function StudyCatalog() {
             className="px-4 py-1.5 rounded-sm text-sm transition-all duration-200"
             style={
               active === cat
-                ? { background: "#2952CB", color: "#fff", border: "1px solid #2952CB" }
+                ? { background: "rgb(var(--c-accent))", color: "#fff", border: "1px solid rgb(var(--c-accent))" }
                 : {
                     background: "transparent",
-                    color: "#5A6478",
-                    border: "1px solid #D2D8E4",
+                    color: "rgb(var(--c-muted))",
+                    border: "1px solid rgb(var(--c-border-strong))",
                   }
             }
           >
@@ -49,11 +49,11 @@ export function StudyCatalog() {
       {/* Coming soon — always visible below filtered results */}
       <div
         className="rounded-sm p-7 flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-8"
-        style={{ border: "1px dashed #D2D8E4" }}
+        style={{ border: "1px dashed rgb(var(--c-border-strong))" }}
       >
         <div
           className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center"
-          style={{ border: "1px solid #D2D8E4" }}
+          style={{ border: "1px solid rgb(var(--c-border-strong))" }}
         >
           <span className="text-lg text-muted leading-none select-none">+</span>
         </div>
