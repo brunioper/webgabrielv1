@@ -14,16 +14,6 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
   useEffect(() => {
     setMounted(true);
     setDark(document.documentElement.classList.contains("dark"));
-
-    // Follow the device until the user makes an explicit choice
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = (e: MediaQueryListEvent) => {
-      if (localStorage.getItem("theme")) return;
-      applyTheme(e.matches);
-      setDark(e.matches);
-    };
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
   }, []);
 
   function toggle() {

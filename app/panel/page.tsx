@@ -253,7 +253,7 @@ export default function Panel() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
             {puntos.map((p) => (
               <div key={p.title} className="card">
-                <h3 className="font-medium text-ink mb-1">{p.title}</h3>
+                <h3 className="font-semibold text-ink mb-1">{p.title}</h3>
                 <p className="text-sm text-muted leading-relaxed">{p.desc}</p>
               </div>
             ))}

@@ -57,7 +57,7 @@ export default function Clientes() {
                 <div className="rounded-sm p-7 h-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"
                   style={{ background: "rgb(var(--c-surface))", border: "1px solid rgb(var(--c-border))" }}>
                   <div className="w-6 h-px mb-4" style={{ background: "linear-gradient(to right, rgb(var(--c-accent)), rgb(var(--c-accent)))" }} />
-                  <h3 className="font-medium text-ink mb-2">{item.title}</h3>
+                  <h3 className="font-semibold text-ink mb-2">{item.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{item.body}</p>
                 </div>
               </Reveal>

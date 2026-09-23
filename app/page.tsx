@@ -75,7 +75,7 @@ function HeroSection() {
               style={{ fontSize: "clamp(2.75rem, 6vw, 5.4rem)", letterSpacing: "-0.02em" }}
             >
               Decisiones basadas<br />
-              en <span className="text-accent italic">información.</span>
+              en <span className="text-gradient">información.</span>
             </h1>
 
             <p className="text-lg text-muted leading-[1.7] max-w-md mb-10">
@@ -538,7 +538,7 @@ function CtaSection() {
             style={{ fontSize: "clamp(2.2rem, 5vw, 4.2rem)", letterSpacing: "-0.02em", lineHeight: "1.08" }}
           >
             ¿Tenés una decisión que necesitás{" "}
-            <span className="italic" style={{ color: "#9FBFFF" }}>
+            <span className="text-gradient">
               tomar con más claridad?
             </span>
           </h2>

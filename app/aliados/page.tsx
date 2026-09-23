@@ -70,7 +70,7 @@ export default function Aliados() {
                       <div className="w-4 h-px bg-accent" />
                       <p className="text-xs font-bold text-accent uppercase tracking-[0.15em]">0{i + 1}</p>
                     </div>
-                    <h3 className="font-medium text-ink mb-1">{item.title}</h3>
+                    <h3 className="font-semibold text-ink mb-1">{item.title}</h3>
                     <p className="text-sm text-muted leading-relaxed">{item.body}</p>
                   </div>
                 ))}

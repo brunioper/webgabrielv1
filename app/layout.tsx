@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { Newsreader, DM_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import WhatsAppBubble from "@/components/whatsapp-bubble";
 import { BRAND, CONTACT } from "@/lib/config";
 
-// Editorial serif for display — refined italic available for accents
-const newsreader = Newsreader({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
+  weight: ["500", "600", "700", "800"],
 });
 
-// Quiet, neutral grotesk for body / UI
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -63,13 +60,12 @@ const jsonLd = {
   serviceType: ["Consultoría estratégica", "Investigación de mercado", "Panel Uruguay"],
 };
 
-// Runs before first paint: applies saved theme or the device preference,
-// avoiding a flash of the wrong theme.
-const themeScript = `(function(){try{var s=localStorage.getItem('theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark',d);}catch(e){}})();`;
+// Runs before first paint: navy (dark) by default, light only if the visitor chose it.
+const themeScript = `(function(){try{document.documentElement.classList.toggle('dark',localStorage.getItem('theme')!=='light');}catch(e){document.documentElement.classList.add('dark');}})();`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" suppressHydrationWarning className={`${newsreader.variable} ${dmSans.variable}`}>
+    <html lang="es" suppressHydrationWarning className={`${plusJakarta.variable} ${dmSans.variable}`}>
       <body className="font-body bg-bg text-ink antialiased">
         {/* Sets theme class before paint — must be the first thing in body */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

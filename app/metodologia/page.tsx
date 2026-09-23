@@ -133,7 +133,7 @@ export default function Metodologia() {
                   style={{ background: "rgb(var(--c-surface))", border: "1px solid rgb(var(--c-border))" }}
                 >
                   <div className="w-6 h-px bg-accent mb-4" />
-                  <h3 className="font-medium text-ink mb-2">{p.title}</h3>
+                  <h3 className="font-semibold text-ink mb-2">{p.title}</h3>
                   <p className="text-sm text-muted leading-relaxed">{p.body}</p>
                 </div>
               </Reveal>
