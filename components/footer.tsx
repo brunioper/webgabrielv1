@@ -14,8 +14,9 @@ const navColumns = [
   {
     label: "Servicios",
     links: [
-      { href: "/servicios", label: "Investigación de mercado" },
-      { href: "/servicios", label: "Consultoría estratégica" },
+      { href: "/servicios#consultoria", label: "Consultoría estratégica" },
+      { href: "/servicios#investigacion", label: "Investigación de mercado" },
+      { href: "/panel#registro", label: "Panel Uruguay" },
       { href: "/estudios",  label: "Estudios prontos" },
       { href: "/contacto",  label: "Solicitar estudio" },
     ],

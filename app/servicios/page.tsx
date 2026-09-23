@@ -7,11 +7,11 @@ import { WHATSAPP_URL } from "@/lib/config";
 export const metadata: Metadata = {
   title: { absolute: "Servicios de investigación de mercado y consultoría estratégica | Uruguay" },
   description:
-    "Investigación de mercado, consultoría estratégica y estudios para empresas en Uruguay. Encuestas, análisis de consumidores, posicionamiento y más.",
+    "Consultoría estratégica, investigación de mercado y panel en Uruguay. Estudios prontos, estudios ad hoc y registro para participar en encuestas.",
   openGraph: {
-    title: "Servicios de investigación de mercado y consultoría estratégica",
+    title: "Servicios de consultoría estratégica e investigación de mercado",
     description:
-      "Tres áreas integradas: investigación de mercado, consultoría estratégica y estudios para empresas. Trabajamos en Uruguay.",
+      "Tres áreas: consultoría estratégica, investigación de mercado y Panel Uruguay.",
     type: "website",
   },
 };
@@ -27,54 +27,18 @@ export default function Servicios() {
             ¿En qué podemos ayudarte?
           </h1>
           <p className="text-xl text-muted leading-relaxed max-w-xl">
-            Trabajamos en dos áreas que se complementan: investigación de
-            mercado y consultoría. Según la necesidad, trabajamos en una o las
-            combinamos.
+            Tres áreas que se complementan: consultoría estratégica,
+            investigación de mercado y el panel. Según la necesidad, trabajamos
+            en una o las combinamos.
           </p>
         </div>
       </section>
 
       <ServiceBlock
+        id="consultoria"
         number="01"
-        title="Investigación de mercado"
-        intro="Diseñamos herramientas para entender mejor al consumidor, el mercado y las oportunidades de negocio, combinando estudios disponibles, proyectos a medida y un panel propio."
-        services={[
-          {
-            category: "Estudios prontos",
-            items: [
-              "Informes ya elaborados, listos para acceder de forma ágil",
-              "Información útil sin esperar un desarrollo desde cero",
-              "Generan contenido, imagen y tracción de marca",
-              "Análisis del consumidor y contexto sectorial",
-            ],
-          },
-          {
-            category: "Investigaciones ad hoc",
-            items: [
-              "Estudios diseñados a medida según cada necesidad",
-              "Ideales para validar decisiones y reducir incertidumbre",
-              "Diseño de cuestionario, segmentos y muestra",
-              "Reportes ejecutivos y recomendaciones accionables",
-            ],
-          },
-          {
-            category: "Panel propio",
-            items: [
-              "Panel de personas con perfil INSE completo",
-              "Listo para ejecutar estudios con rapidez",
-              "Registro abierto a quienes quieran participar",
-              "Encuestas online segmentadas",
-            ],
-          },
-        ]}
-        cta="Ver estudios disponibles"
-        ctaHref="/estudios"
-      />
-
-      <ServiceBlock
-        number="02"
-        title="Consultoría estratégica, comercial y de procesos"
-        intro="Acompañamos a empresas en la toma de decisiones, la mejora de procesos y la implementación de iniciativas clave, combinando análisis, criterio y foco en la acción. No nos quedamos en el diagnóstico: acompañamos decisiones, mejoras e implementación."
+        title="Consultoría estratégica"
+        intro="A partir de los insights de las investigaciones, trabajamos una estrategia en conjunto con la empresa para convertir la información en accionables que permitan alcanzar los objetivos de nuestros clientes."
         services={[
           {
             category: "Decisiones comerciales",
@@ -86,36 +50,85 @@ export default function Servicios() {
             ],
           },
           {
-            category: "Optimización y mejora de procesos",
+            category: "Estrategia a partir de la investigación",
             items: [
-              "Revisión de procesos comerciales y operativos",
-              "Mejora del funnel de conversión",
-              "Identificación de cuellos de botella",
-              "Simplificación y eficiencia operativa",
+              "Lectura conjunta de los hallazgos",
+              "Traducción de datos a decisiones",
+              "Prioridades claras para el equipo",
+              "Acompañamiento hasta la ejecución",
             ],
           },
           {
-            category: "Digitalización y automatización",
+            category: "Digitalización e inteligencia artificial",
             items: [
               "Incorporación de herramientas digitales",
               "Automatización de tareas repetitivas",
-              "Mejora de procesos de atención y back office",
+              "Mejora de procesos de atención",
               "Uso aplicado de inteligencia artificial",
-            ],
-          },
-          {
-            category: "Liderazgo y seguimiento de proyectos",
-            items: [
-              "Coordinación de iniciativas y equipos",
-              "Seguimiento de proyectos y control de avances",
-              "Implementación de mejoras",
-              "Acompañamiento hasta la ejecución",
             ],
           },
         ]}
         cta="Coordinar una consulta"
         ctaHref="/contacto"
+      />
+
+      <ServiceBlock
+        id="investigacion"
+        number="02"
+        title="Investigación de mercado"
+        intro="Diseñamos estudios para entender al consumidor, el mercado y las oportunidades de negocio. Los prontos ya están armados. Los ad hoc se construyen para una pregunta concreta y se ejecutan sobre el panel."
+        services={[
+          {
+            category: "Estudios prontos",
+            items: [
+              "Estudios prearmados, listos para acceder",
+              "Se ofrecen de forma proactiva sobre temas del mercado",
+              "Generan contenido, imagen y tracción de marca",
+              "Análisis del consumidor y contexto sectorial",
+            ],
+          },
+          {
+            category: "Estudios ad hoc",
+            items: [
+              "Investigación a medida para cada cliente",
+              "Diseño de cuestionario, segmentos y muestra",
+              "Se apoyan en el panel para ejecutarse",
+              "Reportes ejecutivos y recomendaciones accionables",
+            ],
+          },
+        ]}
+        cta="Ver estudios disponibles"
+        ctaHref="/estudios"
         altBg
+      />
+
+      <ServiceBlock
+        id="panel"
+        number="03"
+        title="Panel Uruguay"
+        intro="El motor de todo. Un panel de personas con perfil INSE completo, abierto a quien quiera participar respondiendo encuestas. El registro es gratuito y las recompensas se resuelven con sponsors locales."
+        services={[
+          {
+            category: "Registro",
+            items: [
+              "Gratuito, 100% online y en menos de 5 minutos",
+              "Para mayores de 18 años que residan en Uruguay",
+              "Nombre, email y perfil para recibir las encuestas correctas",
+              "Sin datos bancarios ni tarjeta",
+            ],
+          },
+          {
+            category: "Participación",
+            items: [
+              "Invitaciones a encuestas por email",
+              "Cada encuesta suma chances al sorteo del mes",
+              "Perfil INSE para segmentar con precisión",
+              "Programa de puntos, en preparación",
+            ],
+          },
+        ]}
+        cta="Registrarme en el panel"
+        ctaHref="/panel#registro"
       />
 
       {/* CTA final */}

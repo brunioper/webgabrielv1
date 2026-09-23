@@ -19,9 +19,19 @@ const links = [
 
 const serviceItems = [
   {
-    href: "/servicios",
+    href: "/servicios#consultoria",
+    label: "Consultoría estratégica",
+    desc: "De la información a accionables, junto a la empresa",
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+      </svg>
+    ),
+  },
+  {
+    href: "/servicios#investigacion",
     label: "Investigación de mercado",
-    desc: "Estudios prontos, ad hoc y panel propio",
+    desc: "Estudios prontos y estudios ad hoc",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="22" y2="22" />
@@ -30,19 +40,9 @@ const serviceItems = [
     ),
   },
   {
-    href: "/servicios",
-    label: "Consultoría estratégica y de procesos",
-    desc: "Decisiones, procesos, digitalización e IA",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-      </svg>
-    ),
-  },
-  {
-    href: "/panel",
+    href: "/panel#registro",
     label: "Panel Uruguay",
-    desc: "Sumate y participá en encuestas",
+    desc: "Registrate y participá en encuestas",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />

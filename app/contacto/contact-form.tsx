@@ -3,10 +3,10 @@
 import { useState, type ChangeEvent, type FocusEvent } from "react";
 
 const AREA_OPTIONS = [
+  "Consultoría estratégica",
+  "Investigación de mercado",
   "Estudios prontos",
   "Estudio ad hoc",
-  "Investigación de mercado",
-  "Consultoría estratégica",
   "Alianzas estratégicas",
   "Otro",
 ] as const;

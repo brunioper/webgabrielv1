@@ -7,6 +7,7 @@ export type ServiceCategory = {
 };
 
 type ServiceBlockProps = {
+  id?: string;
   number: string;
   title: string;
   intro: string;
@@ -18,6 +19,7 @@ type ServiceBlockProps = {
 };
 
 export function ServiceBlock({
+  id,
   number,
   title,
   intro,
@@ -28,7 +30,7 @@ export function ServiceBlock({
   altBg,
 }: ServiceBlockProps) {
   return (
-    <section className={`py-20 md:py-28 ${altBg ? "bg-sand" : "bg-bg"}`}>
+    <section id={id} className={`py-20 md:py-28 scroll-mt-24 ${altBg ? "bg-sand" : "bg-bg"}`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16">
           {/* Left: number + title + intro + CTA */}

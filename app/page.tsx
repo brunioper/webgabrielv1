@@ -24,10 +24,11 @@ export default function Home() {
     <>
       <HeroSection />
       <ProblemSection />
-      <TrustStrip />
       <ServicesSection />
       <ValuesSection />
       <StudiesSection />
+      <SponsorsSection />
+      <ClientsStrip />
       <CtaSection />
     </>
   );
@@ -64,7 +65,7 @@ function HeroSection() {
             <div className="flex items-center gap-3 mb-9">
               <div className="w-8 h-px bg-accent" />
               <span className="text-[11px] font-bold text-accent tracking-[0.22em] uppercase">
-                Investigación · Consultoría · Panel · Montevideo
+                Consultoría · Investigación · Panel · Montevideo
               </span>
             </div>
 
@@ -149,15 +150,60 @@ function ProblemSection() {
   );
 }
 
-function TrustStrip() {
+function SponsorsSection() {
   return (
-    <section className="bg-bg py-12 border-b" style={{ borderColor: "rgb(var(--c-border))" }}>
+    <section className="bg-sand py-16 md:py-20 border-y" style={{ borderColor: "rgb(var(--c-border))" }}>
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-muted/70 mb-7">
-          Empresas que confían en nosotros
-        </p>
-        <LogoMarquee />
+        <Reveal>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div className="max-w-xl">
+              <span className="section-label block mb-4">Aliados estratégicos</span>
+              <h2
+                className="font-display text-ink mb-4"
+                style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", letterSpacing: "-0.02em", lineHeight: "1.1" }}
+              >
+                Empresas que nos acompañan
+              </h2>
+              <p className="text-base text-muted leading-relaxed">
+                Marcas que acompañan el panel y los estudios. Si la tuya quiere sumarse como sponsor, este es el lugar.
+              </p>
+            </div>
+            <Link
+              href="/aliados"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-warm transition-colors shrink-0"
+            >
+              Sumarme como sponsor →
+            </Link>
+          </div>
+        </Reveal>
       </div>
+    </section>
+  );
+}
+
+function ClientsStrip() {
+  return (
+    <section className="bg-bg py-16 md:py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+          <div>
+            <span className="section-label block mb-3">Clientes</span>
+            <h2
+              className="font-display text-ink"
+              style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", letterSpacing: "-0.02em", lineHeight: "1.1" }}
+            >
+              Nuestros clientes
+            </h2>
+          </div>
+          <Link
+            href="/clientes"
+            className="text-sm font-semibold text-accent hover:text-accent-warm transition-colors"
+          >
+            Ver clientes →
+          </Link>
+        </div>
+      </div>
+      <LogoMarquee />
     </section>
   );
 }
@@ -167,24 +213,24 @@ function TrustStrip() {
 const services = [
   {
     number: "01",
-    title: "Investigación de mercado",
-    desc: "Diseñamos herramientas para entender mejor al consumidor, el mercado y las oportunidades de negocio, combinando estudios disponibles y proyectos a medida.",
-    tags: ["Estudios prontos", "Investigaciones ad hoc", "Panel propio"],
-    href: "/servicios",
+    title: "Consultoría estratégica",
+    desc: "A partir de los insights de las investigaciones, trabajamos una estrategia en conjunto con la empresa para convertir la información en accionables.",
+    tags: ["Decisiones comerciales", "Estrategia conjunta", "Accionables"],
+    href: "/servicios#consultoria",
   },
   {
     number: "02",
-    title: "Consultoría estratégica, comercial y de procesos",
-    desc: "Acompañamos decisiones, la mejora de procesos y la implementación de iniciativas clave, combinando análisis, criterio y foco en la acción.",
-    tags: ["Decisiones comerciales", "Mejora de procesos y funnel", "Digitalización e IA", "Liderazgo de proyectos"],
-    href: "/servicios",
+    title: "Investigación de mercado",
+    desc: "Estudios prontos, prearmados, y estudios ad hoc a medida. Los primeros generan contenido e imagen; los segundos resuelven una pregunta concreta de cada cliente.",
+    tags: ["Estudios prontos", "Estudios ad hoc"],
+    href: "/servicios#investigacion",
   },
   {
     number: "03",
     title: "Panel Uruguay",
-    desc: "El motor de todo: un panel propio de personas con perfil INSE completo, listo para ejecutar estudios y abierto a quienes quieran participar.",
-    tags: ["Perfil INSE", "Registro abierto", "Encuestas online"],
-    href: "/panel",
+    desc: "El motor de todo: panelistas con perfil INSE completo. Quien quiera participar se registra, responde encuestas y suma chances al sorteo del mes.",
+    tags: ["Perfil INSE", "Registro abierto", "Sorteos mensuales"],
+    href: "/panel#registro",
   },
 ];
 
@@ -368,7 +414,7 @@ function StudiesSection() {
                   Estudios prontos
                 </h3>
                 <p className="text-muted text-sm leading-relaxed">
-                  Investigaciones prearmadas sobre temas relevantes para empresas y marcas en Uruguay. Rápidos, accesibles y listos para usar.
+                  Estudios prearmados que se ofrecen de forma proactiva. Generan contenido, imagen y tracción de marca, y están listos para usar.
                 </p>
               </div>
 
@@ -430,7 +476,7 @@ function StudiesSection() {
                     Estudios ad hoc
                   </h3>
                   <p className="text-white/65 text-sm leading-relaxed">
-                    Diseñamos el estudio según tus objetivos, preguntas y segmentos. Cada proyecto empieza por entender qué necesitás resolver.
+                    Investigación a medida para cada cliente. El estudio se diseña según el objetivo y se ejecuta sobre el panel.
                   </p>
                 </div>
 

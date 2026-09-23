@@ -60,7 +60,7 @@ const jsonLd = {
   telephone: CONTACT.phone,
   email: CONTACT.email,
   areaServed: "Uruguay",
-  serviceType: ["Investigación de mercado", "Estudios de mercado", "Consultoría estratégica"],
+  serviceType: ["Consultoría estratégica", "Investigación de mercado", "Panel Uruguay"],
 };
 
 // Runs before first paint: applies saved theme or the device preference,
